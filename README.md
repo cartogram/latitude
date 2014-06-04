@@ -1,7 +1,7 @@
 Latitude
 ========
 
-The Latitude theme is a simply Shopify theme that should provide a modern 'base' for scaffolding projects at Cartogram.
+The Latitude theme is a simply Shopify theme that should provide a modern 'base' for scaffolding shopify themess at Cartogram.
 
 Features
 --------

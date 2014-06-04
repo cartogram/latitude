@@ -1,0 +1,24 @@
+{
+  "name": "latitude",
+  "version": "0.0.1",
+  "homepage": "https://github.com/cartogram/latitude",
+  "authors": [
+    "Matthew Seccafien <matt@studiocartogram.com>"
+  ],
+  "description": "The Latitude theme is a simply Shopify theme that should provide a modern 'base' for scaffolding shopify themess at Cartogram.",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "shopify",
+    "cartogram"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

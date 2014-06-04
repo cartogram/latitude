@@ -1,0 +1,23 @@
+{
+  "name": "latitude",
+  "version": "0.0.1",
+  "description": "The Latitude theme is a simply Shopify theme that should provide a modern 'base' for scaffolding shopify themess at Cartogram.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cartogram/latitude.git"
+  },
+  "keywords": [
+    "shopify",
+    "cartogram"
+  ],
+  "author": "Matt Seccafien",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cartogram/latitude/issues"
+  },
+  "homepage": "https://github.com/cartogram/latitude"
+}
