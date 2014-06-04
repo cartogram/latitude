@@ -9,6 +9,13 @@
   "moduleType": [
     "node"
   ],
+  "main": [
+    "assets/*",
+    "config/*",
+    "layout/*",
+    "snippets/*",
+    "templates/*"
+  ],
   "keywords": [
     "shopify",
     "cartogram"
@@ -20,5 +27,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "modernizr": "~2.8.2"
+  }
 }
