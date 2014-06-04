@@ -17,25 +17,27 @@ Structure
 ---------
 ```
 ├── assets
-│   └── Javascript, CSS, and theme images
+│   └── Dist: Javascript, CSS, and theme images
+├── app
+│   └── Source: Javascript, CSS, and theme images
 ├── config
 │   └── custom Theme Settings
-├── layout
-│   ├── theme.liquid
-│   └── optional alternate layouts
+├── layout (TO DO)  
+│   ├── theme.liquid (TO DO) 
+│   └── optional alternate layouts (TO DO)
 ├── snippets
-│   └── optional custom code snippets
+│   └── optional custom code snippets (TO DO)
 ├── templates
-│   ├── 404.liquid
-│   ├── article.liquid
-│   ├── blog.liquid
-│   ├── cart.liquid
-│   ├── collection.liquid
-│   ├── index.liquid
-│   ├── page.liquid
-│   ├── product.liquid
-│   └── search.liquid
-│   └── list-collections.liquid
+│   ├── 404.liquid (TO DO)
+│   ├── article.liquid (TO DO)
+│   ├── blog.liquid (TO DO)
+│   ├── cart.liquid (TO DO)
+│   ├── collection.liquid (TO DO)
+│   ├── index.liquid (TO DO)
+│   ├── page.liquid (TO DO)
+│   ├── product.liquid (TO DO)
+│   └── search.liquid (TO DO)
+│   └── list-collections.liquid (TO DO)
 ```
 
 Credits
