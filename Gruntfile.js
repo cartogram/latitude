@@ -18,7 +18,7 @@ module.exports = function (grunt) {
     // Configurable paths
     var config = {
         app: 'app',
-        dist: 'assets'
+        dist: 'theme/assets'
     };
 
     // Define the configuration for all the tasks

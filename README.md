@@ -16,18 +16,18 @@ To Do
 Structure
 ---------
 ```
-├── assets
-│   └── Dist: Javascript, CSS, and theme images
 ├── app
 │   └── Source: Javascript, CSS, and theme images
-├── config
+├── theme/assets
+│   └── Dist: Javascript, CSS, and theme images
+├── theme/config
 │   └── custom Theme Settings
-├── layout (TO DO)  
+├── theme/layout (TO DO)  
 │   ├── theme.liquid (TO DO) 
 │   └── optional alternate layouts (TO DO)
-├── snippets
+├── theme/snippets
 │   └── optional custom code snippets (TO DO)
-├── templates
+├── theme/templates
 │   ├── 404.liquid (TO DO)
 │   ├── article.liquid (TO DO)
 │   ├── blog.liquid (TO DO)
