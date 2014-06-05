@@ -29,6 +29,7 @@
     "tests"
   ],
   "dependencies": {
-    "modernizr": "~2.8.2"
+    "modernizr": "~2.8.2",
+    "inuit.css": "~5.0.1"
   }
 }

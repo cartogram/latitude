@@ -1,0 +1,35 @@
+{% comment %}
+Important notes about pagination:
+- Never access collection.products before the opening paginate tag.
+- Never paginate by more than 50.
+{% endcomment %}
+
+{% assign products_per_page = settings.products_per_row | times: settings.number_of_rows %}
+{% assign numbers = 'one, two, three, four, five, six' | split: ',' %}
+{% assign products_per_row = settings.products_per_row | minus: 1 %}
+{% assign products_per_row = numbers[products_per_row] | strip | append: '-per-row' %}
+
+{% paginate collection.products by products_per_page %}
+
+<div class="island--product-grid">
+    <div class="row">
+        <div class="grid">
+            {% for product in collection.products %}<!--
+            --><div class="one-half grid__item">{% include 'product-grid-item' %}
+            </div><!--
+            -->{% else %}
+                <div class="grid__item one-half">
+                    <h5>Sorry!</h5>
+                    <p class="lead">>There are no products in this view.</p>
+                </div> 
+            {% endfor %}
+        </div>
+
+        {% if paginate.pages > 1 %}
+        <div class="pagination centered">
+            {{ paginate | default_pagination }}
+        </div>
+        {% endif %}
+
+        {% endpaginate %}
+

@@ -1,8 +1,21 @@
-// bower:scss
-// endbower
+@import "vars";
+@import "inuit.css/inuit";
 
-body {
-    background: #fafafa;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333;
+@import "generic/helper";
+@import "generic/mixins";
+@import "generic/grid";
+
+@import "ecobee/screen";
+@import "ecobee/logo";
+
+@import "ecobee/headings";
+@import "ecobee/type";
+@import "ecobee/links";
+@import "ecobee/buttons";
+@import "ecobee/nav";
+@import "ecobee/navs";
+@import "ecobee/navigation";
+
+.svg-defs {
+    display:none;
 }

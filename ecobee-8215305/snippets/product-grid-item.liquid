@@ -1,0 +1,24 @@
+<div class="{{ product-grid-item }}{% unless product.available %} sold-out{% endunless %}{% if on_sale %} on-sale{% endif %} grid">
+	<div class="grid__item one-whole">
+		<a class="img--block" href="{{ product.url | within: collection }}">
+			<img src="{{ product | img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}" />
+		</a>
+	</div><!--
+	--><div class="grid__item eight-twelfths">
+		<h2 class="title"><a href="{{ product.url | within: collection }}">
+			{{ product.title }}
+		</a></h2>
+		<p class="milli">{{ product.description }}</p>
+	</div><!--
+	--><div class="grid__item four-twelfths">
+		
+			{% if product.price_varies %}From{% endif %}
+			{{ product.price | money }}
+			{% if on_sale %}
+			{{ product.compare_at_price | money }}</s>
+			{% endif %}
+		
+		<a class="btn btn--primary" href="#">Buy Now</a>
+	</div>
+</div>
+

@@ -16,9 +16,11 @@ module.exports = function (grunt) {
     require('time-grunt')(grunt);
 
     // Configurable paths
+    // Add shopify theme url here
     var config = {
         app: 'app',
-        dist: 'theme/assets'
+        dist: 'ecobee-8215305/assets',
+        snippets: 'ecobee-8215305/snippets'
     };
 
     // Define the configuration for all the tasks
@@ -156,7 +158,8 @@ module.exports = function (grunt) {
         sass: {
             options: {
                 includePaths: [
-                    'bower_components'
+                    'bower_components',
+                    '../../app/themes/ecobee/scss'
                 ]
             },
             dist: {
@@ -164,7 +167,7 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: '<%= config.app %>/styles',
                     src: ['*.scss'],
-                    dest: '<%= config.dist %>',
+                    dest: '<%= config.app %>/styles',
                     ext: '.css'
                 }]
             }
@@ -178,9 +181,9 @@ module.exports = function (grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: '.tmp/styles/',
+                    cwd: '<%= config.app %>/styles',
                     src: '{,*/}*.css',
-                    dest: '.tmp/styles/'
+                    dest: '<%= config.dist %>'
                 }]
             }
         },
@@ -348,10 +351,9 @@ module.exports = function (grunt) {
         },
         // Create DEF File for inline svg-ing
         svgstore: {
-            options: {},
             default : {
                 files: {
-                    '<%= config.dist %>/svg-defs.svg.liquid': ['<%= config.app %>/images/{,*/}*.svg'],
+                    '<%= config.snippets %>/svg-defs.liquid': ['<%= config.app %>/images/{,*/}*.svg'],
                 },
             },
         },
