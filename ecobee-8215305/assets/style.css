@@ -3975,7 +3975,7 @@ label, .label {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%); }
 
-.centered--v--h, .nav--social-bar li a i, .island--social .nav--social, .alert .nav--social, .nav--social-bar li a:before, .island--social .nav--social, .alert .nav--social {
+.centered--v--h, .icon-congratulations:before, .nav--social-bar li a i, .island--social .nav--social, .alert .nav--social, .nav--social-bar li a:before, .island--social .nav--social, .alert .nav--social {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -4582,6 +4582,7 @@ body {
     width: 120px; }
 
 .logo__mark {
+  display: none;
   border-radius: 50%;
   font-size: 23px;
   font-size: 1.4375rem;
@@ -5017,6 +5018,303 @@ a {
     * @title Logo
     */
 /**
+	* @title Icons
+	*/
+/**
+	* @name Basic Icon
+	* 
+	* @markup
+	* <i class="icon icon-tools"></i>
+	*/
+.icon, .mfp-iframe-holder button.mfp-close {
+  font-size: 25px;
+  font-size: 1.5625rem;
+  line-height: 1.92;
+  color: #74b3de; }
+
+/**
+	* @name Icon with Circle
+	* 
+	* @markup
+	* <i class="icon icon-tools icon--circled"></i>
+	*/
+.icon--circled {
+  border-radius: 50%;
+  border: 1px solid;
+  height: 36px;
+  width: 36px;
+  text-align: center;
+  line-height: 28.8px; }
+
+/**
+	* @name Icon With Text 
+	* @description For text-links that have an icon with them and want a larger, explicity set gap. 
+	* @markup
+	* <a href=# ><i class="icon--with-text icon-tools"></i>Help &amp; support</a>
+	*/
+.icon--with-text, .icon--with-text-large, .icon--with-text--rev {
+  font-size: 15px;
+  position: relative;
+  top: 2px;
+  margin-right: 12px; }
+
+.icon--with-text-large {
+  font-size: 35px;
+  line-height: 0;
+  top: 6px; }
+
+/**
+	* @name Reversed  Icon With Text 
+	* @description For text-links that have an icon with them and want a larger, explicity set gap on the right side. 
+	* @markup
+	* <a href=# >Help &amp; support<i class="icon--with-text--rev icon-tools"></i></a>
+	*/
+.icon--with-text--rev {
+  margin-right: 0;
+  margin-left: 12px; }
+
+/**
+	* @name Primary Icon
+	* 
+	* @markup
+	* <i class="icon icon-tools icon--primary"></i>
+	*/
+.icon--primary {
+  font-size: 45px;
+  font-size: 2.8125rem;
+  line-height: 1.06667;
+  display: block; }
+  @media only screen and (min-width: 740px) { }
+
+/**
+	* @name Secondary Icon
+	* 
+	* @markup
+	* <i class="icon icon-tools icon--secondary"></i>
+	*/
+.icon--secondary {
+  font-size: 14px;
+  position: relative;
+  top: 2px;
+  padding-left: 4px;
+  padding-right: 4px; }
+
+/**
+	* @name Tertiary Icon
+	* 
+	* @markup
+	* <i class="icon icon-tools icon--tertiary"></i>
+	*/
+.icon--tertiary {
+  color: #c9c7c8;
+  font-size: 60px;
+  font-size: 3.75rem;
+  line-height: 1.2; }
+
+/**
+	* @name Quarternary Icon
+	* 
+	* @markup
+	* <i class="icon icon-tools icon--quaternary"></i>
+	*/
+.icon--quaternary {
+  color: tint(#74b3de, 20%);
+  height: 70px;
+  width: 70px;
+  font-size: 70px;
+  text-align: center;
+  line-height: 70px; }
+
+/**
+	* @name Giga Icon
+	* 
+	* @markup
+	* <i class="icon icon-tools icon--giga"></i>
+	*/
+.icon--giga {
+  font-size: 90px;
+  font-size: 5.625rem;
+  line-height: 1.06667;
+  line-height: 1; }
+
+/**
+	* @name Small Icon
+	* 
+	* @markup
+	* <i class="icon icon-tools icon--small"></i>
+	*/
+.icon--small {
+  font-size: 10px;
+  font-size: 0.625rem;
+  line-height: 2.4;
+  line-height: 1; }
+
+/*------------------------------------*\
+	$Animation/transforms
+	\*------------------------------------*/
+/**
+	* @name Icon With Rotation
+	* 
+	* @markup
+	* <i class="icon icon-tools icon--with-rotation"></i>
+	*/
+.icon--with-rotation {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  margin-top: -18px !important; }
+  .link-complex:hover .icon--with-rotation {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    transition: -webkit-transform 0.2s ease;
+    transition: transform 0.2s ease; }
+
+/*------------------------------------*\
+	$MISC
+	\*------------------------------------*/
+.icon-help {
+  font-size: 17px; }
+
+.icon-arrow-left {
+  top: 0px; }
+
+.icon-facebook-sign {
+  font-size: 17px; }
+
+.icon-number-1 {
+  text-indent: -5px; }
+
+.icon-congratulations {
+  color: #ffffff;
+  font-size: 170px;
+  font-size: 10.625rem;
+  line-height: 1.12941;
+  transition: all 1s ease-in 1s;
+  position: relative;
+  display: block; }
+  .icon-congratulations:before {
+    position: absolute; }
+
+/*------------------------------------*\
+	$Fixes
+	\*------------------------------------*/
+.mfp-iframe-holder button.mfp-close {
+  color: transparent !important;
+  width: 40px;
+  height: 50px;
+  left: 100%;
+  top: 0px;
+  opacity: 1;
+  margin: 0;
+  line-height: 0;
+  padding: 0; }
+  .mfp-iframe-holder button.mfp-close:before {
+    font-family: 'icomoon';
+    color: #74b3de;
+    position: absolute;
+    right: 0;
+    line-height: 1;
+    top: 1px; }
+
+/**
+     * @export Icons
+     */
+/**
+    * Import Mixins to provide modules with exports.
+    * List other required modules here.
+    */
+/*------------------------------------*\
+    $MIXINS
+\*------------------------------------*/
+/**
+ * A series of helper classes to use arbitrarily. Only use a helper class if an
+ * element/component doesn’t already have a class to which you could apply this
+ * styling, e.g. if you need to float `.main-nav` left then add `float:left;` to
+ * that ruleset as opposed to adding the `.float--left` class to the markup.
+ *
+ * A lot of these classes carry `!important` as you will always want them to win
+ * out over other selectors.
+ */
+/**
+ * PLacholder
+ */
+/**
+ * Color Setup
+ *
+ * We have a mixin to generate our background and border colors.
+ */
+/**
+ * Import Once
+ *
+ * We use this to prevent styles from being loaded multiple times for compenents that rely on other components. 
+ */
+/*------------------------------------*\
+
+    /**
+    * Variables
+    */
+/*------------------------------------*\
+
+    /**
+    * @title SVGS
+    */
+/**
+	* @title SVGS
+	*/
+.icon--svg--primary svg, .icon--svg--logo svg {
+  fill: #799d4b; }
+
+.icon--svg--primary, .icon--svg--primary svg {
+  height: 60px;
+  width: 60px; }
+
+/**
+     * @export SVGS
+     */
+/**
+    * Import Mixins to provide modules with exports.
+    * List other required modules here.
+    */
+/*------------------------------------*\
+    $MIXINS
+\*------------------------------------*/
+/**
+ * A series of helper classes to use arbitrarily. Only use a helper class if an
+ * element/component doesn’t already have a class to which you could apply this
+ * styling, e.g. if you need to float `.main-nav` left then add `float:left;` to
+ * that ruleset as opposed to adding the `.float--left` class to the markup.
+ *
+ * A lot of these classes carry `!important` as you will always want them to win
+ * out over other selectors.
+ */
+/**
+ * PLacholder
+ */
+/**
+ * Color Setup
+ *
+ * We have a mixin to generate our background and border colors.
+ */
+/**
+ * Import Once
+ *
+ * We use this to prevent styles from being loaded multiple times for compenents that rely on other components. 
+ */
+/*------------------------------------*\
+
+    /**
+    * Variables
+    */
+/*------------------------------------*\
+
+    /**
+    * @title Logo
+    */
+/**
 	* @name Button (white background)
 	* @description Default button state.
 	* 
@@ -5281,7 +5579,8 @@ a {
     position: static !important; }
   .nav-section--primary.is-static {
     -webkit-transform: translate(0) !important;
-    transform: translate(0) !important; }
+    transform: translate(0) !important;
+    border-bottom: 1px solid #f6f6f6; }
 
 /**
         *   States on HTML element
@@ -5606,6 +5905,13 @@ a {
   .island--navigation a {
     font-weight: 500;
     display: block; }
+  .island--navigation i {
+    display: block;
+    margin: auto;
+    margin-bottom: 12px; }
+  .island--navigation span {
+    display: block;
+    margin: auto; }
   .island--navigation:after {
     content: ' ';
     height: 1px;
@@ -5695,3 +6001,21 @@ a {
      */
 .svg-defs {
   display: none; }
+
+@media only screen and (min-width: 740px) {
+  .img--align--left {
+    position: absolute;
+    left: -100%;
+    top: 24px;
+    width: 100%; } }
+
+.icon--svg--logo {
+  overflow: hidden;
+  width: 50px;
+  display: block;
+  transition: width 0.1s; }
+  @media only screen and (min-width: 740px) {
+    .icon--svg--logo {
+      width: 190px; } }
+  .icon--svg--logo svg {
+    width: 190px; }
