@@ -59,7 +59,7 @@ module.exports = function (grunt) {
             },
             styles: {
                 files: ['<%= config.dist %>/{,*/}*.css'],
-                tasks: ['cssmin']
+                tasks: ['cssmin:minify']
             },
             livereload: {
                 options: {
@@ -287,6 +287,13 @@ module.exports = function (grunt) {
                         '<%= config.dist %>/style.css'
                     ]
                 }
+            },
+            minify: {
+                expand: true,
+                cwd: '<%= config.dist %>',
+                src: ['*.css'],
+                dest: '<%= config.dist %>',
+                ext: '.css.liquid'
             }
         },
         uglify: {

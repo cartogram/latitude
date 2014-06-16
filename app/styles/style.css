@@ -2001,7 +2001,7 @@ label, .label {
  * 8. Basic cosmetics for default buttons. Change or override at will.
  * 9. Don’t allow buttons to have underlines; it kinda ruins the illusion.
  */
-.btn, .nav--global .menu-item-88 a, .nav--global.button a, .nav--btn--secondary li a, .nav--btn--secondary li a, .nav--btn--tertiary li a, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a, .page-numbers li span {
+.btn, .nav--global .menu-item-88 a, .nav--global .button a, .nav--btn--secondary li a, .nav--btn--secondary li a, .nav--btn--tertiary li a, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a, .page-numbers li span {
   display: inline-block;
   /* [1] */
   vertical-align: middle;
@@ -2031,10 +2031,10 @@ label, .label {
   border-radius: 3px;
   /* [8] */ }
 
-.btn, .nav--global .menu-item-88 a, .nav--global.button a, .nav--btn--secondary li a, .nav--btn--secondary li a, .nav--btn--tertiary li a, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a, .page-numbers li span, .btn:hover, .nav--global .menu-item-88 a:hover, .nav--global.button a:hover, .nav--btn--secondary li a:hover, .nav--btn--secondary li a:hover, .nav--btn--tertiary li a:hover, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:hover, .page-numbers li span:hover {
+.btn, .nav--global .menu-item-88 a, .nav--global .button a, .nav--btn--secondary li a, .nav--btn--secondary li a, .nav--btn--tertiary li a, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a, .page-numbers li span, .btn:hover, .nav--global .menu-item-88 a:hover, .nav--global .button a:hover, .nav--btn--secondary li a:hover, .nav--btn--secondary li a:hover, .nav--btn--tertiary li a:hover, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:hover, .page-numbers li span:hover {
   text-decoration: none;
   /* [9] */ }
-.btn:active, .nav--global .menu-item-88 a:active, .nav--global.button a:active, .nav--btn--secondary li a:active, .nav--btn--secondary li a:active, .nav--btn--tertiary li a:active, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:active, .page-numbers li span:active, .btn:focus, .nav--global .menu-item-88 a:focus, .nav--global.button a:focus, .nav--btn--secondary li a:focus, .nav--btn--secondary li a:focus, .nav--btn--tertiary li a:focus, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:focus, .page-numbers li span:focus {
+.btn:active, .nav--global .menu-item-88 a:active, .nav--global .button a:active, .nav--btn--secondary li a:active, .nav--btn--secondary li a:active, .nav--btn--tertiary li a:active, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:active, .page-numbers li span:active, .btn:focus, .nav--global .menu-item-88 a:focus, .nav--global .button a:focus, .nav--btn--secondary li a:focus, .nav--btn--secondary li a:focus, .nav--btn--tertiary li a:focus, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:focus, .page-numbers li span:focus {
   outline: none; }
 
 /*------------------------------------*\
@@ -2127,7 +2127,7 @@ label, .label {
  * 
  * 1. Make the button look like normal text when hovered.
  */
-.btn--inactive, .btn:disabled, .nav--global .menu-item-88 a:disabled, .nav--global.button a:disabled, .nav--btn--secondary li a:disabled, .nav--btn--secondary li a:disabled, .nav--btn--tertiary li a:disabled, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:disabled, .page-numbers li span:disabled, .page-numbers li .current, .btn--inactive:hover, .btn:hover:disabled, .nav--global .menu-item-88 a:hover:disabled, .nav--global.button a:hover:disabled, .nav--btn--secondary li a:hover:disabled, .nav--btn--secondary li a:hover:disabled, .nav--btn--tertiary li a:hover:disabled, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:hover:disabled, .page-numbers li span:hover:disabled, .page-numbers li .current:hover, .btn--inactive:active, .btn:active:disabled, .nav--global .menu-item-88 a:active:disabled, .nav--global.button a:active:disabled, .nav--btn--secondary li a:active:disabled, .nav--btn--secondary li a:active:disabled, .nav--btn--tertiary li a:active:disabled, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:active:disabled, .page-numbers li span:active:disabled, .page-numbers li .current:active, .btn--inactive:focus, .btn:focus:disabled, .nav--global .menu-item-88 a:focus:disabled, .nav--global.button a:focus:disabled, .nav--btn--secondary li a:focus:disabled, .nav--btn--secondary li a:focus:disabled, .nav--btn--tertiary li a:focus:disabled, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:focus:disabled, .page-numbers li span:focus:disabled, .page-numbers li .current:focus {
+.btn--inactive, .btn:disabled, .nav--global .menu-item-88 a:disabled, .nav--global .button a:disabled, .nav--btn--secondary li a:disabled, .nav--btn--secondary li a:disabled, .nav--btn--tertiary li a:disabled, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:disabled, .page-numbers li span:disabled, .page-numbers li .current, .btn--inactive:hover, .btn:hover:disabled, .nav--global .menu-item-88 a:hover:disabled, .nav--global .button a:hover:disabled, .nav--btn--secondary li a:hover:disabled, .nav--btn--secondary li a:hover:disabled, .nav--btn--tertiary li a:hover:disabled, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:hover:disabled, .page-numbers li span:hover:disabled, .page-numbers li .current:hover, .btn--inactive:active, .btn:active:disabled, .nav--global .menu-item-88 a:active:disabled, .nav--global .button a:active:disabled, .nav--btn--secondary li a:active:disabled, .nav--btn--secondary li a:active:disabled, .nav--btn--tertiary li a:active:disabled, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:active:disabled, .page-numbers li span:active:disabled, .page-numbers li .current:active, .btn--inactive:focus, .btn:focus:disabled, .nav--global .menu-item-88 a:focus:disabled, .nav--global .button a:focus:disabled, .nav--btn--secondary li a:focus:disabled, .nav--btn--secondary li a:focus:disabled, .nav--btn--tertiary li a:focus:disabled, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:focus:disabled, .page-numbers li span:focus:disabled, .page-numbers li .current:focus {
   background-color: #ddd;
   color: #777;
   cursor: text;
@@ -4111,6 +4111,8 @@ label, .label {
     padding-bottom: 24px !important; }
   .soft-double--right--palm {
     padding-right: 48px; }
+  .soft-double--palm {
+    padding: 48px !important; }
   .text--center--palm {
     text-align: center !important; }
   .text--left--palm {
@@ -4147,6 +4149,8 @@ label, .label {
     padding-bottom: 24px !important; }
   .soft-double--right--lap {
     padding-right: 48px; }
+  .soft-double--lap {
+    padding: 48px !important; }
   .text--center--lap {
     text-align: center !important; }
   .text--left--lap {
@@ -4183,6 +4187,8 @@ label, .label {
     padding-bottom: 24px !important; }
   .soft-double--right--lap-and-up {
     padding-right: 48px; }
+  .soft-double--lap-and-up {
+    padding: 48px !important; }
   .text--center--lap-and-up {
     text-align: center !important; }
   .text--left--lap-and-up {
@@ -4219,6 +4225,8 @@ label, .label {
     padding-bottom: 24px !important; }
   .soft-double--right--portable {
     padding-right: 48px; }
+  .soft-double--portable {
+    padding: 48px !important; }
   .text--center--portable {
     text-align: center !important; }
   .text--left--portable {
@@ -4255,6 +4263,8 @@ label, .label {
     padding-bottom: 24px !important; }
   .soft-double--right--desk {
     padding-right: 48px; }
+  .soft-double--desk {
+    padding: 48px !important; }
   .text--center--desk {
     text-align: center !important; }
   .text--left--desk {
@@ -4291,6 +4301,8 @@ label, .label {
     padding-bottom: 24px !important; }
   .soft-double--right--desk-wide {
     padding-right: 48px; }
+  .soft-double--desk-wide {
+    padding: 48px !important; }
   .text--center--desk-wide {
     text-align: center !important; }
   .text--left--desk-wide {
@@ -5091,7 +5103,7 @@ a {
 	* <i class="icon icon-tools icon--quaternary"></i>
 	*/
 .icon--quaternary {
-  color: tint(#74b3de, 20%);
+  color: #91c3e5;
   height: 70px;
   width: 70px;
   font-size: 70px;
@@ -5231,15 +5243,41 @@ a {
     /**
     * @title SVGS
     */
-/**
-	* @title SVGS
-	*/
-.icon--svg--primary svg, .icon--svg--logo svg {
+.svg-defs {
+  display: none; }
+
+.icon--svg--primary svg, .icon--svg--secondary svg, .icon--svg--tertiary svg, .icon--svg--logo svg, .icon--svg--logo svg {
   fill: #799d4b; }
 
 .icon--svg--primary, .icon--svg--primary svg {
   height: 60px;
   width: 60px; }
+
+.icon--svg--secondary, .icon--svg--secondary svg {
+  height: 45px;
+  width: 45px; }
+
+.icon--svg--tertiary, .icon--svg--tertiary svg {
+  height: 20px;
+  width: 20px; }
+
+.icon--svg--logo {
+  overflow: hidden;
+  width: 50px;
+  display: block;
+  transition: width 0.1s; }
+  @media only screen and (min-width: 740px) {
+    .icon--svg--logo {
+      width: 190px; } }
+  .icon--svg--logo svg {
+    width: 190px; }
+
+/**
+	 * Specific Icon styles
+	 */
+.icon--svg--cart {
+  position: relative;
+  top: 2px; }
 
 /**
      * @export SVGS
@@ -5290,7 +5328,7 @@ a {
 	* @markup
 	* <a class="btn">This is a button</a>
 	*/
-.btn, .nav--global .menu-item-88 a, .nav--global.button a, .nav--btn--secondary li a, .nav--btn--secondary li a, .nav--btn--tertiary li a, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a, .page-numbers li span {
+.btn, .nav--global .menu-item-88 a, .nav--global .button a, .nav--btn--secondary li a, .nav--btn--secondary li a, .nav--btn--tertiary li a, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a, .page-numbers li span {
   background: none;
   border: none;
   color: #799d4b;
@@ -5301,7 +5339,7 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 0.8rem; }
-  .btn:hover, .nav--global .menu-item-88 a:hover, .nav--global.button a:hover, .nav--btn--secondary li a:hover, .nav--btn--secondary li a:hover, .nav--btn--tertiary li a:hover, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:hover, .page-numbers li span:hover {
+  .btn:hover, .nav--global .menu-item-88 a:hover, .nav--global .button a:hover, .nav--btn--secondary li a:hover, .nav--btn--secondary li a:hover, .nav--btn--tertiary li a:hover, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:hover, .page-numbers li span:hover {
     transition: all 0.2s; }
 
 /**
@@ -5346,13 +5384,13 @@ a {
 	* @markup
 	* <a class="btn btn--secondary">This is a button</a>
 	*/
-.btn--secondary, .nav--global .menu-item-88 a, .nav--global.button a, .nav--btn--secondary li a, .page-numbers li .next, .page-numbers li .prev {
+.btn--secondary, .nav--global .menu-item-88 a, .nav--global .button a, .nav--btn--secondary li a, .page-numbers li .next, .page-numbers li .prev {
   color: #799d4b;
   background: none;
   border: 3px solid;
   padding-left: 2.5em;
   padding-right: 2.5em; }
-  .btn--secondary:hover, .nav--global .menu-item-88 a:hover, .nav--global.button a:hover, .nav--btn--secondary li a:hover, .page-numbers li .next:hover, .page-numbers li .prev:hover {
+  .btn--secondary:hover, .nav--global .menu-item-88 a:hover, .nav--global .button a:hover, .nav--btn--secondary li a:hover, .page-numbers li .next:hover, .page-numbers li .prev:hover {
     color: #497529; }
 
 /**
@@ -5363,7 +5401,7 @@ a {
 	* <a class="btn btn--tertiary">This is a button</a>
 	*/
 .btn--tertiary, .nav--btn--tertiary li a, .nav--social-bar, .island--social .nav--social, .alert .nav--social {
-  background: tint(#799d4b, 80%);
+  background: #e8efde;
   color: #799d4b; }
   .btn--tertiary:hover, .nav--btn--tertiary li a:hover, .nav--social-bar, .island--social .nav--social, .alert .nav--social {
     color: #497529; }
@@ -5378,7 +5416,7 @@ a {
 .btn--inverted {
   background: #ffffff;
   color: #799d4b;
-  border: 1px solid tint(#c9c7c8, 70%); }
+  border: 1px solid #e7e6e7; }
   .btn--inverted:hover {
     color: #497529;
     background: rgba(255, 255, 255, 0.8); }
@@ -5402,7 +5440,7 @@ a {
 	* @markup
 	* <a class="btn btn--inactive">This is a button</a>
 	*/
-.btn--inactive, .btn:disabled, .nav--global .menu-item-88 a:disabled, .nav--global.button a:disabled, .nav--btn--secondary li a:disabled, .nav--btn--secondary li a:disabled, .nav--btn--tertiary li a:disabled, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:disabled, .page-numbers li span:disabled, .page-numbers li .current, .btn--inactive:hover, .btn:hover:disabled, .nav--global .menu-item-88 a:hover:disabled, .nav--global.button a:hover:disabled, .nav--btn--secondary li a:hover:disabled, .nav--btn--secondary li a:hover:disabled, .nav--btn--tertiary li a:hover:disabled, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:hover:disabled, .page-numbers li span:hover:disabled, .page-numbers li .current:hover, .btn--inactive:active, .btn:active:disabled, .nav--global .menu-item-88 a:active:disabled, .nav--global.button a:active:disabled, .nav--btn--secondary li a:active:disabled, .nav--btn--secondary li a:active:disabled, .nav--btn--tertiary li a:active:disabled, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:active:disabled, .page-numbers li span:active:disabled, .page-numbers li .current:active, .btn--inactive:focus, .btn:focus:disabled, .nav--global .menu-item-88 a:focus:disabled, .nav--global.button a:focus:disabled, .nav--btn--secondary li a:focus:disabled, .nav--btn--secondary li a:focus:disabled, .nav--btn--tertiary li a:focus:disabled, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:focus:disabled, .page-numbers li span:focus:disabled, .page-numbers li .current:focus {
+.btn--inactive, .btn:disabled, .nav--global .menu-item-88 a:disabled, .nav--global .button a:disabled, .nav--btn--secondary li a:disabled, .nav--btn--secondary li a:disabled, .nav--btn--tertiary li a:disabled, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:disabled, .page-numbers li span:disabled, .page-numbers li .current, .btn--inactive:hover, .btn:hover:disabled, .nav--global .menu-item-88 a:hover:disabled, .nav--global .button a:hover:disabled, .nav--btn--secondary li a:hover:disabled, .nav--btn--secondary li a:hover:disabled, .nav--btn--tertiary li a:hover:disabled, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:hover:disabled, .page-numbers li span:hover:disabled, .page-numbers li .current:hover, .btn--inactive:active, .btn:active:disabled, .nav--global .menu-item-88 a:active:disabled, .nav--global .button a:active:disabled, .nav--btn--secondary li a:active:disabled, .nav--btn--secondary li a:active:disabled, .nav--btn--tertiary li a:active:disabled, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:active:disabled, .page-numbers li span:active:disabled, .page-numbers li .current:active, .btn--inactive:focus, .btn:focus:disabled, .nav--global .menu-item-88 a:focus:disabled, .nav--global .button a:focus:disabled, .nav--btn--secondary li a:focus:disabled, .nav--btn--secondary li a:focus:disabled, .nav--btn--tertiary li a:focus:disabled, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:focus:disabled, .page-numbers li span:focus:disabled, .page-numbers li .current:focus {
   background: none;
   color: rgba(113, 114, 114, 0.2);
   cursor: text;
@@ -5596,13 +5634,13 @@ a {
     */
 /*------------------------------------*\
 
-	/**
-	* @title Navs
-	*/
+    /**
+    * @title Navs
+    */
 /*------------------------------------*\
     
 
-	*/
+    */
 .nav .current-menu-item a, .nav .current-menu-item .page-numbers, .nav .current-menu-item .nav--social-bar, .nav .current-menu-item .island--social .nav--social, .island--social .nav .current-menu-item .nav--social, .nav .current-menu-item .alert .nav--social, .alert .nav .current-menu-item .nav--social {
   color: #497529; }
 
@@ -5648,19 +5686,19 @@ a {
       margin-top: -6px;
       font-size: 15px;
       color: #38393a; }
-  .nav--global .menu-item-88, .nav--global.button {
+  .nav--global .menu-item-88, .nav--global .button {
     height: auto; }
-    .nav--global .menu-item-88 a, .nav--global.button a {
+    .nav--global .menu-item-88 a, .nav--global .button a {
       margin: 0 0 0 17.77778px;
       line-height: 2;
       color: #38393a;
       font-size: 14px;
       text-transform: none;
       letter-spacing: 0; }
-      .nav--global .menu-item-88 a:hover, .nav--global.button a:hover {
+      .nav--global .menu-item-88 a:hover, .nav--global .button a:hover {
         color: #799d4b; }
       @media only screen and (max-width: 739px) {
-        .nav--global .menu-item-88 a, .nav--global.button a {
+        .nav--global .menu-item-88 a, .nav--global .button a {
           padding-left: 1em;
           padding-right: 1em; } }
   .nav--global .nav__trigger {
@@ -5677,14 +5715,14 @@ a {
   .compatibility .nav-section--primary .nav--global a, .compatibility .nav-section--primary .nav--global a:before {
     color: #ffffff !important; }
   .compatibility .nav-section--primary .nav--global a:hover, .compatibility .nav-section--primary .nav--global a:hover:before {
-    color: tint(#c9c7c8, 30%) !important; }
+    color: #dddcdc !important; }
 
 /**
-			* @name Nav--Stacked
-			* @description Style for the nav--stacked class
-			* @markup
-			*   <nav class="nav--stacked">markup</nav>
-			*/
+            * @name Nav--Stacked
+            * @description Style for the nav--stacked class
+            * @markup
+            *   <nav class="nav--stacked">markup</nav>
+            */
 .nav--stacked li {
   display: block; }
   .nav--stacked li a {
@@ -5696,7 +5734,7 @@ a {
   color: #ffffff; }
 
 .nav--icons li {
-  display: block; }
+  display: inline-block; }
   .nav--icons li a {
     text-align: center;
     position: relative;
@@ -5721,15 +5759,15 @@ a {
     margin-top: 2px; }
 
 /**
-			* @name Button Nav
-			* 
-			* @markup
-			* <ul class="nav nav--button">
-			* <li><a>This is a list item</a></li>
-			* <li><a>This is a list item</a></li>
-			* <li><a>This is a list item</a></li>
-			* </ul>
-			*/
+            * @name Button Nav
+            * 
+            * @markup
+            * <ul class="nav nav--button">
+            * <li><a>This is a list item</a></li>
+            * <li><a>This is a list item</a></li>
+            * <li><a>This is a list item</a></li>
+            * </ul>
+            */
 .nav--btn li, .nav--btn .nav--social-bar, .nav--btn .island--social .nav--social, .island--social .nav--btn .nav--social, .nav--btn .alert .nav--social, .alert .nav--btn .nav--social {
   margin-right: 24px;
   margin-bottom: 12px; }
@@ -5763,11 +5801,11 @@ a {
     padding-right: 0; }
 
 /**
-			* @name Nav--Fit
-			* @description Style for the nav--fit class
-			* @markup
-			*   <div class="nav--fit">markup</div>
-			*/
+            * @name Nav--Fit
+            * @description Style for the nav--fit class
+            * @markup
+            *   <div class="nav--fit">markup</div>
+            */
 
 .page-numbers li a, .page-numbers li span {
   padding: 0 1em; }
@@ -5811,11 +5849,6 @@ a {
 /**
      * @export Navs
      */
-/*------------------------------------*\
-    
-    $Navs 
-
-    */
 /**
     * Import Mixins to provide modules with exports.
     * List other required modules here.
