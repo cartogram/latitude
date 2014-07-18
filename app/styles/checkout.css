@@ -3938,7 +3938,7 @@ label, .label {
 
 /* endif */
 /*------------------------------------*\
-	$HELPER
+  $HELPER
 \*------------------------------------*/
 /**
 * A series of helper classes to use arbitrarily. Only use a helper class if an
@@ -5114,14 +5114,14 @@ a {
 /*------------------------------------*\
 
     /**
-    * @title Logo
+    * @title Icons
     */
 /**
 	* @title Icons
 	*/
 /**
 	* @name Basic Icon
-	* 
+	*
 	* @markup
 	* <i class="icon icon-tools"></i>
 	*/
@@ -5133,7 +5133,7 @@ a {
 
 /**
 	* @name Icon with Circle
-	* 
+	*
 	* @markup
 	* <i class="icon icon-tools icon--circled"></i>
 	*/
@@ -5146,8 +5146,8 @@ a {
   line-height: 28.8px; }
 
 /**
-	* @name Icon With Text 
-	* @description For text-links that have an icon with them and want a larger, explicity set gap. 
+	* @name Icon With Text
+	* @description For text-links that have an icon with them and want a larger, explicity set gap.
 	* @markup
 	* <a href=# ><i class="icon--with-text icon-tools"></i>Help &amp; support</a>
 	*/
@@ -5163,8 +5163,8 @@ a {
   top: 6px; }
 
 /**
-	* @name Reversed  Icon With Text 
-	* @description For text-links that have an icon with them and want a larger, explicity set gap on the right side. 
+	* @name Reversed  Icon With Text
+	* @description For text-links that have an icon with them and want a larger, explicity set gap on the right side.
 	* @markup
 	* <a href=# >Help &amp; support<i class="icon--with-text--rev icon-tools"></i></a>
 	*/
@@ -5174,7 +5174,7 @@ a {
 
 /**
 	* @name Primary Icon
-	* 
+	*
 	* @markup
 	* <i class="icon icon-tools icon--primary"></i>
 	*/
@@ -5187,7 +5187,7 @@ a {
 
 /**
 	* @name Secondary Icon
-	* 
+	*
 	* @markup
 	* <i class="icon icon-tools icon--secondary"></i>
 	*/
@@ -5200,7 +5200,7 @@ a {
 
 /**
 	* @name Tertiary Icon
-	* 
+	*
 	* @markup
 	* <i class="icon icon-tools icon--tertiary"></i>
 	*/
@@ -5212,7 +5212,7 @@ a {
 
 /**
 	* @name Quarternary Icon
-	* 
+	*
 	* @markup
 	* <i class="icon icon-tools icon--quaternary"></i>
 	*/
@@ -5226,7 +5226,7 @@ a {
 
 /**
 	* @name Giga Icon
-	* 
+	*
 	* @markup
 	* <i class="icon icon-tools icon--giga"></i>
 	*/
@@ -5238,7 +5238,7 @@ a {
 
 /**
 	* @name Small Icon
-	* 
+	*
 	* @markup
 	* <i class="icon icon-tools icon--small"></i>
 	*/
@@ -5253,7 +5253,7 @@ a {
 	\*------------------------------------*/
 /**
 	* @name Icon With Rotation
-	* 
+	*
 	* @markup
 	* <i class="icon icon-tools icon--with-rotation"></i>
 	*/
@@ -5382,9 +5382,11 @@ a {
   transition: width 0.1s; }
   @media only screen and (min-width: 740px) {
     .icon--svg--logo {
-      width: 190px; } }
+      width: 190px;
+      max-height: 81px; } }
   .icon--svg--logo svg {
-    width: 190px; }
+    width: 190px;
+    max-height: 81px; }
 
 /**
 	 * Specific Icon styles
@@ -5392,6 +5394,10 @@ a {
 .icon--svg--cart {
   position: relative;
   top: 2px; }
+
+.icon--svg--primary.icon--smartsi, .icon--svg--primary.icon--smartsi svg {
+  height: 60px;
+  width: 85px; }
 
 /**
      * @export SVGS
