@@ -7,43 +7,25 @@
 
 @import "ecobee/screen";
 @import "ecobee/logo";
-
+@import "ecobee/images";
 @import "ecobee/headings";
 @import "ecobee/type";
 @import "ecobee/links";
+@import "ecobee/lists";
 @import "ecobee/icons";
 @import "ecobee/svgs";
 @import "ecobee/buttons";
 @import "ecobee/nav";
 @import "ecobee/navs";
 @import "ecobee/navigation";
+@import "ecobee/slideshow_controls";
 
-.svg-defs {
-    display:none;
+@import "product";
+@import "cart";
+@import "sly";
+
+
+.img--cart {
+    max-width: 240px;
+    margin: auto;
 }
-
-@include media-query(lap-and-up) {
-    .img--align--left {
-        position:absolute;
-        left:-100%;
-        top:$base-spacing-unit;
-        width:100%;
-    }
-}
-
-
-.icon--svg--logo {
-    @extend %icon--svg;
-    overflow: hidden;
-    width: 50px;
-    display:block;
-    transition:width .1s;
-    @include media-query(lap-and-up) {
-        width: 190px;
-    }
-    svg {
-        width: 190px;
-    }
-}
-
-

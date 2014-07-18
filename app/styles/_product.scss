@@ -1,0 +1,53 @@
+      
+    /**
+    * Import Mixins to provide modules with exports.
+    * List other required modules here.
+    */
+    
+    @import "generic/mixins";
+
+    /*------------------------------------*\
+
+    /**
+    * Variables
+    */
+    
+    $green : green !default;
+
+    /*------------------------------------*\
+
+    /**
+    * @title SVGS
+    */
+    
+     @include exports("products") {
+  
+        .product-grid-item__image {
+            height:300px;
+            img {
+                height:300px;
+                width:auto;
+                margin:auto;
+            }
+        }
+
+        .feature {
+            .feature__icon {
+                position: absolute;
+                transform:translateY(-100%);
+            }
+            .feature__title {
+                color:$green;
+            }
+
+        }
+
+        .sidebar {
+            
+            .sidebar__title {
+                color:$green;
+            }
+
+        }
+
+    }

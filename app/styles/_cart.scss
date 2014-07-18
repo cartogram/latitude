@@ -1,0 +1,260 @@
+
+    /**
+    * Import Mixins to provide modules with exports.
+    * List other required modules here.
+    */
+
+    @import "generic/mixins";
+
+    /*------------------------------------*\
+
+    /**
+    * Variables
+    */
+
+    $green: #799d4b !default;
+    $base-transition-speed : 200ms !default;
+    $base-spacing-unit: 24px !default;
+    $base-easing: cubic-bezier(0.165, 0.84, 0.44, 1) !default;
+
+    /*------------------------------------*\
+
+    /**
+    * @title Cart
+    */
+
+     @include exports("cart") {
+
+
+    /**
+     * Ajaxify Helpers
+     */
+
+    body.ajaxify-lock {
+        overflow: hidden;
+    }
+
+    /**
+     * Ajaxify Cart - General
+     */
+
+
+    .ajaxifyCart--product {
+        position: relative;
+
+    }
+
+    .cart-row {
+        position:relative;
+        padding:$base-spacing-unit 0;
+        &:after {
+            content: ' ';
+            height: 1px;
+            display: block;
+            width: auto;
+            bottom: 0;
+            left: -$base-spacing-unit * 3;
+            right: -$base-spacing-unit * 3;
+            position: absolute;
+            background: #f6f6f6;
+            z-index: -1;
+        }
+        &:last-of-type:after {
+            display:none;
+        }
+    }
+    .ajaxifyCart--product,
+    .cart-row {
+        max-height: 500px;
+
+        &.is-removed {
+            overflow: hidden;
+            opacity: 0;
+            padding: 0;
+            backface-visibility:hidden;
+            max-height: 0;
+        }
+    }
+
+    .ajaxifyCart--row {
+        clear: both;
+    }
+
+    .ajaxCart--product-image {
+        display: block;
+        overflow: hidden;
+
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+    }
+
+    /**
+     * Ajaxify Drawer
+     */
+
+    .drawer-cart {
+        height: 0px;
+        overflow: hidden;
+        transition:all $base-transition-speed * 3 $base-easing;
+
+        &.is-visible {
+            opacity:1;
+        }
+
+        .update-cart {
+            display: none!important;
+        }
+
+
+        /**
+         * Drawer colors and general styles
+         */
+
+        & .drawer-cart__content {
+            margin: 0 auto;
+
+            overflow: hidden;
+            padding:$base-spacing-unit $base-spacing-unit  ;
+            position:relative;
+        }
+
+        &.is-visible .drawer-cart__content {
+            opacity: 1;
+
+        }
+    }
+
+    /**
+     * Quantity selector colors in the drawer
+     */
+#ajaxifyDrawer {
+    .cart-row:hover input[type="text"],
+    .ajaxifyCart--product:hover input[type="text"],
+    .ajaxify-touch input[type="text"],
+    .page-header {
+
+    }
+
+    .js--add {
+
+    }
+
+    .js--minus {
+
+    }
+
+    .ajaxifyCart--products {
+
+    }
+
+    .ajaxifyCart--qty-adjuster {
+        &:hover {
+
+        }
+
+        &:active {
+
+        }
+    }
+}
+
+// ==============================================================================
+// #Quantity Selectors
+// ==============================================================================
+.js-qty {
+    position: relative;
+    margin-bottom: 1em;
+    max-width: 100px;
+    overflow: visible;
+    backface-visibility:hidden;
+}
+
+.js--qty-adjuster {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    padding: 5px 0;
+    width: 20px;
+    text-align: center;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select:    none;
+    -ms-user-select:     none;
+    -o-user-select:      none;
+    user-select:         none;
+
+    &:hover {
+    }
+
+    &:active {
+    }
+}
+
+.js--add {
+    right: 0;
+}
+
+.js--minus {
+    left: 0;
+}
+
+// ==============================================================================
+// #Quantity Selectors in the Ajax Cart
+// ==============================================================================
+.ajaxifyCart--qty {
+    @extend .js-qty;
+    top: -5px;
+    margin-bottom: 0;
+
+    input[type="text"] {
+        display: block;
+        background: none;
+        text-align: center;
+        width: 100%;
+        padding: 5px 25px;
+        margin: 0;
+        .ajaxify-notouch & {
+            border: 1px solid rgba(0,0,0,0);
+        }
+    }
+
+    .ajaxifyCart--is-loading & {
+        opacity: 0.5;
+    }
+}
+
+.ajaxifyCart--qty-adjuster {
+    @extend .js--qty-adjuster;
+
+
+    .cart-row:hover &,
+    .ajaxifyCart--product:hover &,
+    .ajaxify-touch & {
+        opacity: 1;
+    }
+
+    &:hover {
+    }
+
+    &:active {
+    }
+
+  // Turn off animation on initial hover
+  .ajaxifyCart--product:hover &:hover {
+  }
+}
+
+.ajaxifyCart--add {
+    @extend .js--add;
+}
+
+.ajaxifyCart--minus {
+    @extend .js--minus;
+}
+
+}

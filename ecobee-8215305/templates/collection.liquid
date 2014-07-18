@@ -13,9 +13,9 @@ Important notes about pagination:
 
 <div class="island--product-grid">
     <div class="row">
-        <div class="grid">
+        <div class="grid grid--wide">
             {% for product in collection.products %}<!--
-            --><div class="one-half grid__item">{% include 'product-grid-item' %}
+            --><div class="one-half palm-one-whole  grid__item">{% include 'product-grid-item' %}
             </div><!--
             -->{% else %}
                 <div class="grid__item one-half">
@@ -24,7 +24,8 @@ Important notes about pagination:
                 </div> 
             {% endfor %}
         </div>
-
+</div>
+</div>
         {% if paginate.pages > 1 %}
         <div class="pagination centered">
             {{ paginate | default_pagination }}

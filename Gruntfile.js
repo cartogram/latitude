@@ -301,6 +301,9 @@ module.exports = function (grunt) {
         concat: {
             dist: {
                 src: [
+                    'bower_components/jquery/dist/jquery.js',
+                    'bower_components/jquery.easing/js/jquery.easing.js',
+                    'bower_components/sly/dist/sly.js',
                     '<%= config.app %>/scripts/{,*/}*.js'
                 ],
                 dest: '<%= config.dist %>/scripts.js'
