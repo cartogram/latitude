@@ -905,7 +905,7 @@ h4, .delta {
   font-size: 1.25rem;
   line-height: 1.2; }
 
-h5, .epsilon, .nav__label {
+h5, .epsilon, .nav__label, .message, .message__error, input[type=checkbox] + label, textarea[type=checkbox] + label, input.hidden-checkbox + label, textarea.hidden-checkbox + label {
   font-size: 11px;
   font-size: 0.6875rem;
   line-height: 2.18182; }
@@ -3957,7 +3957,7 @@ label, .label {
 
 /* endif */
 /*------------------------------------*\
-	$HELPER
+  $HELPER
 \*------------------------------------*/
 /**
 * A series of helper classes to use arbitrarily. Only use a helper class if an
@@ -4309,6 +4309,9 @@ label, .label {
     text-align: left !important; }
   .text--right--desk-wide {
     text-align: right !important; } }
+
+.block {
+  display: block; }
 
 /**
  *  Text Alignment Helpers
@@ -4881,7 +4884,7 @@ h4, .delta {
 	* @markup
 	*   <h5 class="epsilon">This is a Heading</h5>
 	*/
-h5, .epsilon, .nav__label {
+h5, .epsilon, .nav__label, .message, .message__error, input[type=checkbox] + label, textarea[type=checkbox] + label, input.hidden-checkbox + label, textarea.hidden-checkbox + label {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #38393a;
@@ -5298,14 +5301,14 @@ a {
 /*------------------------------------*\
 
     /**
-    * @title Logo
+    * @title Icons
     */
 /**
 	* @title Icons
 	*/
 /**
 	* @name Basic Icon
-	* 
+	*
 	* @markup
 	* <i class="icon icon-tools"></i>
 	*/
@@ -5317,7 +5320,7 @@ a {
 
 /**
 	* @name Icon with Circle
-	* 
+	*
 	* @markup
 	* <i class="icon icon-tools icon--circled"></i>
 	*/
@@ -5330,8 +5333,8 @@ a {
   line-height: 28.8px; }
 
 /**
-	* @name Icon With Text 
-	* @description For text-links that have an icon with them and want a larger, explicity set gap. 
+	* @name Icon With Text
+	* @description For text-links that have an icon with them and want a larger, explicity set gap.
 	* @markup
 	* <a href=# ><i class="icon--with-text icon-tools"></i>Help &amp; support</a>
 	*/
@@ -5347,8 +5350,8 @@ a {
   top: 6px; }
 
 /**
-	* @name Reversed  Icon With Text 
-	* @description For text-links that have an icon with them and want a larger, explicity set gap on the right side. 
+	* @name Reversed  Icon With Text
+	* @description For text-links that have an icon with them and want a larger, explicity set gap on the right side.
 	* @markup
 	* <a href=# >Help &amp; support<i class="icon--with-text--rev icon-tools"></i></a>
 	*/
@@ -5358,7 +5361,7 @@ a {
 
 /**
 	* @name Primary Icon
-	* 
+	*
 	* @markup
 	* <i class="icon icon-tools icon--primary"></i>
 	*/
@@ -5371,7 +5374,7 @@ a {
 
 /**
 	* @name Secondary Icon
-	* 
+	*
 	* @markup
 	* <i class="icon icon-tools icon--secondary"></i>
 	*/
@@ -5384,7 +5387,7 @@ a {
 
 /**
 	* @name Tertiary Icon
-	* 
+	*
 	* @markup
 	* <i class="icon icon-tools icon--tertiary"></i>
 	*/
@@ -5396,7 +5399,7 @@ a {
 
 /**
 	* @name Quarternary Icon
-	* 
+	*
 	* @markup
 	* <i class="icon icon-tools icon--quaternary"></i>
 	*/
@@ -5410,7 +5413,7 @@ a {
 
 /**
 	* @name Giga Icon
-	* 
+	*
 	* @markup
 	* <i class="icon icon-tools icon--giga"></i>
 	*/
@@ -5422,7 +5425,7 @@ a {
 
 /**
 	* @name Small Icon
-	* 
+	*
 	* @markup
 	* <i class="icon icon-tools icon--small"></i>
 	*/
@@ -5437,7 +5440,7 @@ a {
 	\*------------------------------------*/
 /**
 	* @name Icon With Rotation
-	* 
+	*
 	* @markup
 	* <i class="icon icon-tools icon--with-rotation"></i>
 	*/
@@ -5566,9 +5569,11 @@ a {
   transition: width 0.1s; }
   @media only screen and (min-width: 740px) {
     .icon--svg--logo {
-      width: 190px; } }
+      width: 190px;
+      max-height: 81px; } }
   .icon--svg--logo svg {
-    width: 190px; }
+    width: 190px;
+    max-height: 81px; }
 
 /**
 	 * Specific Icon styles
@@ -5576,325 +5581,13 @@ a {
 .icon--svg--cart {
   position: relative;
   top: 2px; }
+  .icon--svg--cart, .icon--svg--cart svg {
+    height: 25px;
+    width: 25px; }
 
-/**
-     * @export SVGS
-     */
-/**
-    * Import Mixins to provide modules with exports.
-    * List other required modules here.
-    */
-/*------------------------------------*\
-    $MIXINS
-\*------------------------------------*/
-/**
- * A series of helper classes to use arbitrarily. Only use a helper class if an
- * element/component doesn’t already have a class to which you could apply this
- * styling, e.g. if you need to float `.main-nav` left then add `float:left;` to
- * that ruleset as opposed to adding the `.float--left` class to the markup.
- *
- * A lot of these classes carry `!important` as you will always want them to win
- * out over other selectors.
- */
-/**
- * PLacholder
- */
-/**
- * Color Setup
- *
- * We have a mixin to generate our background and border colors.
- */
-/**
- * Import Once
- *
- * We use this to prevent styles from being loaded multiple times for compenents that rely on other components. 
- */
-/*------------------------------------*\
-
-    /**
-    * Variables
-    */
-/*------------------------------------*\
-
-    /**
-    * @title Logo
-    */
-/**
-	* @title Icons
-	*/
-/**
-	* @name Basic Icon
-	* 
-	* @markup
-	* <i class="icon icon-tools"></i>
-	*/
-.icon, .mfp-iframe-holder button.mfp-close {
-  font-size: 25px;
-  font-size: 1.5625rem;
-  line-height: 1.92;
-  color: #74b3de; }
-
-/**
-	* @name Icon with Circle
-	* 
-	* @markup
-	* <i class="icon icon-tools icon--circled"></i>
-	*/
-.icon--circled {
-  border-radius: 50%;
-  border: 1px solid;
-  height: 36px;
-  width: 36px;
-  text-align: center;
-  line-height: 28.8px; }
-
-/**
-	* @name Icon With Text 
-	* @description For text-links that have an icon with them and want a larger, explicity set gap. 
-	* @markup
-	* <a href=# ><i class="icon--with-text icon-tools"></i>Help &amp; support</a>
-	*/
-.icon--with-text, .icon--with-text-large, .icon--with-text--rev {
-  font-size: 15px;
-  position: relative;
-  top: 2px;
-  margin-right: 12px; }
-
-.icon--with-text-large {
-  font-size: 35px;
-  line-height: 0;
-  top: 6px; }
-
-/**
-	* @name Reversed  Icon With Text 
-	* @description For text-links that have an icon with them and want a larger, explicity set gap on the right side. 
-	* @markup
-	* <a href=# >Help &amp; support<i class="icon--with-text--rev icon-tools"></i></a>
-	*/
-.icon--with-text--rev {
-  margin-right: 0;
-  margin-left: 12px; }
-
-/**
-	* @name Primary Icon
-	* 
-	* @markup
-	* <i class="icon icon-tools icon--primary"></i>
-	*/
-.icon--primary {
-  font-size: 45px;
-  font-size: 2.8125rem;
-  line-height: 1.06667;
-  display: block; }
-  @media only screen and (min-width: 740px) { }
-
-/**
-	* @name Secondary Icon
-	* 
-	* @markup
-	* <i class="icon icon-tools icon--secondary"></i>
-	*/
-.icon--secondary {
-  font-size: 14px;
-  position: relative;
-  top: 2px;
-  padding-left: 4px;
-  padding-right: 4px; }
-
-/**
-	* @name Tertiary Icon
-	* 
-	* @markup
-	* <i class="icon icon-tools icon--tertiary"></i>
-	*/
-.icon--tertiary {
-  color: #c9c7c8;
-  font-size: 60px;
-  font-size: 3.75rem;
-  line-height: 1.2; }
-
-/**
-	* @name Quarternary Icon
-	* 
-	* @markup
-	* <i class="icon icon-tools icon--quaternary"></i>
-	*/
-.icon--quaternary {
-  color: #91c3e5;
-  height: 70px;
-  width: 70px;
-  font-size: 70px;
-  text-align: center;
-  line-height: 70px; }
-
-/**
-	* @name Giga Icon
-	* 
-	* @markup
-	* <i class="icon icon-tools icon--giga"></i>
-	*/
-.icon--giga {
-  font-size: 90px;
-  font-size: 5.625rem;
-  line-height: 1.06667;
-  line-height: 1; }
-
-/**
-	* @name Small Icon
-	* 
-	* @markup
-	* <i class="icon icon-tools icon--small"></i>
-	*/
-.icon--small {
-  font-size: 10px;
-  font-size: 0.625rem;
-  line-height: 2.4;
-  line-height: 1; }
-
-/*------------------------------------*\
-	$Animation/transforms
-	\*------------------------------------*/
-/**
-	* @name Icon With Rotation
-	* 
-	* @markup
-	* <i class="icon icon-tools icon--with-rotation"></i>
-	*/
-.icon--with-rotation {
-  transform: rotate(45deg);
-  transition: transform 0.2s ease;
-  position: absolute;
-  right: 18px;
-  top: 50%;
-  margin-top: -18px !important; }
-  .link-complex:hover .icon--with-rotation {
-    transform: rotate(0deg);
-    transition: transform 0.2s ease; }
-
-/*------------------------------------*\
-	$MISC
-	\*------------------------------------*/
-.icon-help {
-  font-size: 17px; }
-
-.icon-arrow-left {
-  top: 0px; }
-
-.icon-facebook-sign {
-  font-size: 17px; }
-
-.icon-number-1 {
-  text-indent: -5px; }
-
-.icon-congratulations {
-  color: #ffffff;
-  font-size: 170px;
-  font-size: 10.625rem;
-  line-height: 1.12941;
-  transition: all 1s ease-in 1s;
-  position: relative;
-  display: block; }
-  .icon-congratulations:before {
-    position: absolute; }
-
-/*------------------------------------*\
-	$Fixes
-	\*------------------------------------*/
-.mfp-iframe-holder button.mfp-close {
-  color: transparent !important;
-  width: 40px;
-  height: 50px;
-  left: 100%;
-  top: 0px;
-  opacity: 1;
-  margin: 0;
-  line-height: 0;
-  padding: 0; }
-  .mfp-iframe-holder button.mfp-close:before {
-    font-family: 'icomoon';
-    color: #74b3de;
-    position: absolute;
-    right: 0;
-    line-height: 1;
-    top: 1px; }
-
-/**
-     * @export Icons
-     */
-/**
-    * Import Mixins to provide modules with exports.
-    * List other required modules here.
-    */
-/*------------------------------------*\
-    $MIXINS
-\*------------------------------------*/
-/**
- * A series of helper classes to use arbitrarily. Only use a helper class if an
- * element/component doesn’t already have a class to which you could apply this
- * styling, e.g. if you need to float `.main-nav` left then add `float:left;` to
- * that ruleset as opposed to adding the `.float--left` class to the markup.
- *
- * A lot of these classes carry `!important` as you will always want them to win
- * out over other selectors.
- */
-/**
- * PLacholder
- */
-/**
- * Color Setup
- *
- * We have a mixin to generate our background and border colors.
- */
-/**
- * Import Once
- *
- * We use this to prevent styles from being loaded multiple times for compenents that rely on other components. 
- */
-/*------------------------------------*\
-
-    /**
-    * Variables
-    */
-/*------------------------------------*\
-
-    /**
-    * @title SVGS
-    */
-.svg-defs {
-  display: none; }
-
-.icon--svg--primary svg, .icon--svg--secondary svg, .icon--svg--tertiary svg, .icon--svg--logo svg, .icon--svg--logo svg {
-  fill: #799d4b; }
-
-.icon--svg--primary, .icon--svg--primary svg {
+.icon--svg--primary.icon--smartsi, .icon--svg--primary.icon--smartsi svg {
   height: 60px;
-  width: 60px; }
-
-.icon--svg--secondary, .icon--svg--secondary svg {
-  height: 45px;
-  width: 45px; }
-
-.icon--svg--tertiary, .icon--svg--tertiary svg {
-  height: 20px;
-  width: 20px; }
-
-.icon--svg--logo {
-  overflow: hidden;
-  width: 50px;
-  display: block;
-  transition: width 0.1s; }
-  @media only screen and (min-width: 740px) {
-    .icon--svg--logo {
-      width: 190px; } }
-  .icon--svg--logo svg {
-    width: 190px; }
-
-/**
-	 * Specific Icon styles
-	 */
-.icon--svg--cart {
-  position: relative;
-  top: 2px; }
+  width: 85px; }
 
 /**
      * @export SVGS
@@ -6605,11 +6298,10 @@ a {
 /**
      * @export Navigation
      */
-<<<<<<< HEAD
 /**
-	* Import Mixins to provide modules with exports.
-	* List other required modules here.
-	*/
+    * Import Mixins to provide modules with exports.
+    * List other required modules here.
+    */
 /*------------------------------------*\
     $MIXINS
 \*------------------------------------*/
@@ -6637,19 +6329,14 @@ a {
  */
 /*------------------------------------*\
 
-	/**
-	* Variables
-	*/
+    /**
+    * Variables
+    */
 /*------------------------------------*\
 
-	/**
-	* @title Navigation
-	*/
-/*------------------------------------*\
-
-	$Base Island Styles
-
-	*/
+    /**
+    * @title Slideshow controls
+    */
 .social-slideshow {
   overflow: hidden; }
   .social-slideshow .slideshow__slide {
@@ -6681,12 +6368,11 @@ a {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  width: 100%;
   bottom: 24px;
   z-index: 4;
+  width: 100%;
   text-align: center; }
   .slideshow__pagination span {
-    text-indent: -9999px;
     position: relative;
     display: inline-block;
     margin: 0 10px;
@@ -6697,7 +6383,13 @@ a {
     background-color: rgba(255, 255, 255, 0.5);
     cursor: pointer;
     box-shadow: 0 0 0 2px rgba(255, 255, 255, 0);
-    transition: box-shadow 0.3s ease, background-color 0.3s ease; }
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    -webkit-transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    -moz-transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    -ms-transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    -o-transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    text-indent: -9999px; }
     .slideshow__pagination span.swiper-active-switch, .slideshow__pagination span.active {
       background-color: transparent;
       box-shadow: 0 0 0 2px #ffffff; }
@@ -6716,8 +6408,6 @@ a {
       box-shadow: 0 0 0 2px #74b3de; }
     .slideshow__pagination.slideshow__pagination--tweets span:hover, .slideshow__pagination.slideshow__pagination--tweets span:focus, .slideshow__pagination.slideshow__pagination--shop span:hover, .slideshow__pagination.slideshow__pagination--shop span:focus {
       background-color: #74b3de; }
-  .slideshow__pagination.slideshow__pagination--shop {
-    bottom: -24px; }
 
 .slideshow__control {
   position: absolute;
@@ -6755,6 +6445,9 @@ a {
   .slideshow__control:hover i:before {
     border-color: #ffffff; }
 
+/**
+* @export Slideshow controls
+*/
 /**
     * Import Mixins to provide modules with exports.
     * List other required modules here.
@@ -6809,6 +6502,77 @@ a {
 
 .sidebar .sidebar__title {
   color: #799d4b; }
+
+/**
+    * Import Mixins to provide modules with exports.
+    * List other required modules here.
+    */
+/*------------------------------------*\
+    $MIXINS
+\*------------------------------------*/
+/**
+ * A series of helper classes to use arbitrarily. Only use a helper class if an
+ * element/component doesn’t already have a class to which you could apply this
+ * styling, e.g. if you need to float `.main-nav` left then add `float:left;` to
+ * that ruleset as opposed to adding the `.float--left` class to the markup.
+ *
+ * A lot of these classes carry `!important` as you will always want them to win
+ * out over other selectors.
+ */
+/**
+ * PLacholder
+ */
+/**
+ * Color Setup
+ *
+ * We have a mixin to generate our background and border colors.
+ */
+/**
+ * Import Once
+ *
+ * We use this to prevent styles from being loaded multiple times for compenents that rely on other components. 
+ */
+/*------------------------------------*\
+
+    /**
+    * Variables
+    */
+/*------------------------------------*\
+
+    /**
+    * @title SVGS
+    */
+.section--account {
+  display: block;
+  padding: 96px 24px; }
+  .section--account .btn, .section--account .nav--global .menu-item-88 a, .nav--global .menu-item-88 .section--account a, .section--account .nav--global .button a, .nav--global .button .section--account a, .section--account .nav--btn--secondary li a, .nav--btn--secondary li .section--account a, .section--account .nav--btn--secondary li a, .nav--btn--secondary li .section--account a, .section--account .nav--btn--tertiary li a, .nav--btn--tertiary li .section--account a, .section--account .nav--social-bar, .section--account .island--social .nav--social, .island--social .section--account .nav--social, .section--account .alert .nav--social, .alert .section--account .nav--social, .section--account .page-numbers li a, .page-numbers li .section--account a, .section--account .page-numbers li span, .page-numbers li .section--account span {
+    font-size: 14px;
+    font-size: 0.875rem;
+    line-height: 1.71429; }
+
+hgroup {
+  margin-bottom: 24px; }
+  hgroup h1 {
+    margin-bottom: 24px;
+    font-size: 22px; }
+  hgroup h2 {
+    font-size: 15px; }
+
+.account__panel {
+  border: 1px solid #dddcdc;
+  border-radius: 4px;
+  padding: 24px; }
+
+.account__address, .account__address li {
+  list-style: none;
+  margin: 0; }
+
+.account__table {
+  margin-bottom: 24px; }
+  .account__table, .account__table td {
+    text-align: left; }
+  .account__table tfoot td:first-child {
+    text-align: right; }
 
 /**
     * Import Mixins to provide modules with exports.
@@ -6930,6 +6694,14 @@ body.ajaxify-lock {
   max-width: 100px;
   overflow: visible;
   backface-visibility: hidden; }
+  .js-qty input, .js-qty .ajaxifyCart--qty {
+    display: block;
+    background: none;
+    text-align: center;
+    width: 100%;
+    padding: 5px 25px;
+    margin: 0;
+    border: none; }
 
 .js--qty-adjuster, .ajaxifyCart--qty-adjuster {
   cursor: pointer;
@@ -6999,48 +6771,274 @@ body.ajaxify-lock {
   text-align: center;
   cursor: pointer; }
 
-/* Scrollbar */
-.scrollbar {
-  margin: 0 0 1em 0;
-  height: 2px;
-  background: #ccc;
-  line-height: 0; }
+/**
+    * Import Mixins to provide modules with exports.
+    * List other required modules here.
+    */
+/*------------------------------------*\
+    $MIXINS
+\*------------------------------------*/
+/**
+ * A series of helper classes to use arbitrarily. Only use a helper class if an
+ * element/component doesn’t already have a class to which you could apply this
+ * styling, e.g. if you need to float `.main-nav` left then add `float:left;` to
+ * that ruleset as opposed to adding the `.float--left` class to the markup.
+ *
+ * A lot of these classes carry `!important` as you will always want them to win
+ * out over other selectors.
+ */
+/**
+ * PLacholder
+ */
+/**
+ * Color Setup
+ *
+ * We have a mixin to generate our background and border colors.
+ */
+/**
+ * Import Once
+ *
+ * We use this to prevent styles from being loaded multiple times for compenents that rely on other components. 
+ */
+/*------------------------------------*\
 
-.scrollbar .handle {
-  width: 100px;
-  height: 100%;
-  background: #292a33;
-  cursor: pointer; }
+    /**
+    * Variables
+    */
+/*------------------------------------*\
 
-.scrollbar .handle .mousearea {
-  position: absolute;
-  top: -9px;
-  left: 0;
+    /**
+    * @title SVGS
+    */
+/**
+        * @title Forms
+        */
+fieldset {
+  background: #ffffff;
+  border-radius: 3px;
+  padding: 0; }
+
+fieldset {
+  border: none; }
+
+/**
+            * @name Form-Fields
+            * @description Style for the form-fields class
+            * @markup
+               <ul class=form-fields>
+                    <li>
+                        <label />
+                        <input />
+                    </li>
+                </ul>
+            */
+.form-fields {
+  list-style: none;
+  margin: 0; }
+  .form-fields > li {
+    position: relative;
+    margin: 0 0 24px; }
+
+li.inline {
+  line-height: 3em;
+  display: inline-block; }
+
+.form__label, .additional, .action {
+  text-transform: lowercase;
+  display: inline-block;
+  font-size: 12px;
+  font-size: 0.75rem;
+  line-height: 2; }
+
+
+.hidden-label {
+  display: none; }
+
+/**
+            * @name Additional
+            * @description  Extra help text in `label`s
+            * @markup
+            *   <label>Card number <small class=additional>No spaces</small></label>
+            */
+.additional {
+  text-align: right;
+  width: 100%; }
+  .additional.over-top {
+    position: absolute;
+    top: 12px;
+    right: 12px; }
+
+
+/**
+             *  Inputs
+             */
+/**
+            * @name Text Inputs
+            * @markup
+            *   <form><input type="text" placeholder="Basic Inputs" /></form>
+            */
+/**
+            * @name Text Inputs With Errors
+            * @markup
+            *   <form><ul class="form-fields">
+            *   <li><input  type="text" class="input--has-error" placeholder="Input that has an error">
+            *   <div class="message__error">This field is required.</div>
+            *   </li></ul></form>
+            */
+.message, .message__error {
+  font-size: 10px;
+  font-size: 0.625rem;
+  line-height: 2.4;
+  text-align: center;
+  line-height: 3;
+  font-weight: 500;
+  display: block; }
+
+.message__error {
+  background: #f47721;
+  color: #ffffff;
+  border-radius: 0 0 3px 3px; }
+
+/**
+            * @name Textarea
+            * @markup
+            *   <form><textarea type="text" >Basic Textarea</textarea></form>
+            */
+input, textarea {
+  transition: border 0.2s, background 0.2s;
   width: 100%;
-  height: 20px; }
+  background: #f1f1f1;
+  border: 1px solid #dddcdc;
+  height: 50px;
+  line-height: 50px;
+  margin: 0 0 0em;
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.33333;
+  padding-left: 12px;
+  border-radius: 3px;
+  /**
+                * States
+                */
+  /**
+                * @name Number Input
+                * @markup
+                *   <form><input type="number" value="1" /></form>
+                */
+  /**
+                * @name Checkboxes Input
+                * @markup
+                *   <form><input type="checkbox" /></form>
+                */
+  /**
+                 *  Submit Button
+                 */ }
+  input:focus, input:active, textarea:focus, textarea:active {
+    background: #ffffff; }
+  input[type=number], textarea[type=number] {
+    text-align: center;
+    border: 1px solid #c9c7c8;
+    width: auto; }
+  input[type=checkbox], textarea[type=checkbox] {
+    position: absolute; }
+    input[type=checkbox] + label, textarea[type=checkbox] + label {
+      padding: 0 0 0 2em;
+      color: #799d4b;
+      transition: color 0.2s; }
+      input[type=checkbox] + label:hover, textarea[type=checkbox] + label:hover {
+        color: #497529; }
+  input.hidden-checkbox, textarea.hidden-checkbox {
+    display: none; }
+    input.hidden-checkbox + label, textarea.hidden-checkbox + label {
+      padding: 0 0 0 3em; }
+      input.hidden-checkbox + label:before, textarea.hidden-checkbox + label:before {
+        border: 2px solid #dddcdc;
+        content: ' ';
+        height: 22px;
+        width: 22px;
+        position: absolute;
+        left: 0px;
+        border-radius: 2px;
+        transition: border 0.2s; }
+      input.hidden-checkbox + label:after, textarea.hidden-checkbox + label:after {
+        content: '\2715';
+        position: absolute;
+        padding: 0.15em;
+        transition: opacity 0.2s;
+        opacity: 0;
+        color: #799d4b;
+        font-size: 1.8em;
+        left: 0;
+        top: 0;
+        font-weight: bold; }
+  input.hidden-checkbox:checked + label, textarea.hidden-checkbox:checked + label {
+    color: #497529; }
+    input.hidden-checkbox:checked + label:before, textarea.hidden-checkbox:checked + label:before {
+      border-color: #799d4b; }
+    input.hidden-checkbox:checked + label:after, textarea.hidden-checkbox:checked + label:after {
+      opacity: 1; }
+  input[type=submit], textarea[type=submit] {
+    transition: background 0.2s, color 0.2s;
+    border: none;
+    background: #799d4b;
+    color: #ffffff;
+    width: 100%;
+    font-size: 18px;
+    font-size: 1.125rem;
+    line-height: 1.33333; }
+    input[type=submit]:hover, textarea[type=submit]:hover {
+      background: #5f7a3b; }
+    input[type=submit]:disabled, textarea[type=submit]:disabled {
+      border: 1px solid rgba(244, 119, 33, 0.5);
+      color: rgba(244, 119, 33, 0.5);
+      background: none; }
+
+textarea {
+  padding-top: 12px;
+  min-height: 200px; }
+
+/**
+        * @name Select Input
+        * @markup
+        *   <select>
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select>
+        */
+select {
+  position: relative;
+  top: 10px;
+  width: 100%;
+  margin: auto; }
+
+/**
+         *  Errors
+         */
+.note {
+  color: #f47721;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.71429;
+  margin-bottom: 24px; }
+  .note ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    .note ul li {
+      font-weight: 400;
+      margin: 0;
+      padding: 12px 0 0 0; }
+
+.has-error > .text-input {
+  border-color: #f47721;
+  border-radius: 3px 3px 0 0; }
+
+.global-validation-error {
+  color: #f47721;
+  display: block; }
 
 .img--cart {
   max-width: 240px;
   margin: auto; }
-=======
-.svg-defs {
-  display: none; }
-
-@media only screen and (min-width: 740px) {
-  .img--align--left {
-    position: absolute;
-    left: -100%;
-    top: 24px;
-    width: 100%; } }
-
-.icon--svg--logo {
-  overflow: hidden;
-  width: 50px;
-  display: block;
-  transition: width 0.1s; }
-  @media only screen and (min-width: 740px) {
-    .icon--svg--logo {
-      width: 190px; } }
-  .icon--svg--logo svg {
-    width: 190px; }
->>>>>>> c0472fb28cffc67f0ef29fd38bc61aa96879a3c4

@@ -37,16 +37,8 @@
     <!-- Additional Shopify helpers that will likely be added to the global shopify_common.js some day soon. -->
     {{ 'shopify_common.js'  | asset_url | script_tag }}
 
-    {% if template contains 'customers' %}
-      {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
-      {{ 'customer_area.js'  | shopify_asset_url | script_tag }}
-    {% endif %}
-
     {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
     <script>jQuery('html').removeClass('no-js').addClass('js');</script>
-
-    {{ 'modernizr.custom.js'  | asset_url | script_tag }}
-
 
 </head>
 
@@ -54,63 +46,16 @@
 
     <div class="svg-defs">{% include 'svg-defs' %}</div>
 
-    <section class="nav-section--primary is-static"  >
-        <ul class="nav--global nav row" >
-            <li class="nav__logo">
-                <a class="hard--left logo" href="/">
-                    <i class="icon--svg--logo">
-                        <svg><use xlink:href="#logo-horizontal" /></svg>
-                    <span class="visuallyhidden">{{shop.name}}</span></i>
-                </a>
-            </li>
-            <li class="button visuallyhidden--palm"><a href="http:www.ecobee.com">ecobee.com</a></li>
-            <li><a class="milli" href="http:www.ecobee.com"><span class="visuallyhidden--palm">View our</span> Canadian Store</a></li>
-            <li ><a href="/cart" id="cartToggle" >
-                <i class="icon--svg--tertiary icon--svg--cart">
-                <svg><use xlink:href="#cart" /></svg>
-            </i>{{ cart.item_count }}</a><li>
-        </ul>
-    </section>
-
     <div class=" site">
-        <section class="soft--sides island--navigation island--navigation--complex text--center">
-            <div class="row">
-                <div class="grid grid--center grid--full ">
-                {% for link in linklists.main-menu.links %}{% comment %}
-
-            {% endcomment %}<div class="grid__item navigation__item text--center one-quarter palm-one-half">
-                        <a href="{{ link.url }}" class="soft--ends {% if link.active %} site-nav--active{% endif %}">
-                            <i class="icon--svg--primary icon--{{ link.title | replace: ' ', '' | strip | downcase | replace: '&#xb3;', '3'}}">
-                                <svg><use xlink:href="#{{ link.title | replace: ' ', '' | strip | downcase | replace: '&#xb3;', '3'}}" /></svg>
-                            </i>
-                            <span>{{ link.title }}</span>
-                        </a>
-                    </div>{% comment %}
-
-            {% endcomment %}{% endfor %}
-                </div>
-            </div>
-        </section>
 
         {{ content_for_layout }}
 
-        <section>
-            <div class="row">
-                <div class="grid grid--center grid--full ">
-                </div>
-            </div>
-        </section>
-
-
-        <footer class="soft-double" >
-            <p role="contentinfo" class="soft-double color--grey micro soft flush--bottom  text--center">copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}</p>
-        </footer>
 
     <!--[if lt IE 8]>
     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
     <![endif]-->
 
-</div><!-- end of .site -->
+    </div><!-- end of .site -->
 
 {{ 'scripts.js'  | asset_url | script_tag }}
 

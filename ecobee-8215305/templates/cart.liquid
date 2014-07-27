@@ -22,11 +22,11 @@ For info on test orders:
 
     <div class="cart-row row" data-id="{{ item.id }}">
 
-        <div class="grid grid--middle">
+        <div class="grid grid--centered">
 
             <div class="grid__item two-thirds palm-one-whole">
 
-                <div class="grid grid--middle">
+                <div class="grid grid--centered">
 
                     <div class="grid__item three-twelfths palm-one-whole">
                         <a class="img--block" href="{{ item.product.url | within: collections.all }}">
@@ -91,7 +91,7 @@ For info on test orders:
                     </div>{% comment %}
 
                     {% endcomment %}<div class="grid__item  soft--top four-twelfths text--right--palm palm-five-twelfths ">
-                        <span class="h4">{{ item.price | money }}</span>
+                        <span class="gamma">{{ item.price | money }}</span>
                     </div>{% comment %}
 
                     {% endcomment %}<div class="grid__item soft--top four-twelfths palm-two-twelfths  ">
@@ -166,8 +166,10 @@ For info on test orders:
 It's likely people won't have items in the cart sometimes.
 Do something fun here, it's a great chance to show your company's human side.
 {% endcomment %}
-
-<h2>It appears that your cart is currently empty.</h2>
-<p>Continue browsing <a href="/collections/all">here</a>.</p>
-
+<section class="soft-double text--center">
+    <hgroup>
+        <h1>It appears that your cart is currently empty.</h1>
+        <h2><a href="/collections/all">Continue browsing</a></ph2>
+    </hgroup>
+</section>
 {% endif %}

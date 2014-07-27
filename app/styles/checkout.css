@@ -4291,6 +4291,9 @@ label, .label {
   .text--right--desk-wide {
     text-align: right !important; } }
 
+.block {
+  display: block; }
+
 /**
  *  Text Alignment Helpers
  */
@@ -5394,6 +5397,9 @@ a {
 .icon--svg--cart {
   position: relative;
   top: 2px; }
+  .icon--svg--cart, .icon--svg--cart svg {
+    height: 25px;
+    width: 25px; }
 
 .icon--svg--primary.icon--smartsi, .icon--svg--primary.icon--smartsi svg {
   height: 60px;

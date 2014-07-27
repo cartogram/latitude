@@ -1,0 +1,77 @@
+
+    /**
+    * Import Mixins to provide modules with exports.
+    * List other required modules here.
+    */
+
+    @import "generic/mixins";
+
+    /*------------------------------------*\
+
+    /**
+    * Variables
+    */
+
+
+    /*------------------------------------*\
+
+    /**
+    * @title SVGS
+    */
+
+     @include exports("account") {
+
+        .section--account {
+
+            display:block;
+            padding:$base-spacing-unit * 3 $base-spacing-unit $base-spacing-unit * 3;
+
+            .btn {
+                @include font-size(14px);
+            }
+
+        }
+        hgroup {
+            h1 {
+                margin-bottom:$base-spacing-unit;
+                font-size:22px;
+            }
+            h2 {
+                font-size:15px;
+            }
+            margin-bottom:$base-spacing-unit;
+        }
+
+        .account__header {
+            text-align:center;
+            margin-bottom:$base-spacing-unit * 2;
+            display:block;
+        }
+        .account__panel {
+            border:1px solid $grey-light;
+            border-radius:4px;
+            padding:$base-spacing-unit;
+            position:relative;
+        }
+
+        .account__controls {
+            position:absolute;
+            right:0;
+            top:0;
+            padding:$base-spacing-unit;
+        }
+
+
+        .account__address {
+            &, li {
+                list-style:none;
+                margin:0;
+            }
+            .on-one-line {
+                display:inline-block;
+            }
+        }
+
+
+
+    }

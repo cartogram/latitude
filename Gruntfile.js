@@ -311,6 +311,8 @@ module.exports = function (grunt) {
                     'bower_components/jquery/dist/jquery.js',
                     'bower_components/jquery.easing/js/jquery.easing.js',
                     'bower_components/sly/dist/sly.js',
+                    'bower_components/ButtonComponentMorph/js/uiMorphingButton_fixed.js',
+                    'bower_components/classie/classie.js',
                     '<%= config.app %>/scripts/{,*/}*.js'
                 ],
                 dest: '<%= config.dist %>/scripts.js'
@@ -348,7 +350,7 @@ module.exports = function (grunt) {
         modernizr: {
             dist: {
                 devFile: 'bower_components/modernizr/modernizr.js',
-                outputFile: '<%= config.dist %>/scripts/vendor/modernizr.js',
+                outputFile: '<%= config.dist %>/scripts/modernizr.js',
                 files: {
                     src: [
                         '<%= config.dist %>/scripts/{,*/}*.js',

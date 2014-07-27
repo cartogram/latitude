@@ -116,13 +116,18 @@
 
                     {% endcomment %}{% if product.metafields.specifications %}<div class="grid__item  one-whole lap-one-half palm-one-shole ">
                     <p class="milli sidebar__title soft-half--ends">Specifications</p>
-                    <ul class="list--bulleted milli">
-                        {% for key in product.metafields.specifications %}
-                        <li>{{ key[1] }}</li>
-                        {% endfor %}
-                    </ul>
+                        <ul class="list--bulleted milli">
+                            {% for key in product.metafields.specifications %}
+                            <li>{{ key[1] }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>{% endif %}{% comment %}
+
+                    {% endcomment %}<div class="grid__item  one-whole lap-one-half palm-one-shole ">
+                        {% include 'link' with product.metafields.external_link_1 %}
+                        {% include 'link' with product.metafields.external_link_2 %}
+                        {% include 'link' with product.metafields.external_link_3 %}
                 </div>
-                {% endif %}
             </div>
         </div>
     </div>
