@@ -25,13 +25,16 @@
 
      @include exports("cart") {
 
-
+    .text-empty-cart {
+        padding:$base-spacing-unit * 2;
+        text-align:center;
+    }
     .img--cart {
         max-width: 240px;
         margin: auto;
     }
 
-    
+
     /**
      * Ajaxify Helpers
      */

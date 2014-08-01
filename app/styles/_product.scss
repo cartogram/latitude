@@ -1,9 +1,9 @@
-      
+
     /**
     * Import Mixins to provide modules with exports.
     * List other required modules here.
     */
-    
+
     @import "generic/mixins";
 
     /*------------------------------------*\
@@ -11,7 +11,7 @@
     /**
     * Variables
     */
-    
+
     $green : green !default;
 
     /*------------------------------------*\
@@ -19,9 +19,16 @@
     /**
     * @title SVGS
     */
-    
+
      @include exports("products") {
-  
+        .island--features {
+            background:$grey-light-brightest;
+            margin-top:$base-spacing-unit * 2;
+            border-top:1px solid $grey-light-lightest;
+            border-bottom:1px solid $grey-light-lightest;
+            padding-bottom:$base-spacing-unit * 2;
+        }
+
         .product-grid-item__image {
             height:300px;
             img {
@@ -43,11 +50,13 @@
         }
 
         .sidebar {
-            
+
             .sidebar__title {
                 color:$green;
             }
 
         }
+
+
 
     }

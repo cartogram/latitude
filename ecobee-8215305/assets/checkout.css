@@ -42,7 +42,7 @@
  * Base stuff
  */
 /**
- * Base font-family. 
+ * Base font-family.
  */
 /**
  * Default colour for objects’ borders etc.
@@ -934,9 +934,9 @@ hgroup .hN {
   line-height: 1.10769; }
 
 .mega {
-  font-size: 36px;
-  font-size: 2.25rem;
-  line-height: 1.33333; }
+  font-size: 50px;
+  font-size: 3.125rem;
+  line-height: 1.44; }
 
 .kilo {
   font-size: 48px;
@@ -4649,7 +4649,7 @@ body {
     /**
     * @title Headings
     */
-.compatibility h1, .compatibility .alpha, .compatibility h2, .compatibility form #email label, form #email .compatibility label, .compatibility form #addresses h3, form #addresses .compatibility h3, .compatibility #container.step1 #tagline:after, #container.step1 .compatibility #tagline:after, .compatibility #container.step2 #tagline:after, #container.step2 .compatibility #tagline:after, .compatibility form #payment h3, form #payment .compatibility h3, .compatibility #container.step1 #tagline:after, #container.step1 .compatibility #tagline:after, .compatibility #container.step2 #tagline:after, #container.step2 .compatibility #tagline:after, .compatibility form .group h3, form .group .compatibility h3, .compatibility #container.step1 #tagline:after, #container.step1 .compatibility #tagline:after, .compatibility #container.step2 #tagline:after, #container.step2 .compatibility #tagline:after, .compatibility .beta, .compatibility h3, .compatibility #container.step1 #tagline:after, #container.step1 .compatibility #tagline:after, .compatibility #container.step2 #tagline:after, #container.step2 .compatibility #tagline:after, .compatibility .gamma {
+h1.color--white, .compatibility h1, .alpha.color--white, .compatibility .alpha, h2.color--white, form #email label.color--white, form #addresses h3.color--white, #container.step1 .color--white#tagline:after, #container.step2 .color--white#tagline:after, form #payment h3.color--white, #container.step1 .color--white#tagline:after, #container.step2 .color--white#tagline:after, form .group h3.color--white, #container.step1 .color--white#tagline:after, #container.step2 .color--white#tagline:after, .compatibility h2, .compatibility form #email label, form #email .compatibility label, .compatibility form #addresses h3, form #addresses .compatibility h3, .compatibility #container.step1 #tagline:after, #container.step1 .compatibility #tagline:after, .compatibility #container.step2 #tagline:after, #container.step2 .compatibility #tagline:after, .compatibility form #payment h3, form #payment .compatibility h3, .compatibility #container.step1 #tagline:after, #container.step1 .compatibility #tagline:after, .compatibility #container.step2 #tagline:after, #container.step2 .compatibility #tagline:after, .compatibility form .group h3, form .group .compatibility h3, .compatibility #container.step1 #tagline:after, #container.step1 .compatibility #tagline:after, .compatibility #container.step2 #tagline:after, #container.step2 .compatibility #tagline:after, .beta.color--white, .compatibility .beta, h3.color--white, #container.step1 .color--white#tagline:after, #container.step2 .color--white#tagline:after, .compatibility h3, .compatibility #container.step1 #tagline:after, #container.step1 .compatibility #tagline:after, .compatibility #container.step2 #tagline:after, #container.step2 .compatibility #tagline:after, .gamma.color--white, .compatibility .gamma, .color--white.color--white, .compatibility .color--white {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
@@ -4660,6 +4660,7 @@ body {
 	*   <h1 class="alpha">This is a Heading</h1>
 	*/
 h1, .alpha {
+  margin-bottom: 24px;
   font-weight: 300;
   color: #38393a; }
   @media only screen and (max-width: 739px) {
@@ -4677,6 +4678,7 @@ h1, .alpha {
 	*   <h2 class="beta">This is a Heading</h2>
 	*/
 h2, form #email label, form #addresses h3, #container.step1 #tagline:after, #container.step2 #tagline:after, form #payment h3, #container.step1 #tagline:after, #container.step2 #tagline:after, form .group h3, #container.step1 #tagline:after, #container.step2 #tagline:after, .beta {
+  margin-bottom: 24px;
   font-weight: 300;
   color: #38393a; }
   @media only screen and (max-width: 739px) {
@@ -4695,6 +4697,7 @@ h2, form #email label, form #addresses h3, #container.step1 #tagline:after, #con
 	*   <h3 class="gamma">This is a Heading</h3>
 	*/
 h3, #container.step1 #tagline:after, #container.step2 #tagline:after, .gamma {
+  margin-bottom: 24px;
   color: #38393a;
   font-weight: 400; }
   h3.hN, #container.step1 .hN#tagline:after, #container.step2 .hN#tagline:after, .gamma.hN {
@@ -4801,18 +4804,20 @@ hgroup .hN {
 .strong, strong {
   font-weight: 500 !important; }
 
-p.lead, p.leader {
-  font-size: 16px;
-  font-size: 1rem;
-  line-height: 1.5; }
-  @media only screen and (min-width: 740px) {
-    p.lead {
-      font-size: 18px;
-      font-size: 1.125rem;
-      line-height: 1.33333;
-      line-height: 1.5; } }
-p.leader {
-  letter-spacing: 0.035em; }
+p {
+  margin-bottom: 24px; }
+  p.lead, p.leader {
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.5; }
+    @media only screen and (min-width: 740px) {
+      p.lead {
+        font-size: 18px;
+        font-size: 1.125rem;
+        line-height: 1.33333;
+        line-height: 1.5; } }
+  p.leader {
+    letter-spacing: 0.035em; }
 
 b, strong {
   font-weight: 500; }
@@ -5185,7 +5190,8 @@ a {
   font-size: 15px;
   position: relative;
   top: 2px;
-  margin-right: 12px; }
+  display: inline-block !important;
+  margin: 0 12px 0 0 !important; }
 
 .icon--with-text-large {
   font-size: 35px;
@@ -5660,7 +5666,7 @@ a {
     * @title Navs
     */
 /*------------------------------------*\
-    
+
 
     */
 .nav .current-menu-item a, .nav .current-menu-item .page-numbers, .nav .current-menu-item .nav--social-bar, .nav .current-menu-item .island--social .nav--social, .island--social .nav .current-menu-item .nav--social, .nav .current-menu-item .alert .nav--social, .alert .nav .current-menu-item .nav--social {
@@ -5711,7 +5717,7 @@ a {
   .nav--global .menu-item-88, .nav--global .button {
     height: auto; }
     .nav--global .menu-item-88 a, .nav--global .button a {
-      margin: 0 0 0 17.77778px;
+      margin: 0 17.77778px 0 17.77778px;
       line-height: 2;
       color: #38393a;
       font-size: 14px;
@@ -5724,7 +5730,7 @@ a {
           padding-left: 1em;
           padding-right: 1em; } }
   .nav--global .nav__trigger {
-    padding: 0 41.77778px 0 35.55556px; }
+    padding: 0 41.77778px 0 17.77778px; }
   @media only screen and (max-width: 739px) {
     .nav--global a {
       padding: 0 8.88889px; }
@@ -5756,7 +5762,7 @@ a {
   color: #ffffff; }
 
 .nav--icons li {
-  display: inline-block; }
+  display: block; }
   .nav--icons li a {
     text-align: center;
     position: relative;
@@ -5783,7 +5789,7 @@ a {
 
 /**
             * @name Button Nav
-            * 
+            *
             * @markup
             * <ul class="nav nav--button">
             * <li><a>This is a list item</a></li>
