@@ -4459,10 +4459,13 @@ label, .label {
     * @title Screen
     */
 /*------------------------------------*\
-    
+
     Screen Globals
 
     */
+* {
+  -moz-box-sizing: border-box; }
+
 body {
   margin: 0 !important;
   background: #ffffff;
@@ -6510,6 +6513,9 @@ a {
     width: auto;
     margin: auto; }
 
+.product-grid-item__text {
+  width: 48%; }
+
 .feature .feature__icon {
   position: absolute;
   transform: translateY(-100%); }
@@ -7572,3 +7578,6 @@ select {
     font-size: 13px;
     font-size: 0.8125rem;
     line-height: 1.84615; }
+
+* {
+  -moz-box-sizing: border-box; }

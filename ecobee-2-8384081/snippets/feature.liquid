@@ -1,0 +1,17 @@
+{% if feature %}<div class="feature soft-triple--top palm-one-whole grid__item six-twelfths">
+    
+    {% if feature contains 'icon' %}  
+        <i class="icon--svg--secondary feature__icon icon--{{ feature.icon }}">
+            <svg><use xlink:href="#{{ feature.icon }}" /></svg>
+        </i>
+    {% endif %}
+    
+    {% if feature contains 'title' %}  
+        <p class="milli feature__title soft-half--ends ">{{ feature.title }}</p>
+    {% endif %}
+    
+    {% if feature contains 'text' %}  
+        <p class="milli soft-double--right">{{ feature.text }}</p>
+    {% endif %} 
+    
+    </div>{% endif %}

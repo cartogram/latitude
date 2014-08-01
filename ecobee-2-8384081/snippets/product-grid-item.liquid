@@ -1,0 +1,43 @@
+<div class="{{ product-grid-item }}{% unless product.available %} sold-out{% endunless %}{% if on_sale %} on-sale{% endif %} soft-double--top soft grid--full grid">
+	<div class="grid__item one-whole product-grid-item__image">
+		<a class="img--block" href="{{ product.url | within: collection }}">
+			<img src="{{ product | img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}" />
+		</a>
+	</div><!--
+	--><div class="grid__item palm-one-whole eight-twelfths">
+		<h4 class="title">
+			{{ product.title }}
+		</h4>
+		<p class="milli soft--right soft--bottom ">{{ product.description }}</p>
+
+	</div><!--
+	--><div class="grid__item palm-one-whole four-twelfths">
+
+		<div class="product__price soft--bottom gamma" itemprop="price"><span class="currency soft-half--right">$</span> {{ product.price | money_without_currency }}</div>
+
+		<form action="/cart/add" method="post" enctype="multipart/form-data" id="addToCartForm" class="js-addToCartForm">
+
+			<div class="soft--bottom {% if product.variants.size <= 1 %} visuallyhidden {% endif %}">
+
+			<select name="id" id="productSelect" class="product-variants  ">
+				{% for variant in product.variants %}
+					{% if variant.available %}
+
+					<option value="{{variant.id}}">
+						{{ variant.title }} - {{ variant.price | money_with_currency }}
+					</option>
+
+					{% else %}
+					<option disabled="disabled">
+						{{ variant.title }} - Sold out
+					</option>
+					{% endif %}
+				{% endfor %}
+			</select></div>
+			<input type="submit" name="add" class="btn btn--primary js-addToCart" id="addToCart" value="Add to Cart">
+
+		</form>
+
+
+	</div>
+</div>

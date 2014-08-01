@@ -4440,10 +4440,13 @@ label, .label {
     * @title Screen
     */
 /*------------------------------------*\
-    
+
     Screen Globals
 
     */
+* {
+  -moz-box-sizing: border-box; }
+
 body {
   margin: 0 !important;
   background: #ffffff;
