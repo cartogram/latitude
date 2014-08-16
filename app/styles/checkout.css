@@ -818,7 +818,7 @@ label, input, textarea, button, select, option {
  * Extend the clearfix class with Sass to avoid the `.cf` class appearing over
  * and over in your markup.
  */
-.cf:after, .nav:after, .page-numbers:after, .nav--social-bar:after, .island--social .nav--social:after, .alert .nav--social:after, .media:after, .matrix:after, .multi-list:after {
+.cf:after, .nav:after, .page-numbers:after, .nav--social-bar:after, .alert .nav--social:after, .media:after, .matrix:after, .multi-list:after {
   content: "";
   display: table;
   clear: both; }
@@ -1617,10 +1617,10 @@ label, .label {
  * Demo: jsfiddle.net/inuitcss/Vnph4
  *
  */
-.nav, .page-numbers, .nav--social-bar, .island--social .nav--social, .alert .nav--social {
+.nav, .page-numbers, .nav--social-bar, .alert .nav--social {
   list-style: none;
   margin-left: 0; }
-  .nav > li, .nav > .page-numbers, .nav > .nav--social-bar, .nav > .island--social .nav--social, .island--social .nav > .nav--social, .nav > .alert .nav--social, .alert .nav > .nav--social, .nav > li > a, .nav > li > .page-numbers, .nav > li > .nav--social-bar, .nav > li > .island--social .nav--social, .island--social .nav > li > .nav--social, .nav > li > .alert .nav--social, .alert .nav > li > .nav--social {
+  .nav > li, .nav > .page-numbers, .nav > .nav--social-bar, .nav > .alert .nav--social, .alert .nav > .nav--social, .nav > li > a, .nav > li > .page-numbers, .nav > li > .nav--social-bar, .nav > li > .alert .nav--social, .alert .nav > li > .nav--social {
     display: inline-block;
     *display: inline;
     zoom: 1; }
@@ -1982,7 +1982,7 @@ label, .label {
  * 8. Basic cosmetics for default buttons. Change or override at will.
  * 9. Don’t allow buttons to have underlines; it kinda ruins the illusion.
  */
-.btn, .nav--global .menu-item-88 a, .nav--global .button a, .nav--btn--secondary li a, .nav--btn--secondary li a, .nav--btn--tertiary li a, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a, .page-numbers li span, input#commit-button, input#complete-purchase {
+.btn, .nav--global .menu-item-88 a, .nav--global .button a, .nav--btn--secondary li a, .nav--btn--secondary li a, .nav--btn--tertiary li a, .nav--social-bar, .alert .nav--social, .page-numbers li a, .page-numbers li span, input[type=submit], #create-account-btn, input#commit-button, input#complete-purchase {
   display: inline-block;
   /* [1] */
   vertical-align: middle;
@@ -2012,10 +2012,10 @@ label, .label {
   border-radius: 3px;
   /* [8] */ }
 
-.btn, .nav--global .menu-item-88 a, .nav--global .button a, .nav--btn--secondary li a, .nav--btn--secondary li a, .nav--btn--tertiary li a, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a, .page-numbers li span, input#commit-button, input#complete-purchase, .btn:hover, .nav--global .menu-item-88 a:hover, .nav--global .button a:hover, .nav--btn--secondary li a:hover, .nav--btn--secondary li a:hover, .nav--btn--tertiary li a:hover, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:hover, .page-numbers li span:hover, input#commit-button:hover, input#complete-purchase:hover {
+.btn, .nav--global .menu-item-88 a, .nav--global .button a, .nav--btn--secondary li a, .nav--btn--secondary li a, .nav--btn--tertiary li a, .nav--social-bar, .alert .nav--social, .page-numbers li a, .page-numbers li span, input[type=submit], #create-account-btn, input#commit-button, input#complete-purchase, .btn:hover, .nav--global .menu-item-88 a:hover, .nav--global .button a:hover, .nav--btn--secondary li a:hover, .nav--btn--secondary li a:hover, .nav--btn--tertiary li a:hover, .nav--social-bar, .alert .nav--social, .page-numbers li a:hover, .page-numbers li span:hover, input[type=submit]:hover, #create-account-btn:hover, input#commit-button:hover, input#complete-purchase:hover {
   text-decoration: none;
   /* [9] */ }
-.btn:active, .nav--global .menu-item-88 a:active, .nav--global .button a:active, .nav--btn--secondary li a:active, .nav--btn--secondary li a:active, .nav--btn--tertiary li a:active, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:active, .page-numbers li span:active, input#commit-button:active, input#complete-purchase:active, .btn:focus, .nav--global .menu-item-88 a:focus, .nav--global .button a:focus, .nav--btn--secondary li a:focus, .nav--btn--secondary li a:focus, .nav--btn--tertiary li a:focus, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:focus, .page-numbers li span:focus, input#commit-button:focus, input#complete-purchase:focus {
+.btn:active, .nav--global .menu-item-88 a:active, .nav--global .button a:active, .nav--btn--secondary li a:active, .nav--btn--secondary li a:active, .nav--btn--tertiary li a:active, .nav--social-bar, .alert .nav--social, .page-numbers li a:active, .page-numbers li span:active, input[type=submit]:active, #create-account-btn:active, input#commit-button:active, input#complete-purchase:active, .btn:focus, .nav--global .menu-item-88 a:focus, .nav--global .button a:focus, .nav--btn--secondary li a:focus, .nav--btn--secondary li a:focus, .nav--btn--tertiary li a:focus, .nav--social-bar, .alert .nav--social, .page-numbers li a:focus, .page-numbers li span:focus, input[type=submit]:focus, #create-account-btn:focus, input#commit-button:focus, input#complete-purchase:focus {
   outline: none; }
 
 /*------------------------------------*\
@@ -2032,7 +2032,7 @@ label, .label {
   padding-left: 0.5em;
   line-height: 2; }
 
-.btn--large, input#commit-button, input#complete-purchase {
+.btn--large, input[type=submit], #create-account-btn, input#commit-button, input#complete-purchase {
   padding-right: 1.5em;
   padding-left: 1.5em;
   line-height: 4; }
@@ -2108,7 +2108,7 @@ label, .label {
  * 
  * 1. Make the button look like normal text when hovered.
  */
-.btn--inactive, .btn:disabled, .nav--global .menu-item-88 a:disabled, .nav--global .button a:disabled, .nav--btn--secondary li a:disabled, .nav--btn--secondary li a:disabled, .nav--btn--tertiary li a:disabled, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:disabled, .page-numbers li span:disabled, input#commit-button:disabled, input#complete-purchase:disabled, .page-numbers li .current, .btn--inactive:hover, .btn:hover:disabled, .nav--global .menu-item-88 a:hover:disabled, .nav--global .button a:hover:disabled, .nav--btn--secondary li a:hover:disabled, .nav--btn--secondary li a:hover:disabled, .nav--btn--tertiary li a:hover:disabled, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:hover:disabled, .page-numbers li span:hover:disabled, input#commit-button:hover:disabled, input#complete-purchase:hover:disabled, .page-numbers li .current:hover, .btn--inactive:active, .btn:active:disabled, .nav--global .menu-item-88 a:active:disabled, .nav--global .button a:active:disabled, .nav--btn--secondary li a:active:disabled, .nav--btn--secondary li a:active:disabled, .nav--btn--tertiary li a:active:disabled, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:active:disabled, .page-numbers li span:active:disabled, input#commit-button:active:disabled, input#complete-purchase:active:disabled, .page-numbers li .current:active, .btn--inactive:focus, .btn:focus:disabled, .nav--global .menu-item-88 a:focus:disabled, .nav--global .button a:focus:disabled, .nav--btn--secondary li a:focus:disabled, .nav--btn--secondary li a:focus:disabled, .nav--btn--tertiary li a:focus:disabled, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:focus:disabled, .page-numbers li span:focus:disabled, input#commit-button:focus:disabled, input#complete-purchase:focus:disabled, .page-numbers li .current:focus {
+.btn--inactive, .btn:disabled, .nav--global .menu-item-88 a:disabled, .nav--global .button a:disabled, .nav--btn--secondary li a:disabled, .nav--btn--secondary li a:disabled, .nav--btn--tertiary li a:disabled, .nav--social-bar, .alert .nav--social, .page-numbers li a:disabled, .page-numbers li span:disabled, input[type=submit]:disabled, #create-account-btn:disabled, input#commit-button:disabled, input#complete-purchase:disabled, .page-numbers li .current, .btn--inactive:hover, .btn:hover:disabled, .nav--global .menu-item-88 a:hover:disabled, .nav--global .button a:hover:disabled, .nav--btn--secondary li a:hover:disabled, .nav--btn--secondary li a:hover:disabled, .nav--btn--tertiary li a:hover:disabled, .nav--social-bar, .alert .nav--social, .page-numbers li a:hover:disabled, .page-numbers li span:hover:disabled, input[type=submit]:hover:disabled, #create-account-btn:hover:disabled, input#commit-button:hover:disabled, input#complete-purchase:hover:disabled, .page-numbers li .current:hover, .btn--inactive:active, .btn:active:disabled, .nav--global .menu-item-88 a:active:disabled, .nav--global .button a:active:disabled, .nav--btn--secondary li a:active:disabled, .nav--btn--secondary li a:active:disabled, .nav--btn--tertiary li a:active:disabled, .nav--social-bar, .alert .nav--social, .page-numbers li a:active:disabled, .page-numbers li span:active:disabled, input[type=submit]:active:disabled, #create-account-btn:active:disabled, input#commit-button:active:disabled, input#complete-purchase:active:disabled, .page-numbers li .current:active, .btn--inactive:focus, .btn:focus:disabled, .nav--global .menu-item-88 a:focus:disabled, .nav--global .button a:focus:disabled, .nav--btn--secondary li a:focus:disabled, .nav--btn--secondary li a:focus:disabled, .nav--btn--tertiary li a:focus:disabled, .nav--social-bar, .alert .nav--social, .page-numbers li a:focus:disabled, .page-numbers li span:focus:disabled, input[type=submit]:focus:disabled, #create-account-btn:focus:disabled, input#commit-button:focus:disabled, input#complete-purchase:focus:disabled, .page-numbers li .current:focus {
   background-color: #ddd;
   color: #777;
   cursor: text;
@@ -3960,7 +3960,7 @@ label, .label {
   top: 50%;
   transform: translateY(-50%); }
 
-.centered--v--h, .icon-congratulations:before, .nav--social-bar li a i, .island--social .nav--social, .alert .nav--social, .nav--social-bar li a:before, .island--social .nav--social, .alert .nav--social {
+.centered--v--h, .icon-congratulations:before, .nav--social-bar li a i, .alert .nav--social, .nav--social-bar li a:before, .alert .nav--social {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -5463,7 +5463,7 @@ a {
 	* @markup
 	* <a class="btn">This is a button</a>
 	*/
-.btn, .nav--global .menu-item-88 a, .nav--global .button a, .nav--btn--secondary li a, .nav--btn--secondary li a, .nav--btn--tertiary li a, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a, .page-numbers li span, input#commit-button, input#complete-purchase {
+.btn, .nav--global .menu-item-88 a, .nav--global .button a, .nav--btn--secondary li a, .nav--btn--secondary li a, .nav--btn--tertiary li a, .nav--social-bar, .alert .nav--social, .page-numbers li a, .page-numbers li span, input[type=submit], #create-account-btn, input#commit-button, input#complete-purchase {
   background: none;
   border: none;
   color: #799d4b;
@@ -5474,7 +5474,7 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 0.8rem; }
-  .btn:hover, .nav--global .menu-item-88 a:hover, .nav--global .button a:hover, .nav--btn--secondary li a:hover, .nav--btn--secondary li a:hover, .nav--btn--tertiary li a:hover, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:hover, .page-numbers li span:hover, input#commit-button:hover, input#complete-purchase:hover {
+  .btn:hover, .nav--global .menu-item-88 a:hover, .nav--global .button a:hover, .nav--btn--secondary li a:hover, .nav--btn--secondary li a:hover, .nav--btn--tertiary li a:hover, .nav--social-bar, .alert .nav--social, .page-numbers li a:hover, .page-numbers li span:hover, input[type=submit]:hover, #create-account-btn:hover, input#commit-button:hover, input#complete-purchase:hover {
     transition: all 0.2s; }
 
 /**
@@ -5498,7 +5498,7 @@ a {
 	* @markup
 	* <a class="btn btn--primary">This is a button</a>
 	*/
-.btn--primary, .btn--inverted, .nav--btn--secondary li a, input#commit-button, input#complete-purchase {
+.btn--primary, .btn--inverted, .nav--btn--secondary li a, input[type=submit], #create-account-btn, input#commit-button, input#complete-purchase {
   background: #799d4b;
   color: #ffffff;
   padding-left: 3em;
@@ -5506,10 +5506,10 @@ a {
   line-height: 3.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
-  .btn--primary:hover, .btn--inverted:hover, .nav--btn--secondary li a:hover, input#commit-button:hover, input#complete-purchase:hover {
+  .btn--primary:hover, .btn--inverted:hover, .nav--btn--secondary li a:hover, input[type=submit]:hover, #create-account-btn:hover, input#commit-button:hover, input#complete-purchase:hover {
     color: #ffffff;
     background: #497529; }
-  .btn--primary.btn--large, .btn--large.btn--inverted, input.btn--inverted#commit-button, input.btn--inverted#complete-purchase, .nav--btn--secondary li a.btn--large, input.btn--large#commit-button, input#commit-button, input.btn--large#complete-purchase, input#complete-purchase, input.btn--primary#commit-button, input#commit-button.btn--inverted, input#commit-button, input.btn--primary#complete-purchase, input#complete-purchase.btn--inverted, input#complete-purchase {
+  .btn--primary.btn--large, .btn--large.btn--inverted, input.btn--inverted[type=submit], .btn--inverted#create-account-btn, input.btn--inverted#commit-button, input.btn--inverted#complete-purchase, .nav--btn--secondary li a.btn--large, a#create-account-btn, input.btn--large[type=submit], input[type=submit], input[type=submit]#create-account-btn, input[type=submit]#commit-button, input[type=submit]#complete-purchase, .btn--large#create-account-btn, input#create-account-btn[type=submit], #create-account-btn, input.btn--large#commit-button, input#commit-button[type=submit], input#commit-button, input.btn--large#complete-purchase, input#complete-purchase[type=submit], input#complete-purchase, input.btn--primary[type=submit], input[type=submit].btn--inverted, input[type=submit], input[type=submit]#create-account-btn, input[type=submit]#commit-button, input[type=submit]#complete-purchase, .btn--primary#create-account-btn, #create-account-btn.btn--inverted, .nav--btn--secondary li a#create-account-btn, input#create-account-btn[type=submit], #create-account-btn, input.btn--primary#commit-button, input#commit-button.btn--inverted, input#commit-button[type=submit], input#commit-button, input.btn--primary#complete-purchase, input#complete-purchase.btn--inverted, input#complete-purchase[type=submit], input#complete-purchase {
     line-height: 5; }
 
 /**
@@ -5535,10 +5535,10 @@ a {
 	* @markup
 	* <a class="btn btn--tertiary">This is a button</a>
 	*/
-.btn--tertiary, .nav--btn--tertiary li a, .nav--social-bar, .island--social .nav--social, .alert .nav--social {
+.btn--tertiary, .nav--btn--tertiary li a, .nav--social-bar, .alert .nav--social {
   background: #e8efde;
   color: #799d4b; }
-  .btn--tertiary:hover, .nav--btn--tertiary li a:hover, .nav--social-bar, .island--social .nav--social, .alert .nav--social {
+  .btn--tertiary:hover, .nav--btn--tertiary li a:hover, .nav--social-bar, .alert .nav--social {
     color: #497529; }
 
 /**
@@ -5575,7 +5575,7 @@ a {
 	* @markup
 	* <a class="btn btn--inactive">This is a button</a>
 	*/
-.btn--inactive, .btn:disabled, .nav--global .menu-item-88 a:disabled, .nav--global .button a:disabled, .nav--btn--secondary li a:disabled, .nav--btn--secondary li a:disabled, .nav--btn--tertiary li a:disabled, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:disabled, .page-numbers li span:disabled, input#commit-button:disabled, input#complete-purchase:disabled, .page-numbers li .current, .btn--inactive:hover, .btn:hover:disabled, .nav--global .menu-item-88 a:hover:disabled, .nav--global .button a:hover:disabled, .nav--btn--secondary li a:hover:disabled, .nav--btn--secondary li a:hover:disabled, .nav--btn--tertiary li a:hover:disabled, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:hover:disabled, .page-numbers li span:hover:disabled, input#commit-button:hover:disabled, input#complete-purchase:hover:disabled, .page-numbers li .current:hover, .btn--inactive:active, .btn:active:disabled, .nav--global .menu-item-88 a:active:disabled, .nav--global .button a:active:disabled, .nav--btn--secondary li a:active:disabled, .nav--btn--secondary li a:active:disabled, .nav--btn--tertiary li a:active:disabled, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:active:disabled, .page-numbers li span:active:disabled, input#commit-button:active:disabled, input#complete-purchase:active:disabled, .page-numbers li .current:active, .btn--inactive:focus, .btn:focus:disabled, .nav--global .menu-item-88 a:focus:disabled, .nav--global .button a:focus:disabled, .nav--btn--secondary li a:focus:disabled, .nav--btn--secondary li a:focus:disabled, .nav--btn--tertiary li a:focus:disabled, .nav--social-bar, .island--social .nav--social, .alert .nav--social, .page-numbers li a:focus:disabled, .page-numbers li span:focus:disabled, input#commit-button:focus:disabled, input#complete-purchase:focus:disabled, .page-numbers li .current:focus {
+.btn--inactive, .btn:disabled, .nav--global .menu-item-88 a:disabled, .nav--global .button a:disabled, .nav--btn--secondary li a:disabled, .nav--btn--secondary li a:disabled, .nav--btn--tertiary li a:disabled, .nav--social-bar, .alert .nav--social, .page-numbers li a:disabled, .page-numbers li span:disabled, input[type=submit]:disabled, #create-account-btn:disabled, input#commit-button:disabled, input#complete-purchase:disabled, .page-numbers li .current, .btn--inactive:hover, .btn:hover:disabled, .nav--global .menu-item-88 a:hover:disabled, .nav--global .button a:hover:disabled, .nav--btn--secondary li a:hover:disabled, .nav--btn--secondary li a:hover:disabled, .nav--btn--tertiary li a:hover:disabled, .nav--social-bar, .alert .nav--social, .page-numbers li a:hover:disabled, .page-numbers li span:hover:disabled, input[type=submit]:hover:disabled, #create-account-btn:hover:disabled, input#commit-button:hover:disabled, input#complete-purchase:hover:disabled, .page-numbers li .current:hover, .btn--inactive:active, .btn:active:disabled, .nav--global .menu-item-88 a:active:disabled, .nav--global .button a:active:disabled, .nav--btn--secondary li a:active:disabled, .nav--btn--secondary li a:active:disabled, .nav--btn--tertiary li a:active:disabled, .nav--social-bar, .alert .nav--social, .page-numbers li a:active:disabled, .page-numbers li span:active:disabled, input[type=submit]:active:disabled, #create-account-btn:active:disabled, input#commit-button:active:disabled, input#complete-purchase:active:disabled, .page-numbers li .current:active, .btn--inactive:focus, .btn:focus:disabled, .nav--global .menu-item-88 a:focus:disabled, .nav--global .button a:focus:disabled, .nav--btn--secondary li a:focus:disabled, .nav--btn--secondary li a:focus:disabled, .nav--btn--tertiary li a:focus:disabled, .nav--social-bar, .alert .nav--social, .page-numbers li a:focus:disabled, .page-numbers li span:focus:disabled, input[type=submit]:focus:disabled, #create-account-btn:focus:disabled, input#commit-button:focus:disabled, input#complete-purchase:focus:disabled, .page-numbers li .current:focus {
   background: none;
   color: rgba(113, 114, 114, 0.2);
   cursor: text;
@@ -5641,7 +5641,7 @@ a {
 
 
     */
-.nav .current-menu-item a, .nav .current-menu-item .page-numbers, .nav .current-menu-item .nav--social-bar, .nav .current-menu-item .island--social .nav--social, .island--social .nav .current-menu-item .nav--social, .nav .current-menu-item .alert .nav--social, .alert .nav .current-menu-item .nav--social {
+.nav .current-menu-item a, .nav .current-menu-item .page-numbers, .nav .current-menu-item .nav--social-bar, .nav .current-menu-item .alert .nav--social, .alert .nav .current-menu-item .nav--social {
   color: #497529; }
 
 .nav--global {
@@ -5768,36 +5768,36 @@ a {
             * <li><a>This is a list item</a></li>
             * </ul>
             */
-.nav--btn li, .nav--btn .nav--social-bar, .nav--btn .island--social .nav--social, .island--social .nav--btn .nav--social, .nav--btn .alert .nav--social, .alert .nav--btn .nav--social {
+.nav--btn li, .nav--btn .nav--social-bar, .nav--btn .alert .nav--social, .alert .nav--btn .nav--social {
   margin-right: 24px;
   margin-bottom: 12px; }
   @media only screen and (max-width: 739px) {
-    .nav--btn li, .nav--btn .nav--social-bar, .nav--btn .island--social .nav--social, .island--social .nav--btn .nav--social, .nav--btn .alert .nav--social, .alert .nav--btn .nav--social, .nav--btn li a, .nav--btn li .nav--social-bar, .nav--btn li .island--social .nav--social, .island--social .nav--btn li .nav--social, .nav--btn li .alert .nav--social, .alert .nav--btn li .nav--social {
+    .nav--btn li, .nav--btn .nav--social-bar, .nav--btn .alert .nav--social, .alert .nav--btn .nav--social, .nav--btn li a, .nav--btn li .nav--social-bar, .nav--btn li .alert .nav--social, .alert .nav--btn li .nav--social {
       display: block;
       width: 100%;
       padding-left: 0;
       padding-right: 0;
       text-align: center; } }
 @media only screen and (min-width: 740px) {
-  .nav--btn.text--right li, .nav--btn.text--right .text--right.nav--social-bar, .nav--btn.text--right .island--social .text--right.nav--social, .island--social .nav--btn.text--right .text--right.nav--social, .nav--btn.text--right .alert .text--right.nav--social, .alert .nav--btn.text--right .text--right.nav--social {
+  .nav--btn.text--right li, .nav--btn.text--right .text--right.nav--social-bar, .nav--btn.text--right .alert .text--right.nav--social, .alert .nav--btn.text--right .text--right.nav--social {
     margin-right: 0;
     margin-left: 24px; } }
 
 
 
 
-.nav .has-image, .nav .page-numbers, .nav .nav--social-bar, .nav .island--social .nav--social, .island--social .nav .nav--social, .nav .alert .nav--social, .alert .nav .nav--social {
+.nav .has-image, .nav .page-numbers, .nav .nav--social-bar, .nav .alert .nav--social, .alert .nav .nav--social {
   padding-right: 5px; }
   @media only screen and (max-width: 739px) {
     .nav .has-image {
       max-width: 180px; } }
-  .nav .has-image a, .nav .has-image .page-numbers, .nav .has-image .nav--social-bar, .nav .has-image .island--social .nav--social, .island--social .nav .has-image .nav--social, .nav .has-image .alert .nav--social, .alert .nav .has-image .nav--social, .nav .has-image img, .nav .has-image .page-numbers, .nav .has-image .nav--social-bar, .nav .has-image .island--social .nav--social, .island--social .nav .has-image .nav--social, .nav .has-image .alert .nav--social, .alert .nav .has-image .nav--social {
+  .nav .has-image a, .nav .has-image .page-numbers, .nav .has-image .nav--social-bar, .nav .has-image .alert .nav--social, .alert .nav .has-image .nav--social, .nav .has-image img, .nav .has-image .page-numbers, .nav .has-image .nav--social-bar, .nav .has-image .alert .nav--social, .alert .nav .has-image .nav--social {
     display: block;
     width: 100%; }
-  .nav .has-image a, .nav .has-image .page-numbers, .nav .has-image .nav--social-bar, .nav .has-image .island--social .nav--social, .island--social .nav .has-image .nav--social, .nav .has-image .alert .nav--social, .alert .nav .has-image .nav--social {
+  .nav .has-image a, .nav .has-image .page-numbers, .nav .has-image .nav--social-bar, .nav .has-image .alert .nav--social, .alert .nav .has-image .nav--social {
     padding-right: 3px;
     transition: opacity, 0.2; }
-  .nav .has-image:last-of-type a, .nav .has-image:last-of-type .page-numbers, .nav .has-image:last-of-type .nav--social-bar, .nav .has-image:last-of-type .island--social .nav--social, .island--social .nav .has-image:last-of-type .nav--social, .nav .has-image:last-of-type .alert .nav--social, .alert .nav .has-image:last-of-type .nav--social {
+  .nav .has-image:last-of-type a, .nav .has-image:last-of-type .page-numbers, .nav .has-image:last-of-type .nav--social-bar, .nav .has-image:last-of-type .alert .nav--social, .alert .nav .has-image:last-of-type .nav--social {
     padding-right: 0; }
 
 /**
@@ -5807,11 +5807,15 @@ a {
             *   <div class="nav--fit">markup</div>
             */
 
-.page-numbers li a, .page-numbers li span {
-  padding: 0 1em; }
-.page-numbers li .next, .page-numbers li .prev {
-  margin: 0 24px;
-  padding: 0 1.5em; }
+.page-numbers {
+  margin-bottom: 24px; }
+  .page-numbers li {
+    display: inline-block; }
+    .page-numbers li a, .page-numbers li span {
+      padding: 0 1em; }
+    .page-numbers li .next, .page-numbers li .prev {
+      margin: 0 24px;
+      padding: 0 1.5em; }
 
 .nav--social {
   margin-bottom: 0; }
@@ -5831,17 +5835,17 @@ a {
         font-size: 20px;
         font-size: 1.25rem;
         line-height: 1.2; } }
-  .island--social .nav--social li, .alert .nav--social li {
+  .alert .nav--social li {
     margin-bottom: 0; }
 
-.nav--social-bar li, .nav--social-bar .island--social .nav--social, .island--social .nav--social-bar .nav--social, .nav--social-bar .alert .nav--social, .alert .nav--social-bar .nav--social {
+.nav--social-bar li, .nav--social-bar .alert .nav--social, .alert .nav--social-bar .nav--social {
   display: inline-block;
-  width: auto; }
-  .nav--social-bar li a, .nav--social-bar li .island--social .nav--social, .island--social .nav--social-bar li .nav--social, .nav--social-bar li .alert .nav--social, .alert .nav--social-bar li .nav--social {
+  width: 42px; }
+  .nav--social-bar li a, .nav--social-bar li .alert .nav--social, .alert .nav--social-bar li .nav--social {
     height: 42px;
     width: 42px;
     position: relative; }
-    .nav--social-bar li a i, .nav--social-bar li a .island--social .nav--social, .island--social .nav--social-bar li a .nav--social, .nav--social-bar li a .alert .nav--social, .alert .nav--social-bar li a .nav--social, .nav--social-bar li a:before, .nav--social-bar li .island--social .nav--social, .island--social .nav--social-bar li .nav--social, .nav--social-bar li .alert .nav--social, .alert .nav--social-bar li .nav--social {
+    .nav--social-bar li a i, .nav--social-bar li a .alert .nav--social, .alert .nav--social-bar li a .nav--social, .nav--social-bar li a:before, .nav--social-bar li .alert .nav--social, .alert .nav--social-bar li .nav--social {
       font-size: 18px;
       font-size: 1.125rem;
       line-height: 1.33333; }
@@ -5995,7 +5999,7 @@ h1#tagline:before {
 
 /* Undo background and gradient
 body, #main, #container, #header, #footer {
-  background: #fff !important;
+background: #fff !important;
 }
 
 /* Undo overview background and borders */
@@ -6047,7 +6051,7 @@ form #email label, form #addresses h3, form #addresses #container.step1 #tagline
   border: none; }
 form input[type=checkbox] {
   text-align: left !important; }
-form input[type=email], form input[type=text], form textarea {
+form input[type=password], form input[type=email], form input[type=text], form textarea {
   transition: background 0.2s;
   width: 100% !important;
   background: #fbfbfb;
@@ -6059,7 +6063,7 @@ form input[type=email], form input[type=text], form textarea {
   font-size: 20px;
   padding-left: 12px;
   border-radius: 3px; }
-  form input[type=email]:focus, form input[type=email]:active, form input[type=text]:focus, form input[type=text]:active, form textarea:focus, form textarea:active {
+  form input[type=password]:focus, form input[type=password]:active, form input[type=email]:focus, form input[type=email]:active, form input[type=text]:focus, form input[type=text]:active, form textarea:focus, form textarea:active {
     background: #ffffff; }
 form #email input, form #email .field-with-errors {
   width: 45% !important; }
@@ -6113,7 +6117,7 @@ tr#billing-is-shipping td label, #marketing-box label {
     right: 100%;
     left: auto; }
 
-input#commit-button, input#complete-purchase {
+input[type=submit], #create-account-btn, input#commit-button, input#complete-purchase {
   font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", sans-serif;
   font-weight: 500 !important;
   font-size: 16px; }

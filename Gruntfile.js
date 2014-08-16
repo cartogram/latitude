@@ -19,10 +19,10 @@ module.exports = function (grunt) {
     // Add shopify theme url here
     var config = {
         app: 'app',
-        dist: 'ecobee-8215305/assets',
-        snippets: 'ecobee-8215305/snippets',
-        dist2: 'ecobee-2-8384081/assets',
-        snippets2: 'ecobee-2-8384081/snippets'
+        dist: '../ecobee-8427649/assets',
+        snippets: '../ecobee-8427649/snippets',
+        dist2: '../ecobee-2-8427661/assets',
+        snippets2: '../ecobee-2-8427661/snippets'
     };
 
     // Define the configuration for all the tasks
@@ -65,7 +65,7 @@ module.exports = function (grunt) {
             },
             styles2: {
                 files: ['<%= config.dist2 %>/{,*/}*.css'],
-                tasks: ['cssmin:minify']
+                tasks: ['cssmin:minify2']
             },
             livereload: {
                 options: {
