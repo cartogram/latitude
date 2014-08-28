@@ -19,10 +19,8 @@ module.exports = function (grunt) {
     // Add shopify theme url here
     var config = {
         app: 'app',
-        dist: '../ecobee-8427649/assets',
-        snippets: '../ecobee-8427649/snippets',
-        dist2: '../ecobee-2-8427661/assets',
-        snippets2: '../ecobee-2-8427661/snippets'
+        dist: '../bow/assets',
+        snippets: '../bow/snippets',
     };
 
     // Define the configuration for all the tasks
@@ -33,10 +31,6 @@ module.exports = function (grunt) {
 
         // Watches files for changes and runs tasks based on the changed files
         watch: {
-            // bower: {
-            //     files: ['bower.json'],
-            //     tasks: ['bowerInstall']
-            // },
             js: {
                 files: ['<%= config.app %>/scripts/{,*/}*.js'],
                 tasks: ['jshint', 'concat', 'uglify'],
@@ -57,15 +51,11 @@ module.exports = function (grunt) {
             },
             images: {
                 files: ['<%= config.app %>/images/{,*/}*.svg'],
-                tasks: ['svgstore', 'svgstore:ecobee2']
+                tasks: ['svgstore']
             },
             styles: {
                 files: ['<%= config.dist %>/{,*/}*.css'],
                 tasks: ['cssmin:minify']
-            },
-            styles2: {
-                files: ['<%= config.dist2 %>/{,*/}*.css'],
-                tasks: ['cssmin:minify2']
             },
             livereload: {
                 options: {
@@ -133,16 +123,6 @@ module.exports = function (grunt) {
                     ]
                 }]
             },
-            dist2: {
-                files: [{
-                    dot: true,
-                    src: [
-                        '.tmp',
-                        '<%= config.dist2 %>/*',
-                        '!<%= config.dist2 %>/.git*'
-                    ]
-                }]
-            },
             server: '.tmp'
         },
 
@@ -174,8 +154,7 @@ module.exports = function (grunt) {
         sass: {
             options: {
                 includePaths: [
-                    'bower_components',
-                    '../../app/themes/ecobee/scss'
+                    'bower_components'
                 ]
             },
             dist: {
@@ -200,14 +179,6 @@ module.exports = function (grunt) {
                     cwd: '<%= config.app %>/styles',
                     src: '{,*/}*.css',
                     dest: '<%= config.dist %>'
-                }]
-            },
-            dist2: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= config.app %>/styles',
-                    src: '{,*/}*.css',
-                    dest: '<%= config.dist2 %>'
                 }]
             }
         },
@@ -266,14 +237,6 @@ module.exports = function (grunt) {
                     src: '{,*/}*.{gif,jpeg,jpg,png}',
                     dest: '<%= config.dist %>/images'
                 }]
-            },
-            dist2: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= config.app %>/images',
-                    src: '{,*/}*.{gif,jpeg,jpg,png}',
-                    dest: '<%= config.dist2 %>/images'
-                }]
             }
         },
 
@@ -319,26 +282,12 @@ module.exports = function (grunt) {
                         '<%= config.dist %>/style.css'
                     ]
                 }
-            },
-            dist2: {
-                files: {
-                    '<%= config.dist2 %>/style.css.liquid': [
-                        '<%= config.dist2 %>/style.css'
-                    ]
-                }
-            },
+            }
             minify: {
                 expand: true,
                 cwd: '<%= config.dist %>',
                 src: ['*.css'],
                 dest: '<%= config.dist %>',
-                ext: '.css.liquid'
-            },
-            minify2: {
-                expand: true,
-                cwd: '<%= config.dist2 %>',
-                src: ['*.css'],
-                dest: '<%= config.dist2 %>',
                 ext: '.css.liquid'
             }
         },
@@ -349,37 +298,15 @@ module.exports = function (grunt) {
                         '<%= config.dist %>/scripts.js'
                     ]
                 }
-            },
-            dist2: {
-                files: {
-                    '<%= config.dist2 %>/scripts.js.liquid': [
-                        '<%= config.dist2 %>/scripts.js'
-                    ]
-                }
             }
         },
         concat: {
             dist: {
                 src: [
                     'bower_components/jquery/dist/jquery.js',
-                    'bower_components/jquery.easing/js/jquery.easing.js',
-                    'bower_components/sly/dist/sly.js',
-                    'bower_components/ButtonComponentMorph/js/uiMorphingButton_fixed.js',
-                    'bower_components/classie/classie.js',
                     '<%= config.app %>/scripts/{,*/}*.js'
                 ],
                 dest: '<%= config.dist %>/scripts.js'
-            },
-            dist2: {
-                src: [
-                    'bower_components/jquery/dist/jquery.js',
-                    'bower_components/jquery.easing/js/jquery.easing.js',
-                    'bower_components/sly/dist/sly.js',
-                    'bower_components/ButtonComponentMorph/js/uiMorphingButton_fixed.js',
-                    'bower_components/classie/classie.js',
-                    '<%= config.app %>/scripts/{,*/}*.js'
-                ],
-                dest: '<%= config.dist2 %>/scripts.js'
             }
         },
 
@@ -423,18 +350,6 @@ module.exports = function (grunt) {
                     ]
                 },
                 uglify: true
-            },
-            dist2: {
-                devFile: 'bower_components/modernizr/modernizr.js',
-                outputFile: '<%= config.dist2 %>/scripts/modernizr.js',
-                files: {
-                    src: [
-                        '<%= config.dist %>/scripts/{,*/}*.js',
-                        '<%= config.dist %>/styles/{,*/}*.css',
-                        '!<%= config.dist %>/scripts/vendor/*'
-                    ]
-                },
-                uglify: true
             }
         },
         // Create DEF File for inline svg-ing
@@ -445,14 +360,7 @@ module.exports = function (grunt) {
                         '<%= config.app %>/images/{,*/}*.svg'
                     ],
                 },
-            },
-            ecobee2 : {
-                files: {
-                    '<%= config.snippets %>/svg-defs.liquid': [
-                        '<%= config.app %>/images/{,*/}*.svg'
-                    ],
-                },
-            },
+            }
         },
 
         // Run some tasks in parallel to speed up build process
