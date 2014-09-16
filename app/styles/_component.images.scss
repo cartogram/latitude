@@ -1,0 +1,54 @@
+
+    /**
+    * Import Mixins to provide modules with exports.
+    * List other required modules here.
+    */
+
+    @import "component.mixins";
+
+    /*------------------------------------*\
+
+    /**
+    * Variables
+    */
+
+
+    /*------------------------------------*\
+
+    /**
+    * @title Images
+    */
+
+
+    /**
+    *   All Logic pertaining to the top back horizontal navigation
+    *   should go in this file.
+    */
+
+    /*------------------------------------*\
+
+    $Images Area
+
+    */
+
+    @include exports("images") {
+
+        figure {
+            margin:0;
+            padding:0;
+            position:relative;
+        }
+        // Get rid of gap under images by making them display: inline-block; by default
+        img {
+            display: inline-block;
+            vertical-align: middle;
+            max-width: 100%;
+            height: auto;
+        }
+
+
+
+    }
+    /**
+     * End Images
+     */

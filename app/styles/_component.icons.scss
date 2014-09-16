@@ -1,0 +1,81 @@
+
+
+/**
+* Import Mixins to provide modules with exports.
+* List other required modules here.
+*/
+
+@import "component.mixins";
+
+/*------------------------------------*\
+
+/**
+* Variables
+*/
+
+$black : #000000 !default;
+$white : #FFFFFF !default;
+$diamond-size: 55px !default;
+
+
+/*------------------------------------*\
+
+/**
+* @title Icons
+*/
+
+
+/**
+*   All Logic pertaining to the top back horizontal navigation
+*   should go in this file.
+*/
+
+/*------------------------------------*\
+
+$Icons Area
+
+*/
+
+@include exports("icons") {
+
+    i {
+        font-style:none;
+    }
+
+    /**
+    * Icon Sizes
+    */
+
+    %icon--micro {
+        svg {
+            height:11px !important;
+            width:11px !important;
+        }
+    }
+
+    %icon--milli {
+        svg {
+            height:15px !important;
+            width:15px !important;
+        }
+    }
+
+    %icon--alpha {
+        &, svg {
+            width:90px;
+            height:auto;
+        }
+    }
+
+    %icon--beta {
+        svg {
+            height:auto;
+            width:53px;
+        }
+    }
+
+
+}
+/**
+* End Icons
+*/

@@ -1,170 +1,105 @@
-/*global UIMorphingButton:false, classie:fase */
-jQuery(function($){
-	'use strict';
-
-	// -------------------------------------------------------------
-	//   One Item Per Frame
-	// -------------------------------------------------------------
-
-	(function () {
-		var $frame = $('#oneperframe');
-		var $wrap  = $frame.parent();
-
-		// Call Sly on frame
-		$frame.sly({
-			horizontal: 1,
-			itemNav: 'forceCentered',
-			activateMiddle: 1,
-			mouseDragging: 1,
-			touchDragging: 1,
-			releaseSwing: 1,
-			startAt: 0,
-			scrollBy: 0,
-			speed: 300,
-			elasticBounds: 1,
-			easing: 'easeOutExpo',
-			pagesBar: $wrap.find('.slideshow__pagination'),
-			activatePageOn: 'click', // Event used to activate page. Can be: click, mouseenter, ...
-			pageBuilder:          // Page item generator.
-			function (index) {
-				return '<span>' + (index + 1) + '</span>';
-			}
-		});
+'use strict';
 
 
-	}());
 
-	(function() {
-		var docElem = window.document.documentElement, didScroll, scrollPosition;
+/*
+* Define an application module which needs external directives (someDirectives.js).
+* The application should set the $interpolateProvider start and end syntax, like : #{foo.bar}
+* It will need to be minified later.
+*/
+angular.module('bow', [
+    'lat.cart'
+])
+.config(['$interpolateProvider',function ($interpolateProvider) {
+	$interpolateProvider.startSymbol('{[{').endSymbol('}]}');
+}])
 
-		// trick to prevent scrolling when opening/closing button
-		function noScrollFn() {
-			window.scrollTo( scrollPosition ? scrollPosition.x : 0, scrollPosition ? scrollPosition.y : 0 );
+
+// other app code, you could safely apply app.config here
+
+
+
+// .run(function ($rootScope) {
+//
+// 	var date = new Date(),
+// 	hours = date.getHours(),
+// 	minutes = date.getMinutes(),
+// 	seconds = date.getSeconds(),
+// 	formattedTime = hours + ':' + minutes + ':' + seconds;
+//
+// 	console.info('app is started' + formattedTime);
+//
+// 	$rootScope.siteWideState = 'site-state--ready';
+// 	FastClick.attach(document.body);
+//
+//
+// })
+
+/**
+* @ngdoc directive
+* @name bow-swiper
+* @description
+*
+* Simple Directive to wrap Fix the swiper plugin.
+*
+*/
+
+.directive('bowSwiper', [function () {
+	return {
+		restrict: 'A',
+		link: function (scope, $elm) {
+			var swiper;
+			swiper = $elm.swiper({
+				// pagination: $elm.parent().find('.slideshow__pagination')[0],
+				// paginationClickable:true,
+				keyboardControl: true,
+				calculateHeight: true,
+				simulateTouch: true,
+				grabCursor: true,
+				autoplayDisableOnInteraction : true,
+				autoplay: 5000
+			});
 		}
-
-		function noScroll() {
-			window.removeEventListener( 'scroll', scrollHandler );
-			window.addEventListener( 'scroll', noScrollFn );
-		}
-
-		function scrollFn() {
-			window.addEventListener( 'scroll', scrollHandler );
-		}
-
-		function canScroll() {
-			window.removeEventListener( 'scroll', noScrollFn );
-			scrollFn();
-		}
-
-		function scrollHandler() {
-			if( !didScroll ) {
-				didScroll = true;
-				setTimeout( function() { scrollPage(); }, 60 );
-			}
-		}
-
-		function scrollPage() {
-			scrollPosition = { x : window.pageXOffset || docElem.scrollLeft, y : window.pageYOffset || docElem.scrollTop };
-			didScroll = false;
-		}
-
-		scrollFn();
-
-		[].slice.call( document.querySelectorAll( '.morph-button' ) ).forEach( function( bttn ) {
-			new UIMorphingButton( bttn, {
-				closeEl : '.icon-close',
-				onBeforeOpen : function() {
-					// don't allow to scroll
-					noScroll();
-				},
-				onAfterOpen : function() {
-					// can scroll again
-					canScroll();
-				},
-				onBeforeClose : function() {
-					// don't allow to scroll
-					noScroll();
-				},
-				onAfterClose : function() {
-					// can scroll again
-					canScroll();
-				}
-			} );
-		} );
-
-		// for demo purposes only
-		[].slice.call( document.querySelectorAll( 'form button' ) ).forEach( function( bttn ) {
-			bttn.addEventListener( 'click', function( ev ) { ev.preventDefault(); } );
-		} );
-	})();
-
-	(function() {
-		var docElem = window.document.documentElement, didScroll, scrollPosition;
-
-		// trick to prevent scrolling when opening/closing button
-		function noScrollFn() {
-			window.scrollTo( scrollPosition ? scrollPosition.x : 0, scrollPosition ? scrollPosition.y : 0 );
-		}
-
-		function noScroll() {
-			window.removeEventListener( 'scroll', scrollHandler );
-			window.addEventListener( 'scroll', noScrollFn );
-		}
-
-		function scrollFn() {
-			window.addEventListener( 'scroll', scrollHandler );
-		}
-
-		function canScroll() {
-			window.removeEventListener( 'scroll', noScrollFn );
-			scrollFn();
-		}
-
-		function scrollHandler() {
-			if( !didScroll ) {
-				didScroll = true;
-				setTimeout( function() { scrollPage(); }, 60 );
-			}
-		}
-
-		function scrollPage() {
-			scrollPosition = { x : window.pageXOffset || docElem.scrollLeft, y : window.pageYOffset || docElem.scrollTop };
-			didScroll = false;
-		}
-
-		scrollFn();
-
-		[].slice.call( document.querySelectorAll( '.morph-button' ) ).forEach( function( bttn ) {
-
-			new UIMorphingButton( bttn, {
-				closeEl : '.icon-close',
-				onBeforeOpen : function() {
-					// don't allow to scroll
-					noScroll();
-				},
-				onAfterOpen : function() {
-					// can scroll again
-					canScroll();
-					// add class "noscroll" to body
-					classie.addClass( document.body, 'noscroll' );
-					// add scroll class to main bttn
-					classie.addClass( bttn, 'scroll' );
-				},
-				onBeforeClose : function() {
-					// remove class "noscroll" to body
-					classie.removeClass( document.body, 'noscroll' );
-					// remove scroll class from main bttn
-					classie.removeClass( bttn, 'scroll' );
-					// don't allow to scroll
-					noScroll();
-				},
-				onAfterClose : function() {
-					// can scroll again
-					canScroll();
-				}
-			} );
-		} );
-	})();
+	};
+}])
 
 
-});
+
+/**
+* @ngdoc directive
+* @name bowInstagram
+* @description
+*
+* Simple Directive pull in instragm posts.
+*
+*/
+//
+// .directive('bowInstagram', [function () {
+// 	return {
+// 		restrict: 'A',
+// 		template : '<div class="row"><div class="columns medium-2"><h4>Bikes On Wheels</h4></div><div class="columns medium-2" ng-repeat="instagram in instagrams"><img ng-src="{{instagram.images.thumbnail.url}}"/></div></div>',
+// 		controller: function ($scope, $element) {
+// 			$element.instagram({
+// 				userId: 48494451,
+// 				count:5,
+// 				accessToken: '48494451.1ce2de8.fc3b2938becd48d09f642deb4a86e987'
+// 			});
+// 			$element.on('willLoadInstagram', function (event, options) {
+// 				console.log(options);
+// 			});
+// 			$element.on('didLoadInstagram', function (event, response) {
+// 				console.log('test');
+// 				console.log(response);
+// 				$scope.instagrams = [];
+// 				angular.forEach(response.data, function (instagram) {
+// 					$scope.instagrams.push(instagram);
+// 					console.log(instagram);
+// 				});
+// 				console.log($scope.instagrams);
+// 				$scope.$apply();
+// 			});
+// 		}
+// 	};
+// }])
+
+;

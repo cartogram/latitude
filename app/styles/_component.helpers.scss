@@ -1,0 +1,105 @@
+
+    /**
+    * Import Mixins to provide modules with exports.
+    * List other required modules here.
+    */
+
+    @import "component.mixins";
+
+    /*------------------------------------*\
+
+    /**
+    * Variables
+    */
+
+
+    /*------------------------------------*\
+
+    /**
+    * @title Helpers
+    */
+
+    @include exports("helpers") {
+
+
+
+        /**
+        * @name %Centered--Vertical
+        * @description Style for the %centered--vertical element
+        * @markup
+        *   <%centered--vertical>Markup</%centered--vertical>
+        */
+
+        %centered--vertical {
+            top:50%;
+            transform:translateY(-50%);
+            position:absolute;
+        }
+
+        /**
+        * @name %Centered--Horizontal
+        * @description Style for the %centered--vertical element
+        * @markup
+        *   <%centered--vertical>Markup</%centered--vertical>
+        */
+        %centered--horizontal {
+            left:50%;
+            transform:translateX(-50%);
+            position:absolute;
+        }
+
+        /**
+        * @name %Centered
+        * @description Style for the %centered element
+        * @markup
+        *   <%centered>Markup</%centered>
+        */
+
+        %centered {
+            left:50%;
+            top:50%;
+            transform:translate(-50%, -50%);
+            position:absolute;
+        }
+
+        /**
+        * @name %Fill--Height
+        * @description Style for the %fill--height element
+        * @markup
+        *   <%fill--height>Markup</%fill--height>
+        */
+
+        %fill--height {
+            position:absolute;
+            top:0;
+            bottom:0;
+            height: auto;
+        }
+
+        /**
+        * @name %Fill--Width
+        * @description Style for the %fill--width element
+        * @markup
+        *   <%fill--width>Markup</%fill--width>
+        */
+
+        %fill--width {
+            position:absolute;
+            left:0;
+            right:0;
+            width: auto;
+        }
+
+        /**
+        * @name %Fill
+        * @description Style for the %fill element
+        * @markup
+        *   <%fill>Markup</%fill>
+        */
+
+        %fill {
+            @extend %fill--width;
+            @extend %fill--height;
+        }
+
+    }

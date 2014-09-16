@@ -19,8 +19,9 @@ module.exports = function (grunt) {
     // Add shopify theme url here
     var config = {
         app: 'app',
-        dist: '../bow/assets',
-        snippets: '../bow/snippets',
+        theme:'../bikes-on-wheels-2-10385219',
+        dist: '../bikes-on-wheels-2-10385219/assets',
+        snippets: '../bikes-on-wheels-2-10385219/snippets'
     };
 
     // Define the configuration for all the tasks
@@ -33,7 +34,7 @@ module.exports = function (grunt) {
         watch: {
             js: {
                 files: ['<%= config.app %>/scripts/{,*/}*.js'],
-                tasks: ['jshint', 'concat', 'uglify'],
+                tasks: ['jshint:all', 'concat',  'ngAnnotate', 'uglify'],
                 options: {
                     livereload: true
                 }
@@ -66,6 +67,15 @@ module.exports = function (grunt) {
                     '.tmp/styles/{,*/}*.css',
                     '<%= config.app %>/images/{,*/}*'
                 ]
+            },
+            shopify: {
+                files: [
+                    '<%= config.theme %>/assets/**',
+                    '<%= config.theme %>/snippets/**',
+                    '<%= config.theme %>/layout/**',
+                    '<%= config.theme %>/templates/**'
+                ],
+                tasks: ['shopify']
             }
         },
 
@@ -80,7 +90,7 @@ module.exports = function (grunt) {
             },
             livereload: {
                 options: {
-                    middleware: function(connect) {
+                    middleware: function (connect) {
                         return [
                             connect.static('.tmp'),
                             connect().use('/bower_components', connect.static('./bower_components')),
@@ -132,8 +142,10 @@ module.exports = function (grunt) {
                 jshintrc: '.jshintrc',
                 reporter: require('jshint-stylish')
             },
+            GruntFile: [
+                'Gruntfile.js'
+            ],
             all: [
-                'Gruntfile.js',
                 '<%= config.app %>/scripts/{,*/}*.js',
                 '!<%= config.app %>/scripts/vendor/*',
                 'test/spec/{,*/}*.js'
@@ -154,7 +166,7 @@ module.exports = function (grunt) {
         sass: {
             options: {
                 includePaths: [
-                    'bower_components'
+                    'bower_components/foundation/scss'
                 ]
             },
             dist: {
@@ -229,16 +241,16 @@ module.exports = function (grunt) {
         // },
 
         // The following *-min tasks produce minified files in the dist folder
-        imagemin: {
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= config.app %>/images',
-                    src: '{,*/}*.{gif,jpeg,jpg,png}',
-                    dest: '<%= config.dist %>/images'
-                }]
-            }
-        },
+        // imagemin: {
+        //     dist: {
+        //         files: [{
+        //             expand: true,
+        //             cwd: '<%= config.app %>/images',
+        //             src: '{,*/}*.{gif,jpeg,jpg,png}',
+        //             dest: '<%= config.dist %>/images'
+        //         }]
+        //     }
+        // },
 
         svgmin: {
             dist: {
@@ -282,7 +294,7 @@ module.exports = function (grunt) {
                         '<%= config.dist %>/style.css'
                     ]
                 }
-            }
+            },
             minify: {
                 expand: true,
                 cwd: '<%= config.dist %>',
@@ -292,10 +304,14 @@ module.exports = function (grunt) {
             }
         },
         uglify: {
+            options: {
+                mangle: true,
+                sourceMap : false
+            },
             dist: {
                 files: {
                     '<%= config.dist %>/scripts.js.liquid': [
-                        '<%= config.dist %>/scripts.js'
+                        '<%= config.dist %>/scripts.js.liquid'
                     ]
                 }
             }
@@ -304,9 +320,39 @@ module.exports = function (grunt) {
             dist: {
                 src: [
                     'bower_components/jquery/dist/jquery.js',
-                    '<%= config.app %>/scripts/{,*/}*.js'
+                    'bower_components/angular/angular.js',
+                    'bower_components/swiper/src/idangerous.swiper.js',
+                    '<%= config.app %>/scripts/cart.js',
+                    '<%= config.app %>/scripts/script.js'
                 ],
                 dest: '<%= config.dist %>/scripts.js'
+            }
+        },
+
+        // ngmin tries to make the code safe for minification automatically by
+        // using the Angular long form for dependency injection. It doesn't work on
+        // things like resolve or inject so those have to be done manually.
+        ngAnnotate: {
+            options: {
+                singleQuotes: true,
+            },
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= config.dist %>',
+                    src: 'scripts.js',
+                    ext: '.js.liquid',
+                    dest: '<%= config.dist %>'
+                }]
+            }
+        },
+
+        shopify: {
+            options: {
+                api_key: 'ef395c6764a48a68887522090392b090',
+                password: '0ccdd74708ab1b4c1b0bec0348cc6700',
+                url: 'bikes-on-wheels-2.myshopify.com',
+                base: '../bikes-on-wheels-2-10385219/'
             }
         },
 
@@ -375,7 +421,7 @@ module.exports = function (grunt) {
             dist: [
                 'sass',
                 'copy:styles',
-                'imagemin',
+                // 'imagemin',
                 'svgmin'
             ]
         }

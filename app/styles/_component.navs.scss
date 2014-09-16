@@ -1,0 +1,118 @@
+
+/**
+* Import Mixins to provide modules with exports.
+* List other required modules here.
+*/
+
+@import "component.mixins";
+
+/*------------------------------------*\
+
+/**
+* Variables
+*/
+
+$white : #ffffff !default;
+$base-spacing-unit:  rem-calc(30) !default;
+
+/*------------------------------------*\
+
+/**
+* @title Navs
+*/
+
+/*------------------------------------*\
+
+*/
+
+@include exports("navs") {
+
+
+    ul,
+    ol,
+    dl {
+        margin-bottom: $base-spacing-unit;
+        list-style:none;
+    }
+
+
+    .nav {
+        list-style:none;
+        margin-left:-$base-spacing-unit;
+        > li{
+            padding-left:$base-spacing-unit;
+            margin-bottom:$base-spacing-unit/2;
+            font-size: $milli;
+            &,
+            > a{
+                display:inline-block;
+                *display:inline;
+                zoom:1;
+            }
+        }
+
+    }
+
+        .nav__heading {
+            text-transform:uppercase;
+            font-weight:$font-weight-bold;
+        }
+
+        .nav__label {
+            font-weight:$font-weight-bold;
+        }
+
+    .nav--global {
+        text-align:center;
+        margin:0;
+        li {
+            line-height:rem-calc(100);
+            text-align:left;
+            position:relative
+        }
+        a {
+            line-height:rem-calc(100);
+            border-bottom:none;
+            text-transform:uppercase;
+            font-weight:$font-weight-bold;
+        }
+
+        ul {
+            position:absolute;
+            top:55%;
+            z-index: index($elements,nav__dropdown);
+            li {
+                line-height:1;
+            }
+            a {
+                line-height:1;
+                text-transform:none;
+            }
+        }
+
+
+
+    }
+
+    .nav--social {
+
+    }
+
+    .nav--stacked {
+
+        li {
+            display:block;
+        }
+    }
+
+    .nav--linklist {
+        li {
+            display:block;
+            float:left;
+            width:25%;
+        }
+    }
+
+
+
+}

@@ -1,0 +1,49 @@
+
+/**
+* Import Mixins to provide modules with exports.
+* List other required modules here.
+*/
+
+@import "component.mixins";
+
+/*------------------------------------*\
+
+/**
+* Variables
+*/
+
+
+/*------------------------------------*\
+
+/**
+* @title Lists
+*/
+
+
+/**
+*   All Logic pertaining to the top back horizontal navigation
+*   should go in this file.
+*/
+
+/*------------------------------------*\
+
+*/
+
+@include exports("collections") {
+
+    .collection__grid {
+        @include block-grid(
+        // This controls how many elements will be on each row of the block grid. Set this to whatever number you need, up to the max allowed in the variable.
+        // Available options: 1-12 by default, and false.
+        $per-row: 2,
+
+        // This controls how much space is between each item in the block grid.
+        // Use a variable or any pixel or em values.
+        $spacing: $block-grid-default-spacing,
+
+        // This controls whether or not base styles come through, set to false to leave out.
+        $base-style: true
+        );
+    }
+
+}

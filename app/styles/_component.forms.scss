@@ -1,0 +1,175 @@
+
+    /**
+    * Import Mixins to provide modules with exports.
+    * List other required modules here.
+    */
+
+    @import "component.mixins";
+
+    /*------------------------------------*\
+
+    /**
+    * Variables
+    */
+
+
+    /*------------------------------------*\
+
+    /**
+    * @title Forms
+    */
+
+
+    /**
+    *   All Logic pertaining to the top back horizontal navigation
+    *   should go in this file.
+    */
+
+    /*------------------------------------*\
+
+    $Forms Area
+
+    */
+
+    @include exports("forms") {
+
+
+
+    /**
+      * @name Input, Textarea
+      * @description Style for the input, textarea element
+      * @markup
+      *   <input, textarea>Markup</input, textarea>
+      */
+
+    input, textarea {
+        width:100%;
+        border:1px solid transparent;
+        background:$white;
+        line-height:4;
+        color:$grey;
+        padding-left:2em;
+
+    }
+    /**
+      * @name Textarea
+      * @description Style for the textarea element
+      * @markup
+      *   <textarea>Markup</textarea>
+      */
+
+    textarea {
+        height: auto;
+        min-height: 50px;
+    }
+
+    /**
+      * @name Select
+      * @Make select elements 100% width by default
+      * @markup
+      *   <select>Markup</select>
+      */
+
+    select {
+        width: 100%;
+    }
+
+    /**
+      * @name Label
+      * @description Style for the label element
+      * @state :before - before state
+      * @markup
+      *   <label>Markup</label>
+      */
+
+    label {
+
+    }
+
+    /**
+      * @name Form
+      * @description Style for the form element
+      * @markup
+      *   <form>Markup</form>
+      */
+
+    form {
+        margin-bottom:$base-spacing-unit;
+
+        /**
+         *  Gravity Forms
+         *  -puts fields in a UL > LI
+         */
+
+        ul {
+            margin-bottom:$base-spacing-unit/4;
+        }
+        li {
+            margin:$base-spacing-unit/4 0;
+            position: relative;
+
+        }
+
+        button {
+          float:right;
+          text-align: left;
+          color:$primary;
+
+        }
+
+    }
+
+    /**
+      * @name Gform_Title
+      * @description Style for the gform_title class
+      * @markup
+      *   <div class="gform_title">markup</div>
+      */
+
+    .gform_title {
+    }
+
+
+
+
+
+
+    /**
+     *  Errors
+     */
+
+    /**
+      * @name Message
+      * @description Style for the message class
+      * @state :before - before state
+      * @markup
+      *   <div class="message">markup</div>
+      */
+
+    .message {
+
+    }
+
+    .message__error {
+        @extend .message;
+    }
+
+    %input--has-error {
+
+    }
+
+    .validation_error {
+        @extend .message__error;
+
+    }
+
+    .validation_message {
+        @extend .message__error;
+
+    }
+
+    }
+
+    /*
+    End Forms
+     */

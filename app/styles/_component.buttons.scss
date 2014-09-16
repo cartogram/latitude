@@ -1,0 +1,202 @@
+
+    /**
+    * Import Mixins to provide modules with exports.
+    * List other required modules here.
+    */
+
+    @import "component.mixins";
+
+    /*------------------------------------*\
+
+    /**
+    * Variables
+    */
+
+
+    /*------------------------------------*\
+
+    /**
+    * @title Buttons
+    */
+
+
+    /**
+    *   All Logic pertaining to the top back horizontal navigation
+    *   should go in this file.
+    */
+
+    /*------------------------------------*\
+
+    $Forms Area
+
+    */
+
+    @include exports("buttons") {
+
+
+    /**
+    * @name %Btn
+    * @description Style for the %btn element
+    * @markup
+    *   <%btn>Markup</%btn>
+    */
+
+    %btn{
+        display:inline-block;
+        vertical-align:baseline;
+        white-space:nowrap;
+        font-family:inherit;
+        font-size:100%;
+        cursor:pointer;
+        border:none;
+        margin:0;
+        padding-top:   0;
+        padding-bottom:0;
+        line-height:4 !important;
+        padding-right:2em !important;
+        padding-left: 2em !important;
+        text-transform: uppercase;
+        letter-spacing: rem-calc(2);
+        padding-top:1px;
+        font-size: $micro;
+        background:none;
+        transition:background $base-timing $base-easing;
+        z-index: 1;
+        width:auto;
+        border-radius:$site-border-radius;
+        span {
+            z-index: 1;
+            position: relative;
+        }
+    }
+
+    /**
+      * @name %Btn--Inverted
+      * @description Style for the %btn--inverted element
+      * @markup
+      *   <%btn--inverted>Markup</%btn--inverted>
+      */
+
+      %btn--inverted,
+      .btn--inverted {
+        background:$white;
+
+      }
+
+    /**
+    * @name Btn
+    * @description Style for the btn class
+    * @state ,&:hover - & hover state
+    * @state :active,&:focus - active,& focus state
+    * @markup
+    *   <div class="btn">markup</div>
+    */
+
+    .btn{
+        @extend %btn;
+        background:$orange;
+        border:rem-calc(3) solid $white;
+        color:$white;
+        &,
+        &:hover{
+            text-decoration:none;   /* [9] */
+        }
+
+        &:active,
+        &:focus{
+            outline:none;
+        }
+        &:hover,
+        &.active {
+            color:$white !important;
+            &:before {
+                width: 100%;
+            }
+            i svg {
+                &, * {
+                    fill:$white !important;
+                }
+
+            }
+        }
+        /**
+         * Icons within Buttons
+         */
+         i {
+            @extend %icon--micro;
+            &, svg {
+                @extend %centered--vertical;
+                z-index: 1;
+                right:$base-spacing-unit/2;
+            }
+        }
+    }
+
+    /**
+     * Button sizes
+     */
+
+    /**
+    * @name Btn--Full
+    * @description Style for the btn--full class
+    * @markup
+    *   <div class="btn--full">markup</div>
+    */
+
+    .btn--full {
+        width:100%;
+    }
+
+    /**
+    * @name Btn--Alpha
+    * @description Style for the btn--alpha class
+    * @markup
+    *   <div class="btn--alpha">markup</div>
+    */
+
+    .btn--alpha {
+        font-size:$h5-font-size;
+    }
+
+    /**
+    * @name Btn--Small
+    * @description Style for the btn--small class
+    * @markup
+    *   <div class="btn--small">markup</div>
+    */
+
+    .btn--small {
+        display: block;
+        width:$btn-width / 1.5;
+
+    }
+
+    /**
+    * @name Btn--Medium
+    * @description Style for the btn--medium class
+    * @markup
+    *   <div class="btn--medium">markup</div>
+    */
+
+    .btn--medium {
+        display: block;
+        width:$btn-width ;
+    }
+
+    /**
+    * @name Btn--Large
+    * @description Style for the btn--large class
+    * @markup
+    *   <div class="btn--large">markup</div>
+    */
+
+    .btn--large {
+        display: block;
+        width:$btn-width * 2;
+    }
+
+    }
+
+    /*
+    End Buttons
+     */

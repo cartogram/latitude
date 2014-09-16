@@ -1,0 +1,88 @@
+
+    /**
+    * Import Mixins to provide modules with exports.
+    * List other required modules here.
+    */
+
+    @import "component.mixins";
+
+    /*------------------------------------*\
+
+    /**
+    * Variables
+    */
+
+
+    /*------------------------------------*\
+
+    /**
+    * @title Sections
+    */
+
+
+    /**
+    *   All Logic pertaining to the top back horizontal navigation
+    *   should go in this file.
+    */
+
+    /*------------------------------------*\
+
+    $Sections Area
+
+    */
+
+    @include exports("sections") {
+
+
+    html,
+    body,
+    .site,
+
+    %section--fill,
+    %section--fill > .row ,
+    %section--fill > .row > .columns {
+        height:100%
+    }
+
+    html,
+    body {
+        background:$grey;
+    }
+
+    .row {
+        max-width:$site-max-width;
+    }
+
+    .row--large {
+        max-width:100%;
+    }
+
+    .section {
+        @include clearfix();
+        position:relative;
+        text-align:left;
+    }
+
+    .section--header {
+
+    }
+    .section--header,
+    .section--hompage-tiles,
+    .section--slideshow,
+    .section--collection,
+    .section--collection-header,
+    .section--filter,
+    .section--footer {
+        min-height:rem-calc(100);
+        clear:both;
+        padding:0 $base-spacing-unit;
+    }
+    .section--footer {
+        padding-top:$base-spacing-unit;
+    }
+
+
+
+
+
+    }

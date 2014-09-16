@@ -1,0 +1,19 @@
+/**
+ * Add Project Specific Indexes
+ */
+
+
+ /**
+ * $modal-elements: append($modal-elements, close-button);
+ * $elements: insert-nth($elements, sidebar-filters, 3);
+ *
+ * .modal .close-button {
+ *    z-index: index($modal-elements, close-button);
+ * }
+ * .sidebar-filter {
+ *    z-index: index($elements, sidebar-filter);
+ * }
+ */
+
+
+$elements: nav__dropdown;

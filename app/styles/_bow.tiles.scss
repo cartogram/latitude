@@ -1,0 +1,151 @@
+
+    /**
+    * Import Mixins to provide modules with exports.
+    * List other required modules here.
+    */
+
+    @import "component.mixins";
+
+    /*------------------------------------*\
+
+    /**
+    * Variables
+    */
+
+    $tile-triangle-size : rem-calc(40);
+
+    /*------------------------------------*\
+
+    /**
+    * @title Lists
+    */
+
+
+    /**
+    *   All Logic pertaining to the top back horizontal navigation
+    *   should go in this file.
+    */
+
+    /*------------------------------------*\
+
+    */
+
+    @include exports("tiles") {
+
+    .tile {
+        margin-bottom:rem-calc(5);
+        text-align:center;
+    }
+    .block {
+        margin-bottom:rem-calc(5);
+        background:$orange;
+        padding:$base-spacing-unit * 2;
+    }
+
+    .tile__label {
+        position:absolute;
+        left:50%;
+        top:0;
+        transform:translateX(-50%);
+        z-index:1;
+        font-size: $milli;
+        font-weight:$font-weight-bold;
+        line-height:2;
+        background:$grey;
+        padding:.25em 1.5em;
+        text-transform:uppercase;
+        transition:padding $base-timing $base-easing;
+        color:$white;
+
+        &:before {
+            content:'';
+            position:absolute;
+            left:0;
+            right:0;
+            top:0;
+            bottom:0;
+            width:auto;
+            z-index:-1;
+            height:auto;
+            transform:scaleY(0);
+            transform-origin:0 0;
+            transition:transform $base-timing $base-easing;
+            background:$color-active;
+        }
+
+        .tile__link:hover & {
+            padding:.4em 1.8em .25em;
+            &:before {
+                //height:100%;
+                transform:scaleY(1)
+            }
+        }
+    }
+
+    .tile__link {
+        position:relative;
+        display:block;
+        border:none;
+        &:before {
+            border:0 solid $blue;
+            display:block;
+            transition:border $base-timing $base-easing;
+            content:'';
+            position:absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            height:auto;
+            width:auto;
+            z-index:1;
+        }
+        &:hover:before {
+            border-width:$site-gutter;
+        }
+    }
+
+    .tile__figure {
+        &:after {
+            height:auto;
+            width:auto;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            background:rgba($black, 0);
+            content:'';
+            position:absolute;
+            transition:background $base-timing $base-easing;
+        }
+        .tile__link:hover &:after {
+            background:rgba($black, .1);
+        }
+    }
+
+
+    .caption {
+        background:rgba($white, 0.9);
+        position:absolute;
+        margin:$base-spacing-unit;
+        padding:$base-spacing-unit;
+        bottom:$base-spacing-unit;
+        left:$base-spacing-unit;
+        transition:background $base-timing $base-easing;
+        .tile__link:hover & {
+            background:rgba($white, 1);
+        }
+        .tile & {
+            right:$base-spacing-unit;
+        }
+    }
+        .caption__anchor {
+            font-size:$milli;
+            font-weight:bold;
+            color:$color-active;
+            
+        }
+
+
+
+    }
