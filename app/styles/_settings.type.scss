@@ -1,11 +1,17 @@
 $base-spacing-unit : rem-calc(20);
 
-$font-family-base:  sans-serif;
-$font-family-heading: sans-serif;
+$font-family-base:  "proxima-nova-alt", "helvetica", sans-serif;
+$font-family-heading: "adelle", "helvetica", sans-serif;
 
-$milli-size : 11;
-$micro-size : 10;
-$giga-size : 72;
+$font-weight-normal: 400;
+$font-weight-medium:600;
+$font-weight-bold : 700;
+$font-weight-heavy : 800;
+
+$milli-size : 14;
+$micro-size : 12;
+$nano-size : 11;
+$giga-size : 90;
 
 
 
@@ -15,7 +21,7 @@ $h3-size : 18;
 $h4-size : 16;
 $h5-size : 13;
 $h6-size : 11;
-$p-size : 11;
+$p-size : 16;
 
 $h1-font-size: rem-calc($h1-size);
 $h2-font-size: rem-calc($h2-size);
@@ -27,8 +33,9 @@ $h6-font-size: rem-calc($h6-size);
 $p-size : rem-calc($p-size);
 $milli : rem-calc($milli-size);
 $micro : rem-calc($micro-size);
+$nano : rem-calc($nano-size);
+$giga : rem-calc($giga-size);
+
 
 $base-font-size: 1rem;
 $btn-width :    rem-calc(160);
-
-$font-weight-bold : 600;

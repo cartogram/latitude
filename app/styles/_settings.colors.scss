@@ -6,11 +6,22 @@
      * Add Base Colors
      */
 
-    $black: #000000 ;
-    $white : #ffffff ;
-    $grey : #f1f1f1 ;
-    $orange: #ff9861;
-    $blue: #b3d9f3;
+    $white: #ffffff;
+    $black:#000000;
+    $grey-dark:#4d4d4d; //(used for most of the text except in the main nav and footer)
+    $grey-medium: #7c7c7e; //(used for the cross-out regular price if there's a sale)
+    $grey: #d7d7d7; //(used for main background color, cutouts)
+    $grey-light: #eee; //(used for main background color, cutouts)
+
+    $blue: #9ed0f9;
+    $blue-dark: #72abd6;
+
+    $orange: #fe934a;
+    $orange-dark: #e68541;
+
+    $green: #ace66a;
+    $green-medium: #8fd481;
+    $green-dark: #70b565;
 
     /**
      * Add Social Media Colors
@@ -61,4 +72,5 @@
     }
 
     @include color-setup('orange', $orange);
+    @include color-setup('blue', $blue);
     @include color-setup('white', $white);

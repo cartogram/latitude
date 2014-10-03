@@ -1,0 +1,83 @@
+
+    /**
+    * Import Mixins to provide modules with exports.
+    * List other required modules here.
+    */
+
+    @import "component.mixins";
+
+    /*------------------------------------*\
+
+    /**
+    * Variables
+    */
+
+
+    /*------------------------------------*\
+
+    /**
+    * @title Sections
+    */
+
+
+    /**
+    *   All Logic pertaining to the top back horizontal navigation
+    *   should go in this file.
+    */
+
+    /*------------------------------------*\
+
+    $Sections Area
+
+    */
+
+    @include exports("svgs") {
+
+        .svg--logo {
+            display:block;
+            max-width:rem-calc(140);
+            width:100%;
+        }
+        .svg--search {
+            display:block;
+            width:rem-calc(18);
+            height:rem-calc(18);
+        }
+        .svg--close {
+            display:block;
+            width:rem-calc(15);
+            height:rem-calc(15);
+        }
+        .svg--cart {
+            display:block;
+            width:rem-calc(38);
+            height:rem-calc(38);
+        }
+        .svg--twitter {
+            display:block;
+            width:rem-calc(22);
+            height:rem-calc(22);
+        }
+        .svg--instagram {
+            display:block;
+            width:rem-calc(22);
+            height:rem-calc(22);
+        }
+        .svg--facebook {
+            display:block;
+            width:rem-calc(22);
+            height:rem-calc(22);
+        }
+        .svg--bike {
+            display:inline-block;
+            width:rem-calc(50);
+            height:rem-calc(30);
+            fill:$white;
+        }
+
+        .svg--arrow {
+            display:block;
+            width:rem-calc(20);
+            height:rem-calc(20);
+        }
+    }

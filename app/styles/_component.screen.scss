@@ -1,7 +1,19 @@
-hr{
-    height:$base-spacing-unit/4;
-    background:$black;
-    max-width:$site-max-width;
-    width:100%;
-    margin:0 auto $base-spacing-unit;
+
+
+.svg-defs {
+    display:none;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+display: none !important;
+}
+
+.filter__select-box {
+    display:none;
+}
+.filter__link {
+    width:50%;
+}
+.section--filter {
+    max-width:250px !important;
 }

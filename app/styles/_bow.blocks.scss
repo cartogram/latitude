@@ -1,0 +1,65 @@
+
+/**
+* Import Mixins to provide modules with exports.
+* List other required modules here.
+*/
+
+@import "component.mixins";
+
+/*------------------------------------*\
+
+/**
+* Variables
+*/
+
+$tile-triangle-size : rem-calc(40);
+
+/*------------------------------------*\
+
+/**
+* @title Lists
+*/
+
+
+/**
+*   All Logic pertaining to the top back horizontal navigation
+*   should go in this file.
+*/
+
+/*------------------------------------*\
+
+*/
+
+@include exports("blocks") {
+    .block-wrap {
+        position:relative;
+        overflow:hidden;
+    }
+    .block {
+        margin-bottom:rem-calc(5);
+        padding:$base-spacing-unit * 3 $base-spacing-unit * 2 0;
+        height:350px;
+        @media #{$xlarge-up} {
+            height:400px;
+        }
+        &:before {
+            background:$orange;
+            content:' ';
+            top:rem-calc(5);
+            left:rem-calc(2.5);
+            right:rem-calc(2.5);
+            position:absolute;
+            width:auto;
+            height:300%;
+        }
+
+        .block__content {
+            position:absolute;
+            top:50%;
+            width:80%;
+            transform:translateY(-50%);
+        }
+
+    }
+
+}

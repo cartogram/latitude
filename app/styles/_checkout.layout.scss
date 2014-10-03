@@ -1,0 +1,46 @@
+
+
+/*----------------------------------------
+LAYOUT
+*----------------------------------------*/
+
+#main,
+#container.slim
+#main,
+#footer,
+#container.slim #footer {
+    width: 90% !important;
+    max-width: 1140px !important;
+    background: #fff !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    text-align:left;
+}
+
+#products {
+    float: left;
+    border: 0;
+    width: 65%;
+    max-width: 1140px;
+    margin: 30px auto;
+    padding: 30px 0;
+}
+#wallet {
+    width: 25%;
+    float: right;
+    padding: 20px 0 !important;
+    background-color: #fff !important;
+    text-align: left;
+    margin: 30px auto;
+}
+
+
+.gleft {
+    float: left;
+    width: 49%;
+}
+.gright {
+    margin-left: 49%;
+    padding-left: 10px;
+    width: 47%;
+}

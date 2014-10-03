@@ -1,0 +1,81 @@
+
+    /**
+    * Import Mixins to provide modules with exports.
+    * List other required modules here.
+    */
+
+    @import "component.mixins";
+
+    /*------------------------------------*\
+
+    /**
+    * Variables
+    */
+
+    $header-height:rem-calc(200) !default;
+
+    /*------------------------------------*\
+
+    /**
+    * @title Sections
+    */
+
+
+    /**
+    *   All Logic pertaining to the top back horizontal navigation
+    *   should go in this file.
+    */
+
+    /*------------------------------------*\
+
+    $Sections Area
+
+    */
+
+    @include exports("header") {
+
+
+    .section--header {
+        position:relative;
+        height:$header-height;
+        text-align:center;
+        border-top:rem-calc(5) solid $black;
+        >.row,
+        .header__logo {
+            height:100%;
+        }
+        color:$black;
+    }
+
+    .logo {
+        position:relative;
+        top:50%;
+        transform:translateY(-50%);
+    }
+
+
+    /*
+    Temporary Responsive stuff
+    */
+
+    .header__nav-primary {
+        position:fixed;
+        top:0;
+        background:$black;
+        z-index:10;
+        a {
+            color:$white !important;
+        }
+        @media #{$medium-up} {
+            position:static;
+            background:transparent;
+            a {
+                color:$black !important;;
+            }
+        }
+    }
+
+
+
+
+    }

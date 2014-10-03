@@ -1,0 +1,96 @@
+
+    /**
+    * Import Mixins to provide modules with exports.
+    * List other required modules here.
+    */
+
+    @import "component.mixins";
+
+    /*------------------------------------*\
+
+    /**
+    * Variables
+    */
+
+
+    /*------------------------------------*\
+
+    /**
+    * @title Sections
+    */
+
+
+    /**
+    *   All Logic pertaining to the top back horizontal navigation
+    *   should go in this file.
+    */
+
+    /*------------------------------------*\
+
+    $Sections Area
+
+    */
+
+    @include exports("instagram") {
+
+
+.instagram {
+
+}
+    .instagram__link {
+        background-position:cover;
+        background-position:center top;
+        background-repeat:no-repeat;
+        height:0;
+        padding-top:100%;
+        display:block;
+        position:relative;
+        transition:background $base-timing $base-easing;
+
+        &:before {
+            content:'';
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            position:absolute;
+            border:0 solid $white;
+            display:block;
+            height:auto;
+            width:auto;
+            transition:border $base-timing $base-easing;
+        }
+        &:hover:before {
+            border-width:$site-gutter;
+        }
+        .instagram-block & {
+            background-color:$green;
+            &:before {
+                border-width:$site-gutter;
+            }
+            &:hover {
+                background-color:$green-dark;
+                color:$white;
+            }
+
+
+        }
+        svg {
+            margin:auto auto $base-spacing-unit/2;
+            fill:$white;
+            width:rem-calc(25);
+            height:rem-calc(25);
+        }
+
+    }
+
+    .instagram__inner {
+        top:50%;
+        position:absolute;
+        transform:translateY(-50%);
+        width:100%;
+        margin-top:-$base-spacing-unit/2;
+    }
+
+
+    }

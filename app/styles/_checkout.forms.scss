@@ -1,0 +1,51 @@
+.label {
+    font-size:10px;
+}
+
+.text-input {
+    border:1px solid $grey;
+    outline: 0;
+    background-color: $white;
+    color: $grey-dark;
+    padding: 8px 12px;
+    font-size: 14px;
+    width:100% !important;
+}
+
+#email input,
+.form td input.short,
+#billing_address_address1,
+#billing_address_address2,
+#shipping_address_address1,
+#shipping_address_address2,
+#billing_address_city,
+input.medium,
+#credit_card_first_name,
+#credit_card_last_name,
+#credit_card_number,
+#credit_card_verification_value,
+#create-account form input#password,
+#create-account form input#password_confirmation,
+#discount_code,
+#gift_card_code {
+
+    @extend .text-input;
+}
+
+.form td.lbl {
+    padding-top:$base-spacing-unit;
+}
+
+
+select {
+    background: #f8f8f8;
+    background-clip: padding-box;
+    border-radius: 4px;
+    width: 100% !important;
+    height: 40px;
+    outline: none;
+    border: 1px solid #bbb;
+    display: inline-block;
+    padding: 10px 30px 10px 10px;
+    font-family: 'ProximaNovaT-Thin';
+}

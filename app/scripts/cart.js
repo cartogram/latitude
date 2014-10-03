@@ -2,18 +2,65 @@
 
 angular.module('lat.cart', [])
 
+.run(function($rootScope){
+	var count = 0;
+
+	$rootScope.$on('cartChanged', function(event, cart) {
+		$rootScope.cartCount = cart.item_count;
+	});
+	// Add to Cart shopify Overides.
+	// Shopify.onItemAdded = function(line_item) {
+	// 	console.log(line_item);
+	// 	var message = {
+	// 		id : count++,
+	// 		class : "success",
+	// 		text : line_item.title + ' was added to your cart'
+	// 	}
+	// 	$rootScope.messages.push(message);
+	// 	console.log($rootScope.messages);
+	//
+	// };
+	// Shopify.onError = function(XMLHttpRequest, textStatus) {
+	// 	// Shopify returns a description of the error in XMLHttpRequest.responseText.
+	// 	// It is JSON.
+	// 	// Example: {"description":"The product 'Amelia - Small' is already sold out.","status":500,"message":"Cart Error"}
+	// 	var data = eval('(' + XMLHttpRequest.responseText + ')');
+	//
+	// 	if (!!data.message) {
+	// 		var message = {
+	// 			id : count++,
+	// 			class : "error",
+	// 			text : data.message + '(' + data.status  + '): ' + data.description
+	// 		}
+	// 		$rootScope.messages.push(message);
+	// 	} else {
+	// 		var message = {
+	// 			id : count++,
+	// 			class : "error",
+	// 			text : 'Error : ' + Shopify.fullMessagesFromErrors(data).join('; ') + '.'
+	// 		}
+	// 		$rootScope.messages.push(message);
+	//
+	// 	}
+	//};
+})
 
 // -------------------------------------------------- //
 // -------------------------------------------------- //
 
 
 // I control the main demo.
-.controller('cartController', ['$scope', 'cartService', function( $scope, cartService ) {
+.controller('latCartCtrl', ['$scope', 'cartService',  function( $scope, cartService ) {
 
 	// ---
 	// PUBLIC METHODS.
 	// ---
 
+	$scope.$on('cartChanged', function(event, cart) {
+
+		applyRemoteData( cart );
+
+	});
 
 	// I process the add-friend form.
 	$scope.addItem = function() {
@@ -32,20 +79,9 @@ angular.module('lat.cart', [])
 			}
 		)
 		;
-
-		// Reset the form once values have been consumed.
-		$scope.form.name = '';
-
 	};
 
 
-	// I remove the given friend from the current collection.
-	$scope.removeFriend = function( friend ) {
-
-		// Rather than doing anything clever on the client-side, I'm just
-		// going to reload the remote data.
-		cartService.removeFriend( friend.id ).then( loadRemoteData );
-	};
 
 	// ---
 	// PRIVATE METHODS.
@@ -53,9 +89,11 @@ angular.module('lat.cart', [])
 
 
 	// I apply the remote data to the local scope.
-	function applyRemoteData( newFriends ) {
-
-		$scope.friends = newFriends;
+	function applyRemoteData( cart ) {
+		console.log('applying data', cart);
+		$scope.cart = cart;
+		//console.log(cart);
+		$scope.isBusy = false;
 
 	}
 
@@ -66,9 +104,9 @@ angular.module('lat.cart', [])
 		// The cartService returns a promise.
 		cartService.getCart()
 		.then(
-			function( friends ) {
+			function( cart ) {
 
-				applyRemoteData( friends );
+				applyRemoteData( cart );
 
 			}
 		)
@@ -79,13 +117,8 @@ angular.module('lat.cart', [])
 	loadRemoteData();
 
 	// I contain the list of friends to be rendered.
-	$scope.friends = [];
-
-	// I contain the ngModel values for form interaction.
-	$scope.form = {
-		name: ''
-	};
-
+	$scope.cart = '';
+	$scope.isBusy = true;
 
 }])
 
@@ -96,9 +129,6 @@ angular.module('lat.cart', [])
 
 // I act a repository for the remote friend collection.
 .service('cartService', ['$http', '$q', function( $http, $q ) {
-
-
-
 
 	// ---
 	// PUBLIC METHODS.
@@ -123,15 +153,15 @@ angular.module('lat.cart', [])
 
 	}
 
-
-	// I get all of the friends in the remote collection.
-	function getCart() {
+	//POST to cart/add.js returns the JSON of the line item associated with the added item
+	function updateItem(id, quantity) {
 
 		var request = $http({
-			method: 'get',
-			url: '/cart.js',
-			params: {
-				action: 'get'
+			method: 'post',
+			url: '/cart/update.js',
+			data: {
+				quantity: quantity,
+				id: id
 			}
 		});
 
@@ -139,19 +169,28 @@ angular.module('lat.cart', [])
 
 	}
 
-
-	// I remove the friend with the given ID from the remote collection.
-	function removeFriend( id ) {
+	//POST to cart/add.js returns the JSON of the line item associated with the added item
+	function changeItem(id, quantity) {
 
 		var request = $http({
-			method: 'delete',
-			url: '',
-			params: {
-				action: 'delete'
-			},
+			method: 'post',
+			url: '/cart/change.js',
 			data: {
+				quantity: quantity,
 				id: id
 			}
+		});
+
+		return( request.then( handleSuccess, handleError ) );
+
+	}
+
+	// I get all of the friends in the remote collection.
+	function getCart() {
+
+		var request = $http({
+			method: 'get',
+			url: '/cart.js'
 		});
 
 		return( request.then( handleSuccess, handleError ) );
@@ -194,14 +233,19 @@ angular.module('lat.cart', [])
 		return( response.data );
 
 	}
+
 	// Return public API.
 	return({
 		addItem: addItem,
 		getCart: getCart,
-		removeFriend: removeFriend
+		updateItem: updateItem,
+		changeItem: changeItem
 	});
 
 }])
+
+
+
 /**
 * @ngdoc directive
 * @name bow-swiper
@@ -211,11 +255,94 @@ angular.module('lat.cart', [])
 *
 */
 
-.directive('latCart', [function () {
+.directive('latCartAdjust', ['cartService', function (cartService) {
 	return {
 		restrict: 'A',
-		link: function (scope, $elm) {
-			console.log(scope, $elm);
+		scope: {
+			quantity : '='
+		},
+		controller : function($scope, $element) {
+			this.prepBroadcast = function(cart) {
+				$scope.$emit('cartChanged', cart);
+			}
+		},
+		link: function (scope, $elm, attrs, ctrl) {
+
+			var action = attrs.action,
+			id = parseInt(attrs.id),
+			oldQuantity = scope.quantity,
+			newQuantity;
+
+			$elm.on('click', function() {
+
+				if(action == 'add') {
+					newQuantity = oldQuantity + 1;
+				} else {
+					newQuantity = oldQuantity - 1;
+				}
+
+				cartService.changeItem(id, newQuantity).then(function(cart) {
+					console.log('item changed', newQuantity, oldQuantity, scope.quantity, id );
+					ctrl.prepBroadcast(cart);
+				});
+			});
+
+
 		}
 	};
-}]);
+}])
+
+.filter('shopifyFormatMoney', function() {
+	return function(input) {
+		return Shopify.formatMoney(input);
+	};
+})
+
+.filter('shopifyResizeImageSmall', function() {
+	return function(input) {
+		return Shopify.resizeImage(input, 'small');
+	};
+})
+.filter('shopifyResizeImageMedium', function() {
+	return function(input) {
+		return Shopify.resizeImage(input, 'medium');
+	};
+})
+
+.directive('bowAddToCart', function(cartService) {
+	return {
+		restrict: 'A',
+		controller : function($scope, $element) {
+			this.prepBroadcast = function(message) {
+				$scope.$emit('messageAdded', message);
+			}
+		},
+		link: function (scope, elm, attrs, ctrl) {
+			console.log('add to cart button');
+			elm.on('click', function(e) {
+				var form = attrs.formId;
+
+				Shopify.addItemFromForm(form);
+
+				e.preventDefault();
+
+			})
+		}
+	};
+})
+
+.directive('bowMiniCart', function(cartService) {
+	return {
+		restrict: 'A',
+		link: function (scope, elm, attrs, ctrl) {
+			var initialCount = attrs.cartCount;
+
+			scope.cartCount = initialCount;
+			console.log(initialCount);
+		}
+	};
+})
+
+
+
+;

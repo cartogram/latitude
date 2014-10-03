@@ -1,0 +1,273 @@
+
+    /**
+    * Import Mixins to provide modules with exports.
+    * List other required modules here.
+    */
+
+    @import "component.mixins";
+
+    /*------------------------------------*\
+
+    /**
+    * Variables
+    */
+
+    $cart-row-height : rem-calc(145);
+
+    /*------------------------------------*\
+
+    /**
+    * @title Lists
+    */
+
+
+    /**
+    *   All Logic pertaining to the top back horizontal navigation
+    *   should go in this file.
+    */
+
+    /*------------------------------------*\
+
+    */
+
+    @include exports("cart") {
+
+        .cart__row {
+            background:$white;
+            margin-top:rem-calc(5);
+            clear:both;
+            padding-bottom:$cart-row-height;
+            @media #{$medium-up} {
+                padding:0;
+            }
+        }
+
+        .cart__row--total {
+            clear:both;
+            overflow:hidden;
+            height:auto;
+            line-height:1;
+            padding:$base-spacing-unit *3 0;
+        }
+
+        .cart__text {
+            display:block;
+            padding-top:$base-spacing-unit * 2;
+            color:$grey-dark;
+            @media #{$medium-up} {
+                padding:0;
+                line-height: $cart-row-height;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+
+        .cart__quantity {
+            height:$cart-row-height/2;
+            display:block;
+            position:absolute;
+            top:0;
+            left:0;
+            right:3px;
+            color:$white;
+            span {
+                position:relative;
+                z-index:1;
+            }
+            &:before {
+                content:'';
+                position:absolute;
+                height:auto;
+                width:auto;
+                top:0;
+                bottom:0;
+                left:0px;
+                right:-1px;
+                background:$green-dark;
+            }
+
+
+        }
+
+
+        .cart__quantity__num {
+            font-size:$h1-font-size;
+            font-family:$font-family-base;
+            font-weight:$font-weight-medium;
+            display:block;
+            line-height:.5;
+        }
+
+        .cart__line-price {
+            padding: $base-spacing-unit $base-spacing-unit $base-spacing-unit * 2;
+            display:block;
+
+            @media #{$medium-up} {
+                padding:0;
+                position:absolute;
+                top:$cart-row-height/2;
+                transform:translateY(-50%);
+                right:$base-spacing-unit *2;
+            }
+
+        }
+
+        .cart__total {
+
+        }
+
+        .cart__vendor {
+            @extend .epsilon;
+            color:$white;
+            position:absolute;
+            left:50%;
+            top:0;
+            z-index:1;
+            background:$grey;
+            padding:.5em 1.5em .4em;
+            transform:translateX(-50%);
+
+        }
+
+        .cart__text--meta {
+            @extend .epsilon;
+        }
+
+        .cart__image {
+            display:inline-block;
+            text-align:center;
+            height:$cart-row-height;
+            position:relative;
+            img {
+                max-width:100%;
+                margin:auto;
+                max-height:100%;
+            }
+
+        }
+
+        .cart__adjust-quantity {
+            width:100%;
+            text-align:center;
+            position:absolute;
+            top:$cart-row-height/2;
+
+            &.cart__adjust-quantity--remove {
+                top:0;
+            }
+            a, span {
+                display:inline-block;
+                width:50%;
+                font-size:rem-calc(60);
+                text-align:center;
+                color:$blue;
+                padding:$base-spacing-unit;
+                height:$cart-row-height/2;
+                line-height:$cart-row-height/4;
+                position:relative;
+                margin-left:-7px;
+
+                &:before {
+                    content:'';
+                    position:absolute;
+                    height:auto;
+                    width:auto;
+                    top:0;
+                    bottom:0;
+                    left:0;
+                    right:0;
+                    border:3px solid $green;
+                    transition:border $base-timing $base-easing;
+
+                }
+
+                &:hover {
+                    z-index:1;
+
+                    &:before {
+                        border:6px solid $green-dark;
+                    }
+
+                    .cart__icon {
+                        fill:$green-dark;;
+                    }
+                }
+
+                &:active {
+                    &:before {
+                        border-color:$green;
+                    }
+                    .cart__icon {
+                        fill:$green;
+                    }
+                }
+
+
+                @media #{$medium-up} {
+
+                }
+
+
+
+                .cart__icon {
+                    height:rem-calc(20);
+                    width:rem-calc(20);
+                    position:absolute;
+                    top:50%;
+                    left:50%;
+                    transform:translate(-50%, -50%);
+                    z-index:1;
+                    transition:fill $base-timing $base-easing;
+
+                }
+                .svg--plus,
+                .svg--minus {
+                    fill:$green;
+                }
+                .svg--close {
+                    fill:$orange;
+                }
+
+
+            }
+            .cart__remove {
+
+                width:100%;
+                width:auto;
+                height:$cart-row-height;
+                margin: 0;
+                padding: 0;
+                position: absolute;
+                left: -5px;
+                right: 2px;
+                &:before {
+                    border:1px solid $grey-light;
+                }
+                .cart__icon {
+                    fill:$grey;
+                }
+                &:hover {
+                    &:before {
+                        border:6px solid $orange-dark;
+                    }
+
+                    .cart__icon {
+                        fill:$orange-dark;;
+                    }
+                }
+
+            }
+
+        }
+
+
+        .section--cart-items {
+            transition:opacity $base-timing $base-easing;
+            &.is-loading {
+                opacity:0.01;
+            }
+        }
+
+
+    }

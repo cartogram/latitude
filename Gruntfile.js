@@ -19,10 +19,12 @@ module.exports = function (grunt) {
     // Add shopify theme url here
     var config = {
         app: 'app',
-        theme:'../bikes-on-wheels-2-10385219',
-        dist: '../bikes-on-wheels-2-10385219/assets',
-        snippets: '../bikes-on-wheels-2-10385219/snippets'
+        theme:'../bikes-on-wheels',
+        dist: '../bikes-on-wheels/assets',
+        snippets: '../bikes-on-wheels/snippets'
     };
+
+    var target = grunt.option('target') || 'prod';
 
     // Define the configuration for all the tasks
     grunt.initConfig({
@@ -34,7 +36,7 @@ module.exports = function (grunt) {
         watch: {
             js: {
                 files: ['<%= config.app %>/scripts/{,*/}*.js'],
-                tasks: ['jshint:all', 'concat',  'ngAnnotate', 'uglify'],
+                tasks: ['jshint:all', 'concat',  'ngAnnotate', 'uglify', 'copy:vendor'],
                 options: {
                     livereload: true
                 }
@@ -50,9 +52,19 @@ module.exports = function (grunt) {
                 files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['sass:dist', 'autoprefixer']
             },
-            images: {
+
+            sassliquid: {
+                files: ['<%= config.app %>/styles/{,*/}*.liquid'],
+                tasks: ['copy:sassliquid']
+            },
+
+            svgs: {
                 files: ['<%= config.app %>/images/{,*/}*.svg'],
                 tasks: ['svgstore']
+            },
+            images: {
+                files: ['<%= config.app %>/images/{,*/}*.{png,jpg}'],
+                tasks: ['imagemin']
             },
             styles: {
                 files: ['<%= config.dist %>/{,*/}*.css'],
@@ -68,14 +80,16 @@ module.exports = function (grunt) {
                     '<%= config.app %>/images/{,*/}*'
                 ]
             },
+
             shopify: {
                 files: [
+                    '<%= config.theme %>/config/**',
                     '<%= config.theme %>/assets/**',
                     '<%= config.theme %>/snippets/**',
                     '<%= config.theme %>/layout/**',
                     '<%= config.theme %>/templates/**'
                 ],
-                tasks: ['shopify']
+                tasks: ['shopify:staging']
             }
         },
 
@@ -123,6 +137,9 @@ module.exports = function (grunt) {
 
         // Empties folders to start fresh
         clean: {
+            options : {
+                force : true
+            },
             dist: {
                 files: [{
                     dot: true,
@@ -133,14 +150,19 @@ module.exports = function (grunt) {
                     ]
                 }]
             },
-            server: '.tmp'
+            server: [
+                '<%= config.dist %>/*.js',
+                '<%= config.dist %>/*.css',
+                '<%= config.dist %>/*.liquid'
+            ]
         },
 
         // Make sure code styles are up to par and there are no obvious mistakes
         jshint: {
             options: {
                 jshintrc: '.jshintrc',
-                reporter: require('jshint-stylish')
+                reporter: require('jshint-stylish'),
+                force : true
             },
             GruntFile: [
                 'Gruntfile.js'
@@ -241,16 +263,16 @@ module.exports = function (grunt) {
         // },
 
         // The following *-min tasks produce minified files in the dist folder
-        // imagemin: {
-        //     dist: {
-        //         files: [{
-        //             expand: true,
-        //             cwd: '<%= config.app %>/images',
-        //             src: '{,*/}*.{gif,jpeg,jpg,png}',
-        //             dest: '<%= config.dist %>/images'
-        //         }]
-        //     }
-        // },
+        imagemin: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= config.app %>/images',
+                    src: '{,*/}*.{gif,jpeg,jpg,png}',
+                    dest: '<%= config.dist %>'
+                }]
+            }
+        },
 
         svgmin: {
             dist: {
@@ -305,13 +327,14 @@ module.exports = function (grunt) {
         },
         uglify: {
             options: {
-                mangle: true,
-                sourceMap : false
+                //mangle: true,
+                sourceMap : false,
+                beautify: false
             },
             dist: {
                 files: {
                     '<%= config.dist %>/scripts.js.liquid': [
-                        '<%= config.dist %>/scripts.js.liquid'
+                        '<%= config.app %>/cartogram.js.annotated'
                     ]
                 }
             }
@@ -319,13 +342,25 @@ module.exports = function (grunt) {
         concat: {
             dist: {
                 src: [
-                    'bower_components/jquery/dist/jquery.js',
-                    'bower_components/angular/angular.js',
+                    //'bower_components/jquery/dist/jquery.js',
+                    'bower_components/lodash/dist/lodash.js',
+                    //'bower_components/angular/angular.js',
+                    //'bower_components/angular-animate/angular-animate.js',
+                    'bower_components/angular-waypoints/dist/angular-waypoints.all.js',
+                    'bower_components/jquery.lazyload/jquery.lazyload.js',
                     'bower_components/swiper/src/idangerous.swiper.js',
+                    'bower_components/jquery-instagram/dist/instagram.js',
+                    '<%= config.app %>/scripts/cartogram.background.js',
+                    '<%= config.app %>/scripts/cartogram.dimensions.js',
+                    '<%= config.app %>/scripts/cartogram.fill.js',
+                    '<%= config.app %>/scripts/cartogram.events.js',
+                    '<%= config.app %>/scripts/cartogram.toggle.js',
+                    '<%= config.app %>/scripts/cartogram.scroll.js',
+                    '<%= config.app %>/scripts/cartogram.loadWatch.js',
                     '<%= config.app %>/scripts/cart.js',
                     '<%= config.app %>/scripts/script.js'
                 ],
-                dest: '<%= config.dist %>/scripts.js'
+                dest: '<%= config.app %>/cartogram.js'
             }
         },
 
@@ -339,20 +374,27 @@ module.exports = function (grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: '<%= config.dist %>',
-                    src: 'scripts.js',
-                    ext: '.js.liquid',
-                    dest: '<%= config.dist %>'
+                    cwd: '<%= config.app %>',
+                    src: 'cartogram.js',
+                    ext: '.js.annotated',
+                    dest: '<%= config.app %>'
                 }]
             }
         },
 
         shopify: {
+            // options: {
+            //     api_key: 'ef395c6764a48a68887522090392b090',
+            //     password: '0ccdd74708ab1b4c1b0bec0348cc6700',
+            //     url: 'bikes-on-wheels-2.myshopify.com',
+            //     base: '../bikes-on-wheels/'
+            // },
             options: {
-                api_key: 'ef395c6764a48a68887522090392b090',
-                password: '0ccdd74708ab1b4c1b0bec0348cc6700',
-                url: 'bikes-on-wheels-2.myshopify.com',
-                base: '../bikes-on-wheels-2-10385219/'
+                api_key: '0150d3583f94e054b4cd1e53cadee0f8',
+                password: '5a6dce46e094250440715196049e721e',
+                url: 'bikes-on-wheels-3.myshopify.com',
+                base: '../bikes-on-wheels/',
+                theme: '10963799'
             }
         },
 
@@ -379,6 +421,26 @@ module.exports = function (grunt) {
                 cwd: '<%= config.app %>/styles',
                 dest: '.tmp/styles/',
                 src: '{,*/}*.css'
+            },
+            vendor: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= config.app %>/scripts/vendor',
+                    dest: '<%= config.dist %>',
+                    flatten: true,
+                    ext:'.js.liquid',
+                    src: [
+                        '*.js'
+                    ]
+                }]
+            },
+            sassliquid : {
+                expand: true,
+                dot: true,
+                cwd: '<%= config.app %>/styles',
+                dest: '<%= config.dist %>',
+                src: '{,*/}*.liquid'
             }
         },
 
@@ -387,7 +449,7 @@ module.exports = function (grunt) {
         modernizr: {
             dist: {
                 devFile: 'bower_components/modernizr/modernizr.js',
-                outputFile: '<%= config.dist %>/scripts/modernizr.js',
+                outputFile: '<%= config.dist %>/modernizr.min.js.liquid',
                 files: {
                     src: [
                         '<%= config.dist %>/scripts/{,*/}*.js',
@@ -409,6 +471,7 @@ module.exports = function (grunt) {
             }
         },
 
+
         // Run some tasks in parallel to speed up build process
         concurrent: {
             server: [
@@ -421,7 +484,7 @@ module.exports = function (grunt) {
             dist: [
                 'sass',
                 'copy:styles',
-                // 'imagemin',
+                'imagemin',
                 'svgmin'
             ]
         }
@@ -435,9 +498,18 @@ module.exports = function (grunt) {
 
         grunt.task.run([
             'clean:server',
-            'concurrent:server',
+            'svgstore',
+            'imagemin',
+            'concat',
+            'ngAnnotate',
+            'concat',
+            'uglify',
             'autoprefixer',
-            'connect:livereload',
+            'cssmin:minify',
+            'copy:sassliquid',
+            'copy:vendor',
+            'modernizr',
+            'shopify:staging',
             'watch'
         ]);
     });

@@ -64,9 +64,13 @@
 
 @import "component.globals";
 
-// @import "component.svgs";
+@import "component.header";
 @import "component.icons";
 @import "component.buttons";
+@import "component.dropdown";
+@import "component.filter";
+@import "component.page";
+
 @import "component.helpers";
 @import "component.headings";
 @import "component.sections";
@@ -75,12 +79,22 @@
 @import "component.lists";
 @import "component.navs";
 @import "component.forms";
+@import "component.search";
 @import "component.images";
+@import "component.svgs";
+@import "component.instagram";
 
 @import "vendor.swiper";
 
 
 @import "bow.collections";
+@import "bow.product";
 @import "bow.tiles";
+@import "bow.blocks";
+@import "bow.cart";
+@import "bow.price";
+@import "bow.slideshow-controls";
+@import "bow.overlay";
+
 
 @import "component.screen";

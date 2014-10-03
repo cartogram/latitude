@@ -32,18 +32,19 @@
 @include exports("collections") {
 
     .collection__grid {
-        @include block-grid(
-        // This controls how many elements will be on each row of the block grid. Set this to whatever number you need, up to the max allowed in the variable.
-        // Available options: 1-12 by default, and false.
-        $per-row: 2,
-
-        // This controls how much space is between each item in the block grid.
-        // Use a variable or any pixel or em values.
-        $spacing: $block-grid-default-spacing,
-
-        // This controls whether or not base styles come through, set to false to leave out.
-        $base-style: true
-        );
+        @media #{$medium-up} {
+            @include block-grid($per-row: 2,$spacing: $site-gutter,$base-style: true);
+        }
+        @media #{$large-up} {
+            @include block-grid($per-row: 3,$spacing: $site-gutter,$base-style: true);
+        }
+        margin-bottom:rem-calc(56) !important;
+        li {
+            margin-bottom:$site-gutter * 2;
+            @media #{$medium-up} {
+                margin-bottom:0;
+            }
+        }
     }
 
 }

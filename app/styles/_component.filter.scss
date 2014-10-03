@@ -1,0 +1,75 @@
+
+/**
+* Import Mixins to provide modules with exports.
+* List other required modules here.
+*/
+
+@import "component.mixins";
+
+/*------------------------------------*\
+
+/**
+* Variables
+*/
+
+
+/*------------------------------------*\
+
+/**
+* @title Forms
+*/
+
+
+/**
+*   All Logic pertaining to the top back horizontal navigation
+*   should go in this file.
+*/
+
+/*------------------------------------*\
+
+$Forms Area
+
+*/
+
+@include exports("filter") {
+
+    .filter__link,
+    .filter__select-box {
+        width:25%;
+        display:block;
+        float:left;
+        text-align:center;
+        padding:0 rem-calc(5);
+    }
+
+    .filter__link a {
+        display:block;
+        @extend .epsilon;
+        color:$white;
+        padding:$base-spacing-unit !important;
+        position:relative;
+        &:hover {
+            color:$white;
+            &:before {
+                transform:scaleY(1);
+            }
+        }
+        &:before {
+            content:'';
+            position:absolute;
+            left:0;
+            right:0;
+            top:0;
+            height:rem-calc(5);
+            background:$white;
+            display:block;
+            transition:transform $base-timing $base-easing;
+            transform:scaleY(0);
+            transform-origin:0 0
+        }
+    }
+}
+
+/*
+End Dropddown
+*/

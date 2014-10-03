@@ -44,12 +44,22 @@
 
     input, textarea {
         width:100%;
-        border:1px solid transparent;
+        border:1px solid $grey;
         background:$white;
         line-height:4;
-        color:$grey;
+        color:$grey-dark;
         padding-left:2em;
+        &:focus {
+            outline:none;
+        }
 
+        &[type=image] {
+            width:auto;
+        }
+        &[type=text],
+        &[type=search] {
+            -webkit-appearance:caret;
+        }
     }
     /**
       * @name Textarea
@@ -94,7 +104,6 @@
       */
 
     form {
-        margin-bottom:$base-spacing-unit;
 
         /**
          *  Gravity Forms

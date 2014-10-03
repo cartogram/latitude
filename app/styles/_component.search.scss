@@ -1,0 +1,82 @@
+
+    /**
+    * Import Mixins to provide modules with exports.
+    * List other required modules here.
+    */
+
+    @import "component.mixins";
+
+    /*------------------------------------*\
+
+    /**
+    * Variables
+    */
+
+
+    /*------------------------------------*\
+
+    /**
+    * @title Globals
+    */
+
+
+    /**
+    *   All Logic pertaining to the top back horizontal navigation
+    *   should go in this file.
+    */
+
+    /*------------------------------------*\
+
+    */
+
+    @include exports("search") {
+
+        .input--search {
+            background:$black;
+            text-align:center;
+            color:$white;
+            border:none;
+            font-size:rem-calc(18);
+            line-height:2.5;
+            padding:0 $base-spacing-unit;
+
+        }
+        .search-bar__submit,
+        .search-toggle__hide {
+            position:absolute;
+            border:none;
+            background:$black;
+            top:0;
+            bottom:0;
+            left:100%;
+            font-size:rem-calc(18);
+            padding:0 $base-spacing-unit;
+            cursor:pointer;
+            transform:translate(0%, 0%);
+            padding-top:0;
+            padding-bottom:0;
+            display:block;
+            width:rem-calc(60);
+            svg {
+                fill:$grey;
+                transition:fill $base-timing $base-easing;
+            }
+            &:hover {
+                svg {
+                    fill:$grey-dark;
+                }
+            }
+        }
+        .search-toggle__hide {
+            transform:translate(100%, 0%);
+            padding:$base-spacing-unit/1.5 $base-spacing-unit;
+            svg {
+                position:relative;
+                top:rem-calc(6);
+            }
+        }
+
+    }
+    /*
+    End Global
+     */

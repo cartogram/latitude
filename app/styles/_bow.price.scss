@@ -1,0 +1,86 @@
+
+/**
+* Import Mixins to provide modules with exports.
+* List other required modules here.
+*/
+
+@import "component.mixins";
+
+/*------------------------------------*\
+
+/**
+* Variables
+*/
+
+
+/*------------------------------------*\
+
+/**
+* @title Lists
+*/
+
+
+/**
+*   All Logic pertaining to the top back horizontal navigation
+*   should go in this file.
+*/
+
+/*------------------------------------*\
+
+*/
+
+@include exports("price") {
+    .price {
+        font-family: $font-family-base;
+        font-weight: $font-weight-bold;
+        letter-spacing:rem-calc(1);
+        &:first-letter {
+            font-size:60%;
+            vertical-align: super;
+
+
+        }
+    }
+
+    .price--delta {
+        font-size: rem-calc(13);
+    }
+
+    .price--gamma {
+        font-size: rem-calc(18);
+
+    }
+
+    .price--beta {
+        font-size: rem-calc(30);
+        &:first-letter {
+            margin-right:$site-gutter;
+        }
+    }
+
+    .price--alpha {
+        font-size: rem-calc(40);
+        &:first-letter {
+            margin-right:$site-gutter;
+        }
+    }
+    .price--sale {
+        display:block;
+        position:relative;
+        color:$grey;
+        max-width: rem-calc(65);
+        margin: auto;
+        &:after {
+            position:absolute;
+            left:0;
+            right:0;
+            top:50%;
+            transform:translateY(-50%) rotate(-10deg);
+            height:1px;
+            background:$orange;
+            content:'';
+            width:auto;
+        }
+    }
+
+}

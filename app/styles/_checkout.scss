@@ -1,0 +1,28 @@
+@import "settings";
+
+@import "settings.type";
+@import "settings.bow";
+@import "settings.colors";
+
+@import "checkout.reset";
+@import "checkout.layout";
+@import "checkout.type";
+@import "checkout.forms";
+
+/*----------------------------------------
+Form
+*----------------------------------------*/
+
+
+#logo {
+    //background-image:url({{'logo.png' | asset_url}});
+}
+
+
+
+#shipping-same {
+    background:$black;
+    padding:$base-spacing-unit/2;
+    color:$white;
+    text-align:center;
+}

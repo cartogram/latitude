@@ -1,37 +1,37 @@
 
-    /**
-    * Import Mixins to provide modules with exports.
-    * List other required modules here.
-    */
+/**
+* Import Mixins to provide modules with exports.
+* List other required modules here.
+*/
 
-    @import "component.mixins";
+@import "component.mixins";
 
-    /*------------------------------------*\
+/*------------------------------------*\
 
-    /**
-    * Variables
-    */
-
-
-    /*------------------------------------*\
-
-    /**
-    * @title Buttons
-    */
+/**
+* Variables
+*/
 
 
-    /**
-    *   All Logic pertaining to the top back horizontal navigation
-    *   should go in this file.
-    */
+/*------------------------------------*\
 
-    /*------------------------------------*\
+/**
+* @title Buttons
+*/
 
-    $Forms Area
 
-    */
+/**
+*   All Logic pertaining to the top back horizontal navigation
+*   should go in this file.
+*/
 
-    @include exports("buttons") {
+/*------------------------------------*\
+
+$Forms Area
+
+*/
+
+@include exports("buttons") {
 
 
     /**
@@ -55,15 +55,16 @@
         line-height:4 !important;
         padding-right:2em !important;
         padding-left: 2em !important;
-        text-transform: uppercase;
-        letter-spacing: rem-calc(2);
         padding-top:1px;
-        font-size: $micro;
         background:none;
-        transition:background $base-timing $base-easing;
+        transition:all $base-timing $base-easing;
         z-index: 1;
         width:auto;
         border-radius:$site-border-radius;
+        font-weight:$font-weight-bold ;
+        text-transform: uppercase;
+        letter-spacing: rem-calc(2);
+        font-size: $micro;
         span {
             z-index: 1;
             position: relative;
@@ -71,17 +72,17 @@
     }
 
     /**
-      * @name %Btn--Inverted
-      * @description Style for the %btn--inverted element
-      * @markup
-      *   <%btn--inverted>Markup</%btn--inverted>
-      */
+    * @name %Btn--Inverted
+    * @description Style for the %btn--inverted element
+    * @markup
+    *   <%btn--inverted>Markup</%btn--inverted>
+    */
 
-      %btn--inverted,
-      .btn--inverted {
+    %btn--inverted,
+    .btn--inverted {
         background:$white;
 
-      }
+    }
 
     /**
     * @name Btn
@@ -94,9 +95,7 @@
 
     .btn{
         @extend %btn;
-        background:$orange;
         border:rem-calc(3) solid $white;
-        color:$white;
         &,
         &:hover{
             text-decoration:none;   /* [9] */
@@ -106,35 +105,52 @@
         &:focus{
             outline:none;
         }
-        &:hover,
-        &.active {
-            color:$white !important;
-            &:before {
-                width: 100%;
-            }
-            i svg {
-                &, * {
-                    fill:$white !important;
-                }
+    }
 
-            }
+
+    .btn--primary {
+        background:$blue;;
+        border-color:$blue;
+        color:$white;
+        &:hover {
+            background:$blue-dark;
+            border-color:$blue-dark;
+            color:$white !important;
         }
-        /**
-         * Icons within Buttons
-         */
-         i {
-            @extend %icon--micro;
-            &, svg {
-                @extend %centered--vertical;
-                z-index: 1;
-                right:$base-spacing-unit/2;
-            }
+        &:active {
+            background:$blue;
+            border-color:$blue;
+        }
+    }
+
+    .btn--secondary {
+        background:$orange;
+        color:$white;
+        &:hover {
+            background:$orange-dark;
+        }
+        &:active {
+            background:$orange;
+        }
+    }
+
+    .btn--tertiary {
+        background:transparent;
+        color:$grey-medium;
+        border-color:$grey-medium;
+        &:hover {
+            color:$grey-dark;
+            border-color:$grey-dark;
+        }
+        &:active {
+            color:$grey;
+            border-color:$grey;
         }
     }
 
     /**
-     * Button sizes
-     */
+    * Button sizes
+    */
 
     /**
     * @name Btn--Full
@@ -145,6 +161,11 @@
 
     .btn--full {
         width:100%;
+        display:block;
+        margin:auto;
+        &.with-max {
+            max-width:rem-calc(350);
+        }
     }
 
     /**
@@ -195,8 +216,8 @@
         width:$btn-width * 2;
     }
 
-    }
+}
 
-    /*
-    End Buttons
-     */
+/*
+End Buttons
+*/

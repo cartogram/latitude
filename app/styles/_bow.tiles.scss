@@ -33,30 +33,23 @@
     @include exports("tiles") {
 
     .tile {
-        margin-bottom:rem-calc(5);
         text-align:center;
-    }
-    .block {
-        margin-bottom:rem-calc(5);
-        background:$orange;
-        padding:$base-spacing-unit * 2;
+        a {
+            color:$grey-dark;
+        }
     }
 
+
     .tile__label {
+        @extend .epsilon;
+        color:$white;
         position:absolute;
         left:50%;
         top:0;
         transform:translateX(-50%);
         z-index:1;
-        font-size: $milli;
-        font-weight:$font-weight-bold;
-        line-height:2;
         background:$grey;
-        padding:.25em 1.5em;
-        text-transform:uppercase;
-        transition:padding $base-timing $base-easing;
-        color:$white;
-
+        padding:.5em 1.5em .4em;
         &:before {
             content:'';
             position:absolute;
@@ -74,18 +67,79 @@
         }
 
         .tile__link:hover & {
-            padding:.4em 1.8em .25em;
             &:before {
                 //height:100%;
                 transform:scaleY(1)
             }
         }
     }
+    .tile__price {
+        position:absolute;
+        top:0;
+        left:0;
+        height:$base-spacing-unit * 5.5;
+        width:$base-spacing-unit * 5.5;
+        text-align:center;
+        display:block;
+        .tile__price__text {
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, -50%);
+        }
+
+    }
+    .tile__flags {
+        position:absolute;
+        top:$base-spacing-unit *3;
+        right:$base-spacing-unit *3;
+        transform:translateY(-50%);
+        .tile__flag {
+            display:block;
+            position:relative;
+            text-transform:uppercase;
+            font-size: $milli;
+            font-weight:$font-weight-bold;
+            line-height:2;
+            color:$white;
+            &:after,
+            &:before {
+                content: '';
+                top: 50%;
+                left: 50%;
+                position: absolute;
+                transform: translate(-50%,-0%);
+                height: 0;
+                width: 0;
+                border: 45px solid transparent;
+                border-top: 25px solid $green;
+                z-index:-1;
+            }
+            &:after {
+                bottom:50%;
+                top:auto;
+                transform: translate(-50%,0%);
+                border: 45px solid transparent;
+                border-bottom: 25px solid $green;
+            }
+            &.flag--sale {
+                &:after {
+                    border-bottom: 25px solid $orange;
+                }
+                &:before {
+                    border-top: 25px solid $orange;
+                }
+
+            }
+        }
+    }
+
 
     .tile__link {
         position:relative;
         display:block;
         border:none;
+
         &:before {
             border:0 solid $blue;
             display:block;
@@ -98,52 +152,115 @@
             bottom:0;
             height:auto;
             width:auto;
-            z-index:1;
+            z-index:-1;
         }
         &:hover:before {
             border-width:$site-gutter;
+            z-index:2;
         }
+
     }
 
     .tile__figure {
-        &:after {
-            height:auto;
-            width:auto;
-            top:0;
-            left:0;
-            right:0;
-            bottom:0;
-            background:rgba($black, 0);
-            content:'';
-            position:absolute;
-            transition:background $base-timing $base-easing;
+        background:$white;
+        background-repeat:no-repeat;
+        background-size:cover;
+        background-position:center top;
+
+        .tile--with-height & {
+            height:300px;
+            @media #{$medium-up} {
+                height:400px;
+            }
+            @media #{$large-up} {
+                height:500px;
+            }
+            @media #{$xlarge-up} {
+                height:600px;
+            }
         }
-        .tile__link:hover &:after {
-            background:rgba($black, .1);
+        .tile--with-height--small & {
+            height:250px;
+            @media #{$medium-up} {
+                height:350px;
+            }
+            @media #{$xlarge-up} {
+                height:400px;
+            }
+        }
+
+        // div[class^='tile--bikes'] &,
+        // div[class*=' tile--bikes'] & {
+        //     padding-top:$base-spacing-unit;
+        //     padding-left: $base-spacing-unit *2;
+        //     padding-right: $base-spacing-unit *2;
+        // }
+        
+        .tile--product & {
+            padding-bottom: $base-spacing-unit * 4 ;
+        }
+        img {
+            display:block;
+            margin:auto;
+            min-height:rem-calc(80);
         }
     }
-
 
     .caption {
         background:rgba($white, 0.9);
+        padding:$base-spacing-unit;
+        transition:background $base-timing $base-easing;
+        color:$grey-dark;
         position:absolute;
         margin:$base-spacing-unit;
-        padding:$base-spacing-unit;
-        bottom:$base-spacing-unit;
-        left:$base-spacing-unit;
-        transition:background $base-timing $base-easing;
+        bottom:0;
+        left:0;
+        right:0;
+        @media #{$medium-up} {
+            bottom:$base-spacing-unit;
+            left:$base-spacing-unit;
+            .tile & {
+                right:$base-spacing-unit;
+            }
+        }
         .tile__link:hover & {
             background:rgba($white, 1);
         }
-        .tile & {
-            right:$base-spacing-unit;
+
+        .tile--product & {
+            margin-bottom:0;
+            margin:0;
+            left:0;
+            right:0;
+            bottom:0;
+            background:$white;
+            padding-bottom:$base-spacing-unit*1.5;
         }
+
     }
         .caption__anchor {
-            font-size:$milli;
-            font-weight:bold;
-            color:$color-active;
-            
+            @extend .zeta;
+            position:relative;
+            color:$blue;
+            &:after {
+                content:'';
+                width:100%;
+                position:absolute;
+                bottom:-1x;
+                height:1px;
+                display:block;
+                left:0;
+                background:$blue-dark;
+                transition:transform $base-timing $base-easing;
+                transform:scaleX(0);
+            }
+            .slide-link:hover &,
+            .tile:hover & {
+                color:$blue-dark;
+                &:after {
+                    transform:scaleX(1);
+                }
+            }
         }
 
 

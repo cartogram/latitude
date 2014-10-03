@@ -1,0 +1,161 @@
+
+/**
+* Import Mixins to provide modules with exports.
+* List other required modules here.
+*/
+
+@import "component.mixins";
+
+/*------------------------------------*\
+
+/**
+* Variables
+*/
+
+
+/*------------------------------------*\
+
+/**
+* @title Buttons
+*/
+
+
+/**
+*   All Logic pertaining to the top back horizontal navigation
+*   should go in this file.
+*/
+
+/*------------------------------------*\
+
+$Forms Area
+
+*/
+
+@include exports("slideshow-controls") {
+
+
+
+.slideshow__controls {
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:auto;
+    right:rem-calc(0);
+    left:rem-calc(0);
+    height:rem-calc(60);
+    z-index:1;
+    margin: 0 $site-gutter/2;
+
+    @media #{$large-up} {
+        right:rem-calc(60);
+        left:rem-calc(60);
+    }
+    @media #{$xlarge-up} {
+        right:rem-calc(100);
+        left:rem-calc(100);
+    }
+}
+
+.slideshow__control {
+    position:absolute;
+    overflow:hidden;
+    height:rem-calc(60);
+    width:rem-calc(60);
+    transition:all $base-timing $base-easing;
+    &:before {
+        content:'';
+        position:absolute;
+        height:rem-calc(60);
+        width:rem-calc(60);
+        border-radius:50%;
+        border:5px solid $white;
+        transition:all $base-timing $base-easing;
+    }
+    svg {
+        fill:$white;
+        position:absolute;
+        top:50%;
+        transform:translateY(-50%);
+        padding:$site-gutter;
+        transition:all $base-timing $base-easing;
+    }
+    &:active {
+        svg {
+            opacity:0.5;
+            transform:translateY(-50%) scale(.8)
+        }
+    }
+}
+
+.slideshow__control-right {
+    right:0;
+    transform-origin:100% 50%;
+    transform:scale(1) translateX(0%);
+    &:hover {
+        transform:scale(1.2) translateX(0%);
+    }
+    svg {
+        right:0;
+    }
+    &:before {
+        right:-50%;
+    }
+    @media #{$large-up} {
+        transform:scale(1) translateX(100%);
+
+        &:hover {
+            transform:scale(1.2) translateX(100%);
+        }
+        svg {
+            right:auto;
+            left:0;
+        }
+        &:before {
+            right:50%;
+        }
+    }
+
+    .on-last & {
+        cursor:default;
+        opacity:0.5;
+        &:hover {
+            transform:scale(1) translateX(100%);
+        }
+    }
+}
+
+.slideshow__control-left {
+    left:0;
+    transform-origin:0% 50%;
+    transform:scale(1) translateX(0%);
+    &:hover {
+        transform:scale(1.2) translateX(0%);
+    }
+    &:before {
+        left:-50%;
+    }
+    svg {
+        left:0;
+    }
+
+    @media #{$large-up} {
+        transform:scale(1) translateX(-100%);
+        &:hover {
+            transform:scale(1.2) translateX(-100%);
+        }
+        &:before {
+            left:50%;
+        }
+        svg {
+            right:0;
+            left:auto;
+        }
+    }
+
+    .on-first & {
+        cursor:default;
+        opacity:0.2;
+        pointer-events:none;
+    }
+}
+}

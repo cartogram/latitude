@@ -33,29 +33,25 @@
 
     @include exports("sections") {
 
-
-    html,
-    body,
-    .site,
-
     %section--fill,
     %section--fill > .row ,
     %section--fill > .row > .columns {
         height:100%
     }
 
-    html,
-    body {
-        background:$grey;
+    html {
+        background-color:$grey;
     }
 
     .row {
         max-width:$site-max-width;
     }
 
-    .row--large {
-        max-width:100%;
-    }
+        .row--large {
+            max-width:100%;
+        }
+
+
 
     .section {
         @include clearfix();
@@ -63,26 +59,141 @@
         text-align:left;
     }
 
-    .section--header {
+        .section--with-border {
+            position:relative;
+            display:block;
+            &:after {
+                display:block;
+                content:' ';
+                position:absolute;
+                bottom:0;
+                left:0;
+                right:0;
+                height:$base-spacing-unit/4;
+                background:$black;
+                max-width:$site-max-width;
+                width:auto;
+                margin:0 auto;
+                @media #{$large-up} {
+                    right:rem-calc(60);
+                    left:rem-calc(60);
+                }
+                @media #{$xlarge-up} {
+                    right:rem-calc(100);
+                    left:rem-calc(100);
+                }
+            }
+        }
 
-    }
-    .section--header,
-    .section--hompage-tiles,
-    .section--slideshow,
-    .section--collection,
-    .section--collection-header,
-    .section--filter,
-    .section--footer {
-        min-height:rem-calc(100);
-        clear:both;
-        padding:0 $base-spacing-unit;
-    }
-    .section--footer {
-        padding-top:$base-spacing-unit;
-    }
+        .section--header,
+        .section--hompage-tiles,
+        .section--slideshow,
+        .section--collection,
+        .section--collection-header,
+        .section--footer,
+        .section--product-next-prev,
+        .section--product-single,
+        .section--pagination,
+        .section--page,
+        .section--next-prev,
+        .section--cart-items,
+        .section--cart-total,
+        .section--search-results,
+        .section--instagram,
+        .section--sidebar,
+        .section--sidebar__bottom {
+            clear:both;
+            text-align:left;
+            max-width:rem-calc(2000);
+            margin:auto;
+            @media #{$large-up} {
+                padding:0 rem-calc(60);
+            }
+            @media #{$xlarge-up} {
+                padding:0 rem-calc(100);
+            }
+            &.section--header {
+                max-width:100%;
+            }
+        }
+        .section--footer {
+            padding-top:$base-spacing-unit * 2;
+            padding-bottom:$base-spacing-unit * 2;
+            padding-left:$base-spacing-unit;
+            padding-right:$base-spacing-unit;
+            @media #{$large-up} {
+                padding:$base-spacing-unit * 2 rem-calc(60);
+            }
+            @media #{$xlarge-up} {
+                padding:$base-spacing-unit * 2 rem-calc(100);
+            }
+        }
+        .section--header,
+        .section--footer,
+        .section--cart-total {
+            p, li, {
+                color:$black;
+            }
+            a:hover {
+                color:$blue-dark;
+            }
+        }
 
+        .section--messages,
+        .section--search,
+        .section--filter {
+            position:fixed !important;
+            display:block;
+            left:50%;
+            bottom:0;
+            transform:translate(-50%, 0);
+            background:$blue;
+            z-index:100;
+            width:100%;
+            @media #{$medium-up} {
+                width:80%;
+            }
+            @media #{$large-up} {
+                width:45%;
+            }
+            @media #{$xlarge-up} {
+                width:35%;
+            }
+        }
+        .section--filter.at-bottom {
+            bottom:0;
+            position:absolute !important;
+            margin-bottom:$site-gutter;
+        }
 
+        .section--search {
+            bottom:auto;
+            top:0;
+            background:$black;
+            transform: translate(-50%, -100%);
+            transition:transform $base-timing $base-easing;
+            .state-search-is-shown & {
+                transform: translate(-50%, 0%);
+            }
+        }
 
+        .section--messages {
+            bottom:auto;
+            top:0;
+            background:$black;
+            transform: translate(-50%, -0%);
+            transition:transform $base-timing $base-easing;
+            .state-messages-is-shown & {
+                transform: translate(-50%, 0%);
+            }
+        }
+
+        .section--instagram {
+            height:100%;
+            .row {
+                height:100%;
+            }
+        }
 
 
     }

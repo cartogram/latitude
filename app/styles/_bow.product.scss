@@ -1,0 +1,187 @@
+
+/**
+* Import Mixins to provide modules with exports.
+* List other required modules here.
+*/
+
+@import "component.mixins";
+
+/*------------------------------------*\
+
+/**
+* Variables
+*/
+
+
+/*------------------------------------*\
+
+/**
+* @title Lists
+*/
+
+
+/**
+*   All Logic pertaining to the top back horizontal navigation
+*   should go in this file.
+*/
+
+/*------------------------------------*\
+
+*/
+
+@include exports("product") {
+    .section--product-single {
+        min-height:rem-calc(900);
+    }
+
+    .product__title {
+    }
+
+
+    .product__info {
+        background:$white;
+    //    padding:$base-spacing-unit *2 $base-spacing-unit*2 $base-spacing-unit*10;
+        white-space: break-word;
+    //    overflow:scroll;
+        &:after {
+            content:' ';
+            position:absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            height:auto;
+            width:auto;
+            border:0px solid transparent;
+            transition:border $base-timing  $base-easing;
+            z-index:-1;
+        }
+        &.product-description-shown:after {
+            border:$site-gutter solid $blue;
+            z-index:index($product, product__info_after);
+
+        }
+    }
+    .product__description {
+        position:absolute;
+        transform:scale(0);
+        opacity:0;
+        transition:opacity $base-timing $base-easing;
+        background:$white;
+        z-index:index($product, product__description);
+        top:$site-gutter;
+        left:$site-gutter;
+        right:$site-gutter;
+        bottom:$site-gutter;
+        .product__description__inner {
+            padding:$base-spacing-unit * 3 $base-spacing-unit * 2 0;
+            overflow-y:scroll;
+            height:calc(100% - 170px); //Magic Number
+            background:
+                linear-gradient(white 30%, rgba($white, 0)),
+                linear-gradient(rgba($white, 0), white 70%) bottom,
+                radial-gradient(at top, rgba($grey-dark, 0.15), transparent 70%),
+                radial-gradient(at bottom, rgba($grey-dark, 0.15), transparent 70%) bottom;
+            background-repeat: no-repeat;
+            background-size: 100% 40px, 100% 40px, 100% 6px, 100% 6px;
+            background-attachment: local, local, scroll, scroll;
+        }
+        .product-description-shown & {
+            transform:scale(1);
+            opacity:1;
+            transition:all $base-timing $base-easing;
+        }
+        p, li {
+            max-width:380px;
+        }
+    }
+
+    .product__description__close {
+        position:absolute;
+        top:0;
+        left:50%;
+        background:$blue;
+        transform:translate(-50%, 0%) scaleY(0);
+        transform-origin:0 0;
+        transition:transform $base-timing $base-timing $base-easing;
+        padding: $base-spacing-unit/4 $base-spacing-unit $base-spacing-unit/3;
+        .product-description-shown & {
+            transform:translate(-50%, 0%) scaleY(1);;
+
+        }
+        svg {
+            fill:$white;
+            transition:transform $base-timing $base-easing;
+            &:hover {
+                transform:scale(1.2);
+            }
+        }
+    }
+
+    .product__actions {
+        position:absolute;
+        bottom:$site-gutter;
+        left:$site-gutter;
+        right:$site-gutter;
+        // left:0;
+        // bottom:0;
+        // right:0;
+        padding:$base-spacing-unit;
+        background:$white;
+        margin:0 $site-gutter/2;
+        z-index:index($product, product__actions);
+    }
+
+    .product__images {
+        min-height:rem-calc(1275);
+    }
+    .product__image {
+        background:$white;
+        margin:0 0 $site-gutter 0;
+        text-align:center;
+
+        &:last-child {
+            margin-bottom:0;
+        }
+        img {
+            display:block;
+            margin:auto;
+            min-height:rem-calc(80);
+        }
+    }
+
+    .section--sidebar {
+        // &,
+        // .row,
+        // .columns,
+        // .tile {
+        //     height:100%;
+        // }
+        @media #{$medium-up} {
+            position: absolute;
+            left: 0;
+            right: 0;
+            &.is-fixed {
+                top:0;
+                position:fixed;
+            }
+            &.at-bottom {
+                bottom:0;
+            }
+        }
+    }
+
+    .section--sidebar__bottom {
+        @media #{$medium-up} {
+            position:fixed;
+            bottom:0;
+            left:0;
+            right:0;
+            z-index:index($product, product__actions);
+            &.at-bottom {
+                position:absolute;
+            }
+        }
+    }
+
+}

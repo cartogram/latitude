@@ -1395,7 +1395,19 @@ th.hide-for-touch {
        * Color
        */
 .color--orange {
-  color: #ff9861; }
+  color: #fe934a; }
+
+/**
+       * Background
+       */
+/**
+       * Borders
+       */
+/**
+       * Color
+       */
+.color--blue {
+  color: #9ed0f9; }
 
 /**
        * Background
@@ -1459,6 +1471,65 @@ img {
     End Global
      */
 /**
+    * Import Mixins to provide modules with exports.
+    * List other required modules here.
+    */
+/**
+ * Import Once
+ *
+ * We use this to prevent styles from being loaded multiple times for compenents that rely on other components.
+ */
+/*------------------------------------*\
+
+    /**
+    * Variables
+    */
+/*------------------------------------*\
+
+    /**
+    * @title Sections
+    */
+/**
+    *   All Logic pertaining to the top back horizontal navigation
+    *   should go in this file.
+    */
+/*------------------------------------*\
+
+    $Sections Area
+
+    */
+.section--header {
+  position: relative;
+  height: 12.5rem;
+  text-align: center;
+  border-top: 0.3125rem solid #000000;
+  color: #000000; }
+  .section--header > .row, .section--header .header__logo {
+    height: 100%; }
+
+.logo {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%); }
+
+/*
+    Temporary Responsive stuff
+    */
+.header__nav-primary {
+  position: fixed;
+  top: 0;
+  background: #000000;
+  z-index: 10; }
+  .header__nav-primary a {
+    color: #ffffff !important; }
+  @media only screen and (min-width:40.063em) {
+    .header__nav-primary {
+      position: static;
+      background: transparent; }
+      .header__nav-primary a {
+        color: #000000 !important; } }
+
+/**
 * Import Mixins to provide modules with exports.
 * List other required modules here.
 */
@@ -1492,17 +1563,13 @@ i {
 /**
     * Icon Sizes
     */
-.btn i svg {
-  height: 11px !important;
-  width: 11px !important; }
-
 /**
 * End Icons
 */
 /**
-    * Import Mixins to provide modules with exports.
-    * List other required modules here.
-    */
+* Import Mixins to provide modules with exports.
+* List other required modules here.
+*/
 /**
  * Import Once
  *
@@ -1510,23 +1577,23 @@ i {
  */
 /*------------------------------------*\
 
-    /**
-    * Variables
-    */
-/*------------------------------------*\
-
-    /**
-    * @title Buttons
-    */
 /**
-    *   All Logic pertaining to the top back horizontal navigation
-    *   should go in this file.
-    */
+* Variables
+*/
 /*------------------------------------*\
 
-    $Forms Area
+/**
+* @title Buttons
+*/
+/**
+*   All Logic pertaining to the top back horizontal navigation
+*   should go in this file.
+*/
+/*------------------------------------*\
 
-    */
+$Forms Area
+
+*/
 /**
     * @name %Btn
     * @description Style for the %btn element
@@ -1547,25 +1614,26 @@ i {
   line-height: 4 !important;
   padding-right: 2em !important;
   padding-left: 2em !important;
-  text-transform: uppercase;
-  letter-spacing: 0.125rem;
   padding-top: 1px;
-  font-size: 0.625rem;
   background: none;
-  transition: background 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
   z-index: 1;
   width: auto;
-  border-radius: 2px; }
+  border-radius: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.125rem;
+  font-size: 0.75rem; }
   .btn span {
     z-index: 1;
     position: relative; }
 
 /**
-      * @name %Btn--Inverted
-      * @description Style for the %btn--inverted element
-      * @markup
-      *   <%btn--inverted>Markup</%btn--inverted>
-      */
+    * @name %Btn--Inverted
+    * @description Style for the %btn--inverted element
+    * @markup
+    *   <%btn--inverted>Markup</%btn--inverted>
+    */
 .btn--inverted {
   background: #ffffff; }
 
@@ -1578,30 +1646,47 @@ i {
     *   <div class="btn">markup</div>
     */
 .btn {
-  background: #ff9861;
-  border: 0.1875rem solid #ffffff;
-  color: #ffffff;
-  /**
-         * Icons within Buttons
-         */ }
+  border: 0.1875rem solid #ffffff; }
   .btn, .btn:hover {
     text-decoration: none;
     /* [9] */ }
   .btn:active, .btn:focus {
     outline: none; }
-  .btn:hover, .btn.active {
+
+.btn--primary {
+  background: #9ed0f9;
+  border-color: #9ed0f9;
+  color: #ffffff; }
+  .btn--primary:hover {
+    background: #72abd6;
+    border-color: #72abd6;
     color: #ffffff !important; }
-    .btn:hover:before, .btn.active:before {
-      width: 100%; }
-    .btn:hover i svg, .btn:hover i svg *, .btn.active i svg, .btn.active i svg * {
-      fill: #ffffff !important; }
-  .btn i, .btn i svg {
-    z-index: 1;
-    right: 0.625rem; }
+  .btn--primary:active {
+    background: #9ed0f9;
+    border-color: #9ed0f9; }
+
+.btn--secondary {
+  background: #fe934a;
+  color: #ffffff; }
+  .btn--secondary:hover {
+    background: #e68541; }
+  .btn--secondary:active {
+    background: #fe934a; }
+
+.btn--tertiary {
+  background: transparent;
+  color: #7c7c7e;
+  border-color: #7c7c7e; }
+  .btn--tertiary:hover {
+    color: #4d4d4d;
+    border-color: #4d4d4d; }
+  .btn--tertiary:active {
+    color: #d7d7d7;
+    border-color: #d7d7d7; }
 
 /**
-     * Button sizes
-     */
+    * Button sizes
+    */
 /**
     * @name Btn--Full
     * @description Style for the btn--full class
@@ -1609,7 +1694,11 @@ i {
     *   <div class="btn--full">markup</div>
     */
 .btn--full {
-  width: 100%; }
+  width: 100%;
+  display: block;
+  margin: auto; }
+  .btn--full.with-max {
+    max-width: 21.875rem; }
 
 /**
     * @name Btn--Alpha
@@ -1651,8 +1740,263 @@ i {
   width: 20rem; }
 
 /*
-    End Buttons
-     */
+End Buttons
+*/
+/**
+* Import Mixins to provide modules with exports.
+* List other required modules here.
+*/
+/**
+ * Import Once
+ *
+ * We use this to prevent styles from being loaded multiple times for compenents that rely on other components.
+ */
+/*------------------------------------*\
+
+/**
+* Variables
+*/
+/*------------------------------------*\
+
+/**
+* @title Forms
+*/
+/**
+*   All Logic pertaining to the top back horizontal navigation
+*   should go in this file.
+*/
+/*------------------------------------*\
+
+$Forms Area
+
+*/
+/* Default custom select styles */
+.cs-select {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  text-align: left;
+  z-index: 100;
+  width: 100%;
+  max-width: 550px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+  .filter__select-box .cs-select {
+    position: static; }
+  .cs-select:focus {
+    outline: none;
+    /* For better accessibility add a style for this in your skin */ }
+  .cs-select select {
+    display: none; }
+  .cs-select span {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    padding: 0.625rem 1.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 1.25rem !important;
+    border-radius: 2px;
+    transition: all 200ms cubic-bezier(0.165, 0.84, 0.44, 1); }
+  .cs-select .cs-placeholder {
+    color: #ace66a; }
+    .cs-select .cs-placeholder svg {
+      top: 50%;
+      transform: translateY(-50%);
+      position: absolute;
+      right: 0;
+      height: 0.75rem;
+      width: 0.75rem;
+      fill: #ace66a;
+      right: 1.25rem;
+      transition: all 200ms cubic-bezier(0.165, 0.84, 0.44, 1); }
+    .cs-select .cs-placeholder:before {
+      content: ' ';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      border: 3px solid #ace66a;
+      height: auto;
+      width: auto;
+      transition: border 200ms cubic-bezier(0.165, 0.84, 0.44, 1); }
+    .cs-select .cs-placeholder:hover {
+      color: #70b565; }
+      .cs-select .cs-placeholder:hover:before {
+        border: 1px solid #70b565; }
+      .cs-select .cs-placeholder:hover svg {
+        fill: #70b565; }
+    .cs-select .cs-placeholder:active {
+      color: #ace66a; }
+    .filter__select-box .cs-select .cs-placeholder {
+      border: none;
+      background: none;
+      color: #ffffff; }
+      .filter__select-box .cs-select .cs-placeholder svg {
+        fill: #ffffff; }
+      .filter__select-box .cs-select .cs-placeholder:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 0.3125rem;
+        background: #ffffff;
+        display: block;
+        transition: transform 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+        transform: scaleY(0);
+        transform-origin: 0 0; }
+  .cs-select ul {
+    padding: 1.25rem;
+    background: #70b565;
+    margin: 0;
+    overflow-y: scroll;
+    max-height: 25rem;
+    text-align: center;
+    padding: 1.25rem;
+    border-radius: 2px 2px 0 0; }
+    .cs-select ul li {
+      margin: 0; }
+    .cs-select ul span {
+      padding: 0.3125rem !important;
+      font-size: 0.8125rem !important;
+      color: #ffffff; }
+    .filter__select-box .cs-select ul {
+      background: #9ed0f9;
+      padding: 1.25rem 1.875rem; }
+      .filter__select-box .cs-select ul span {
+        color: #ffffff; }
+  .cs-select.cs-active .cs-placeholder {
+    color: #70b565; }
+    .cs-select.cs-active .cs-placeholder:before {
+      border: 1px solid #70b565; }
+    .cs-select.cs-active .cs-placeholder svg {
+      fill: #70b565; }
+  .cs-select.cs-active > span {
+    border-radius: 0 0 2px 2px; }
+    .cs-select.cs-active > span svg {
+      transform: translateY(-50%) rotate(-45deg); }
+  .filter__select-box .cs-select.cs-active > span {
+    position: relative; }
+    .filter__select-box .cs-select.cs-active > span:before {
+      transform: scaleY(1); }
+
+/* Options */
+.cs-select .cs-options {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  visibility: hidden;
+  bottom: 100%; }
+  .filter__select-box .cs-select .cs-options {
+    left: 0; }
+
+.cs-select.cs-active .cs-options {
+  visibility: visible; }
+
+/*
+End Dropddown
+*/
+/**
+* Import Mixins to provide modules with exports.
+* List other required modules here.
+*/
+/**
+ * Import Once
+ *
+ * We use this to prevent styles from being loaded multiple times for compenents that rely on other components.
+ */
+/*------------------------------------*\
+
+/**
+* Variables
+*/
+/*------------------------------------*\
+
+/**
+* @title Forms
+*/
+/**
+*   All Logic pertaining to the top back horizontal navigation
+*   should go in this file.
+*/
+/*------------------------------------*\
+
+$Forms Area
+
+*/
+.filter__link, .filter__select-box {
+  width: 25%;
+  display: block;
+  float: left;
+  text-align: center;
+  padding: 0 0.3125rem; }
+
+.filter__link a {
+  display: block;
+  color: #ffffff;
+  padding: 1.25rem !important;
+  position: relative; }
+  .filter__link a:hover {
+    color: #ffffff; }
+    .filter__link a:hover:before {
+      transform: scaleY(1); }
+  .filter__link a:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 0.3125rem;
+    background: #ffffff;
+    display: block;
+    transition: transform 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: scaleY(0);
+    transform-origin: 0 0; }
+
+/*
+End Dropddown
+*/
+/**
+* Import Mixins to provide modules with exports.
+* List other required modules here.
+*/
+/**
+ * Import Once
+ *
+ * We use this to prevent styles from being loaded multiple times for compenents that rely on other components.
+ */
+/*------------------------------------*\
+
+/**
+* Variables
+*/
+/*------------------------------------*\
+
+/**
+* @title Lists
+*/
+/**
+*   All Logic pertaining to the top back horizontal navigation
+*   should go in this file.
+*/
+/*------------------------------------*\
+
+*/
+.page {
+  background: #ffffff; }
+
+.page__content {
+  padding-bottom: 2.5rem;
+  columns: 2 200px;
+  column-gap: 3.75rem; }
+
 /**
     * Import Mixins to provide modules with exports.
     * List other required modules here.
@@ -1678,11 +2022,6 @@ i {
         * @markup
         *   <%centered--vertical>Markup</%centered--vertical>
         */
-.btn i, .btn i svg {
-  top: 50%;
-  transform: translateY(-50%);
-  position: absolute; }
-
 /**
         * @name %Centered--Horizontal
         * @description Style for the %centered--vertical element
@@ -1713,6 +2052,217 @@ i {
         * @markup
         *   <%fill>Markup</%fill>
         */
+/**
+        * @name %Floats
+        * @description Add/remove floats
+        * @markup
+        *   <%fill>Markup</%fill>
+        */
+.float--right {
+  float: right !important; }
+
+.float--left {
+  float: left !important; }
+
+.float--none {
+  float: none !important; }
+
+/**
+         * Add/remove margins
+         */
+.push {
+  margin: 1.25rem !important; }
+
+.push--top {
+  margin-top: 1.25rem !important; }
+
+.push--right {
+  margin-right: 1.25rem !important; }
+
+.push--bottom {
+  margin-bottom: 1.25rem !important; }
+
+.push--left {
+  margin-left: 1.25rem !important; }
+
+.push--ends {
+  margin-top: 1.25rem !important;
+  margin-bottom: 1.25rem !important; }
+
+.push--sides {
+  margin-right: 1.25rem !important;
+  margin-left: 1.25rem !important; }
+
+.push-half {
+  margin: 0.625rem !important; }
+
+.push-half--top {
+  margin-top: 0.625rem !important; }
+
+.push-half--right {
+  margin-right: 0.625rem !important; }
+
+.push-half--bottom {
+  margin-bottom: 0.625rem !important; }
+
+.push-half--left {
+  margin-left: 0.625rem !important; }
+
+.push-half--ends {
+  margin-top: 0.625rem !important;
+  margin-bottom: 0.625rem !important; }
+
+.push-half--sides {
+  margin-right: 0.625rem !important;
+  margin-left: 0.625rem !important; }
+
+.flush {
+  margin: 0 !important; }
+
+.flush--top {
+  margin-top: 0 !important; }
+
+.flush--right {
+  margin-right: 0 !important; }
+
+.flush--bottom {
+  margin-bottom: 0 !important; }
+
+.flush--left {
+  margin-left: 0 !important; }
+
+.flush--ends {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important; }
+
+.flush--sides {
+  margin-right: 0 !important;
+  margin-left: 0 !important; }
+
+/**
+         * Add/remove paddings
+         */
+.soft {
+  padding: 1.25rem !important; }
+
+.soft--top {
+  padding-top: 1.25rem !important; }
+
+.soft--right {
+  padding-right: 1.25rem !important; }
+
+.soft--bottom {
+  padding-bottom: 1.25rem !important; }
+
+.soft--left {
+  padding-left: 1.25rem !important; }
+
+.soft--ends {
+  padding-top: 1.25rem !important;
+  padding-bottom: 1.25rem !important; }
+
+.soft--sides {
+  padding-right: 1.25rem !important;
+  padding-left: 1.25rem !important; }
+
+.soft-half {
+  padding: 0.625rem !important; }
+
+.soft-half--top {
+  padding-top: 0.625rem !important; }
+
+.soft-half--right {
+  padding-right: 0.625rem !important; }
+
+.soft-half--bottom {
+  padding-bottom: 0.625rem !important; }
+
+.soft-half--left {
+  padding-left: 0.625rem !important; }
+
+.soft-half--ends {
+  padding-top: 0.625rem !important;
+  padding-bottom: 0.625rem !important; }
+
+.soft-half--sides {
+  padding-right: 0.625rem !important;
+  padding-left: 0.625rem !important; }
+
+.soft-double {
+  padding: 2.5rem !important; }
+
+.soft-double--top {
+  padding-top: 2.5rem !important; }
+
+.soft-double--right {
+  padding-right: 2.5rem !important; }
+
+.soft-double--bottom {
+  padding-bottom: 2.5rem !important; }
+
+.soft-double--left {
+  padding-left: 2.5rem !important; }
+
+.soft-double--ends {
+  padding-top: 2.5rem !important;
+  padding-bottom: 2.5rem !important; }
+
+.soft-double--sides {
+  padding-right: 2.5rem !important;
+  padding-left: 2.5rem !important; }
+
+.soft-triple {
+  padding: 3.75rem !important; }
+
+.soft-triple--top {
+  padding-top: 3.75rem !important; }
+
+.soft-triple--right {
+  padding-right: 3.75rem !important; }
+
+.soft-triple--bottom {
+  padding-bottom: 3.75rem !important; }
+
+.soft-triple--left {
+  padding-left: 3.75rem !important; }
+
+.soft-triple--ends {
+  padding-top: 3.75rem !important;
+  padding-bottom: 3.75rem !important; }
+
+.soft-triple--sides {
+  padding-right: 3.75rem !important;
+  padding-left: 3.75rem !important; }
+
+.hard {
+  padding: 0 !important; }
+
+.hard--top {
+  padding-top: 0 !important; }
+
+.hard--right {
+  padding-right: 0 !important; }
+
+.hard--bottom {
+  padding-bottom: 0 !important; }
+
+.hard--left {
+  padding-left: 0 !important; }
+
+.hard--ends {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important; }
+
+.hard--sides {
+  padding-right: 0 !important;
+  padding-left: 0 !important; }
+
+.make-block {
+  display: block; }
+
+.gut-top {
+  margin-top: 0.3125rem; }
+
 /**
     * Import Mixins to provide modules with exports.
     * List other required modules here.
@@ -1745,25 +2295,25 @@ i {
      * Reusible placeholder classes for headings and weights
      */
 h1, .alpha {
-  font-size: 1.375rem; }
+  font-size: 1.5rem; }
 
 h2, .beta {
-  font-size: 1.25rem; }
+  font-size: 1.375rem; }
 
 h3, .gamma {
-  font-size: 0.8125rem; }
+  font-size: 1.125rem; }
 
 h4, .delta {
   font-size: 0.875rem; }
 
-h5, .epsilon {
+h5, .epsilon, .cs-select .cs-placeholder, .cs-select ul span, .filter__link a, .formatted table th, .link--next-prev, .nav__heading, .tile__label, .cart__vendor, .cart__text--meta {
   font-size: 0.8125rem; }
 
-h6, .zeta {
+h6, .zeta, .caption__anchor {
   font-size: 0.6875rem; }
 
 @media only screen and (min-width:40.063em) {
-  h1, .alpha, h2, .beta, h3, .gamma, h4, .delta, h5, .epsilon, h6, .zeta {
+  h1, .alpha, h2, .beta, h3, .gamma, h4, .delta, h5, .epsilon, .cs-select .cs-placeholder, .cs-select ul span, .filter__link a, .formatted table th, .link--next-prev, .nav__heading, .tile__label, .cart__vendor, .cart__text--meta, h6, .zeta, .caption__anchor {
     line-height: 1.4; }
   h1, .alpha {
     font-size: 2rem; }
@@ -1775,20 +2325,59 @@ h6, .zeta {
     font-size: 1rem; } }
 
 /* Default header styles */
-h1, .alpha, h2, .beta, h3, .gamma, h4, .delta, h5, .epsilon, h6, .zeta {
-  font-family: sans-serif;
-  font-weight: 100;
-  text-rendering: optimizeLegibility; }
-  h1 small, h1 .alpha, h2 small, h2 .beta, h3 small, h3 .gamma, h4 small, h4 .delta, h5 small, h5 .epsilon, h6 small, h6 .zeta {
+h1, .alpha, h2, .beta, h3, .gamma, h4, .delta {
+  font-family: "adelle", "helvetica", sans-serif;
+  font-weight: 600;
+  text-rendering: optimizeLegibility;
+  line-height: 1.3; }
+  h1 small, h1 .alpha, h2 small, h2 .beta, h3 small, h3 .gamma, h4 small, h4 .delta {
     font-size: 60%;
     color: #6f6f6f;
     line-height: 0; }
+
+h5, .epsilon, .cs-select .cs-placeholder, .cs-select ul span, .filter__link a, .formatted table th, .link--next-prev, .nav__heading, .tile__label, .cart__vendor, .cart__text--meta {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.125rem;
+  font-size: 0.75rem; }
+
+h6, .zeta, .caption__anchor {
+  font-size: 0.75rem; }
 
 .subheader {
   color: #ffffff;
   display: block; }
 
 /* Helpers to extend the styles with out the dependance on heirachy */
+.giga {
+  font-size: 3.125rem;
+  position: relative;
+  padding-top: 7.5rem;
+  margin-bottom: 1.25rem;
+  line-height: 1; }
+  @media only screen and (min-width:40.063em) {
+    .giga {
+      font-size: 5.625rem;
+      letter-spacing: -0.1875rem; } }
+  .giga:before {
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+    height: 0.625rem;
+    background: #4d4d4d;
+    display: block;
+    position: absolute; }
+
+.text--with-icon .text--with-icon__icon {
+  position: absolute; }
+  .text--with-icon .text--with-icon__icon svg {
+    width: 3.125rem; }
+.text--with-icon .text--with-icon__text {
+  display: inline-block;
+  padding: 0 3.75rem; }
+
 /**
     * Import Mixins to provide modules with exports.
     * List other required modules here.
@@ -1817,14 +2406,11 @@ h1, .alpha, h2, .beta, h3, .gamma, h4, .delta, h5, .epsilon, h6, .zeta {
     $Sections Area
 
     */
-html, body, .site {
-  height: 100%; }
-
-html, body {
-  background: #f1f1f1; }
+html {
+  background-color: #d7d7d7; }
 
 .row {
-  max-width: 75rem; }
+  max-width: 100%; }
 
 .row--large {
   max-width: 100%; }
@@ -1838,13 +2424,107 @@ html, body {
   .section:after {
     clear: both; }
 
-.section--header, .section--hompage-tiles, .section--slideshow, .section--collection, .section--collection-header, .section--filter, .section--footer {
-  min-height: 6.25rem;
+.section--with-border {
+  position: relative;
+  display: block; }
+  .section--with-border:after {
+    display: block;
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0.3125rem;
+    background: #000000;
+    max-width: 100%;
+    width: auto;
+    margin: 0 auto; }
+    @media only screen and (min-width:64.063em) {
+      .section--with-border:after {
+        right: 3.75rem;
+        left: 3.75rem; } }
+    @media only screen and (min-width:90.063em) {
+      .section--with-border:after {
+        right: 6.25rem;
+        left: 6.25rem; } }
+
+.section--header, .section--hompage-tiles, .section--slideshow, .section--collection, .section--collection-header, .section--footer, .section--product-next-prev, .section--product-single, .section--pagination, .section--page, .section--next-prev, .section--cart-items, .section--cart-total, .section--search-results, .section--instagram, .section--sidebar, .section--sidebar__bottom {
   clear: both;
-  padding: 0 1.25rem; }
+  text-align: left;
+  max-width: 125rem;
+  margin: auto; }
+  @media only screen and (min-width:64.063em) {
+    .section--header, .section--hompage-tiles, .section--slideshow, .section--collection, .section--collection-header, .section--footer, .section--product-next-prev, .section--product-single, .section--pagination, .section--page, .section--next-prev, .section--cart-items, .section--cart-total, .section--search-results, .section--instagram, .section--sidebar, .section--sidebar__bottom {
+      padding: 0 3.75rem; } }
+  @media only screen and (min-width:90.063em) {
+    .section--header, .section--hompage-tiles, .section--slideshow, .section--collection, .section--collection-header, .section--footer, .section--product-next-prev, .section--product-single, .section--pagination, .section--page, .section--next-prev, .section--cart-items, .section--cart-total, .section--search-results, .section--instagram, .section--sidebar, .section--sidebar__bottom {
+      padding: 0 6.25rem; } }
+  .section--header.section--header, .section--hompage-tiles.section--header, .section--slideshow.section--header, .section--collection.section--header, .section--collection-header.section--header, .section--footer.section--header, .section--product-next-prev.section--header, .section--product-single.section--header, .section--pagination.section--header, .section--page.section--header, .section--next-prev.section--header, .section--cart-items.section--header, .section--cart-total.section--header, .section--search-results.section--header, .section--instagram.section--header, .section--sidebar.section--header, .section--sidebar__bottom.section--header {
+    max-width: 100%; }
 
 .section--footer {
-  padding-top: 1.25rem; }
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem; }
+  @media only screen and (min-width:64.063em) {
+    .section--footer {
+      padding: 2.5rem 3.75rem; } }
+  @media only screen and (min-width:90.063em) {
+    .section--footer {
+      padding: 2.5rem 6.25rem; } }
+
+.section--header p, .section--header li, .section--footer p, .section--footer li, .section--cart-total p, .section--cart-total li {
+  color: #000000; }
+.section--header a:hover, .section--footer a:hover, .section--cart-total a:hover {
+  color: #72abd6; }
+
+.section--messages, .section--search, .section--filter {
+  position: fixed !important;
+  display: block;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 0);
+  background: #9ed0f9;
+  z-index: 100;
+  width: 100%; }
+  @media only screen and (min-width:40.063em) {
+    .section--messages, .section--search, .section--filter {
+      width: 80%; } }
+  @media only screen and (min-width:64.063em) {
+    .section--messages, .section--search, .section--filter {
+      width: 45%; } }
+  @media only screen and (min-width:90.063em) {
+    .section--messages, .section--search, .section--filter {
+      width: 35%; } }
+
+.section--filter.at-bottom {
+  bottom: 0;
+  position: absolute !important;
+  margin-bottom: 0.3125rem; }
+
+.section--search {
+  bottom: auto;
+  top: 0;
+  background: #000000;
+  transform: translate(-50%, -100%);
+  transition: transform 200ms cubic-bezier(0.165, 0.84, 0.44, 1); }
+  .state-search-is-shown .section--search {
+    transform: translate(-50%, 0%); }
+
+.section--messages {
+  bottom: auto;
+  top: 0;
+  background: #000000;
+  transform: translate(-50%, -0%);
+  transition: transform 200ms cubic-bezier(0.165, 0.84, 0.44, 1); }
+  .state-messages-is-shown .section--messages {
+    transform: translate(-50%, 0%); }
+
+.section--instagram {
+  height: 100%; }
+  .section--instagram .row {
+    height: 100%; }
 
 /**
     * Import Mixins to provide modules with exports.
@@ -1875,10 +2555,11 @@ html, body {
 html, body {
   font-size: 100%;
   line-height: 1.4;
-  text-align: center; }
+  text-align: center;
+  color: #4d4d4d; }
 
 body {
-  font-family: sans-serif; }
+  font-family: "proxima-nova-alt", "helvetica", sans-serif; }
 
 .text-left {
   text-align: left !important; }
@@ -1993,22 +2674,20 @@ body {
     text-align: justify !important; } }
 
 /* Typography resets */
-div, dl, dt, dd, ul, ol, li, h1, .alpha, h2, .beta, h3, .gamma, h4, .delta, h5, .epsilon, h6, .zeta, pre, form, p, blockquote, th, td, button {
+div, dl, dt, dd, ul, ol, li, h1, .alpha, h2, .beta, h3, .gamma, h4, .delta, h5, .epsilon, .cs-select .cs-placeholder, .cs-select ul span, .filter__link a, .formatted table th, .link--next-prev, .nav__heading, .tile__label, .cart__vendor, .cart__text--meta, h6, .zeta, .caption__anchor, pre, form, p, blockquote, th, td, button {
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased; }
 
 /* Default paragraph styles */
 p {
-  font-family: sans-serif;
+  font-family: "proxima-nova-alt", "helvetica", sans-serif;
   line-height: 1.5;
   margin-bottom: 1.25rem;
   text-rendering: optimizeLegibility;
-  font-size: 0.6875rem; }
-  p.lead {
-    font-size: 0.6875rem;
-    text-transform: uppercase;
-    letter-spacing: rem-clac(1); }
+  font-size: 1rem; }
+  p.lead, .formatted p.p1 {
+    font-size: 1.25rem; }
 
 hr {
   border: solid #DDDDDD;
@@ -2023,14 +2702,14 @@ em {
   line-height: inherit; }
 
 strong, b, .bold {
-  font-weight: 600;
+  font-weight: 700;
   line-height: inherit; }
 
 .highlight {
   color: #000000; }
 
 .small {
-  font-size: 0.625rem; }
+  font-size: 0.75rem; }
 
 .block-level {
   display: block; }
@@ -2046,6 +2725,53 @@ strong, b, .bold {
   width: 1px;
   overflow: hidden;
   clip: rect(1px, 1px, 1px, 1px); }
+
+/*
+        Text coming in from CMS
+        */
+.formatted p {
+  break-inside: avoid-column;
+  font-size: 0.875rem; }
+  .formatted p.p1 {
+    column-span: all; }
+.formatted h1, .formatted .alpha, .formatted h2, .formatted .beta, .formatted h3, .formatted .gamma, .formatted h4, .formatted .delta {
+  padding-bottom: 1.25rem; }
+.formatted h4, .formatted .delta {
+  position: relative;
+  padding-top: 1.25rem; }
+  .formatted h4:before, .formatted .delta:before {
+    content: ' ';
+    top: 0;
+    left: 0;
+    width: 1.25rem;
+    height: 1px;
+    position: absolute;
+    display: block;
+    background: #d7d7d7; }
+.formatted ul {
+  margin-bottom: 1.25rem; }
+  .formatted ul li {
+    position: relative;
+    padding: 0 0 0.625rem 1.25rem;
+    font-size: 0.875rem; }
+    .formatted ul li:before {
+      content: ' ';
+      left: 0;
+      top: 0.45rem;
+      content: '';
+      height: 0.3125rem;
+      width: 0.3125rem;
+      background: #d7d7d7;
+      transform: rotate(-45deg);
+      position: absolute; }
+.formatted table {
+  margin-left: -2.5rem;
+  margin-right: -2.5rem; }
+  .formatted table td, .formatted table th {
+    padding: 0.3125rem 1.25rem 0.3125rem;
+    font-size: 0.75rem;
+    vertical-align: top;
+    border-bottom: 1px solid #eee; }
 
 /**
     * Import Mixins to provide modules with exports.
@@ -2085,12 +2811,30 @@ a {
   line-height: inherit;
   transition: color 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
   cursor: pointer;
-  color: #000000;
-  border-bottom: 1px solid; }
+  color: #000000; }
   a img {
     border: none; }
   a:hover {
-    color: #b3d9f3; }
+    color: #9ed0f9; }
+
+li a, p a {
+  border-bottom: 1px solid; }
+  li a:hover, p a:hover {
+    color: #9ed0f9; }
+
+.link--with-image {
+  border: none; }
+
+.link--next-prev {
+  display: block;
+  padding: 1.25rem;
+  margin-bottom: 0.3125rem;
+  position: relative; }
+  .link--next-prev a {
+    border: none; }
+
+.link--disabled {
+  color: #d7d7d7; }
 
 /**
     * Import Mixins to provide modules with exports.
@@ -2119,7 +2863,6 @@ a {
 
     */
 ul, ol, dl {
-  margin-bottom: 1.25rem;
   list-style: none; }
 
 /**
@@ -2144,58 +2887,218 @@ ul, ol, dl {
 /*------------------------------------*\
 
 */
-ul, ol, dl {
-  margin-bottom: 1.25rem;
-  list-style: none; }
-
 .nav {
   list-style: none;
   margin-left: -1.25rem; }
   .nav > li {
     padding-left: 1.25rem;
     margin-bottom: 0.625rem;
-    font-size: 0.6875rem; }
+    font-size: 0.75rem;
+    letter-spacing: 0.0625rem;
+    position: relative; }
     .nav > li, .nav > li > a {
       display: inline-block;
       *display: inline;
       zoom: 1; }
 
-.nav__heading {
-  text-transform: uppercase;
-  font-weight: 600; }
-
 .nav__label {
-  font-weight: 600; }
+  font-weight: 700; }
 
+/*
+    TOP NAVIGATION COMPONENTS
+    */
 .nav--global {
   text-align: center;
-  margin: 0; }
-  .nav--global li {
-    line-height: 6.25rem;
-    text-align: left;
-    position: relative; }
-  .nav--global a {
-    line-height: 6.25rem;
-    border-bottom: none;
-    text-transform: uppercase;
-    font-weight: 600; }
-  .nav--global ul {
+  margin: auto; }
+  .nav--global > li {
+    padding: 0 0.3125rem;
+    margin: 0;
+    line-height: 1;
+    text-align: center;
+    font-size: 0.875rem;
+    position: relative;
+    font-weight: 700; }
+    .header__nav-secondary .nav--global > li {
+      line-height: 12.5rem; }
+    @media only screen and (min-width:40.063em) {
+      .nav--global > li {
+        line-height: 12.5rem; } }
+    @media only screen and (min-width:64.063em) {
+      .nav--global > li {
+        padding: 0 0.625rem; } }
+    @media only screen and (min-width:90.063em) {
+      .nav--global > li {
+        padding: 0 1.25rem; } }
+    @media only screen and (min-width:40.063em) {
+      .nav--global > li:before {
+        content: '';
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 0.3125rem;
+        position: absolute;
+        background: #000000;
+        transition: transform 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+        transform: scaleY(0);
+        transform-origin: 0 0; }
+        @media only screen and (min-width:64.063em) {
+          .nav--global > li:before {
+            left: 0.625rem;
+            right: 0.625rem; } }
+        @media only screen and (min-width:90.063em) {
+          .nav--global > li:before {
+            left: 1.25rem;
+            right: 1.25rem; } } }
+    .nav--global > li.nav__item--is-active {
+      cursor: default; }
+      .nav--global > li.nav__item--is-active:before {
+        transform: scaleY(1); }
+    .nav--global > li:hover:before {
+      transform: scaleY(1); }
+    .nav--global > li > a {
+      display: block;
+      border-bottom: none;
+      text-transform: uppercase;
+      font-weight: 700; }
+      .nav--global > li > a:hover {
+        color: #000000; }
+  .nav--global .mini-cart, .nav--global .search-toggle {
+    line-height: 1 !important;
+    padding-left: 0.5rem; }
+    .nav--global .mini-cart:after, .nav--global .mini-cart:before, .nav--global .search-toggle:after, .nav--global .search-toggle:before {
+      display: none; }
+    .nav--global .mini-cart a, .nav--global .search-toggle a {
+      transform: translateY(-50%);
+      cursor: pointer; }
+      .nav--global .mini-cart a svg, .nav--global .search-toggle a svg {
+        transition: fill 200ms cubic-bezier(0.165, 0.84, 0.44, 1); }
+      .nav--global .mini-cart a:hover, .nav--global .search-toggle a:hover {
+        color: #4d4d4d; }
+        .nav--global .mini-cart a:hover svg, .nav--global .search-toggle a:hover svg {
+          fill: #4d4d4d; }
+  .nav--global .mini-cart__count {
+    display: block;
+    position: relative;
+    top: 0.625rem;
+    height: 0.625rem; }
+  .nav--global .search-toggle {
+    padding-left: 0.5rem;
+    padding-right: 0; }
+    .nav--global .search-toggle a {
+      transform: translateY(5px); }
+    .nav--global .search-toggle svg {
+      transition: fill 200ms cubic-bezier(0.165, 0.84, 0.44, 1); }
+    .state-search-is-shown .nav--global .search-toggle svg {
+      transition: fill 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+      fill: #4d4d4d; }
+
+.nav--secondary {
+  text-align: right; }
+  .nav--secondary ul {
+    z-index: 1000;
+    background: #ffffff;
+    padding: 1.25rem 0;
     position: absolute;
-    top: 55%;
-    z-index: 1; }
-    .nav--global ul li {
-      line-height: 1; }
-    .nav--global ul a {
-      line-height: 1;
-      text-transform: none; }
+    top: 50%;
+    left: 50%;
+    margin-top: 1.625rem;
+    width: 100%;
+    transform: translate(-50%, 0) rotateX(-90deg);
+    opacity: 0;
+    transform-origin: 0% 0%;
+    backface-visibility: hidden;
+    transition: transform 0 200ms, opacity 200ms cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+    min-width: 9.375rem;
+    box-shadow: 0 0 0 #d7d7d7; }
+    .nav--secondary ul li {
+      line-height: 1.4;
+      text-align: left;
+      font-weight: normal;
+      padding: 0 1.25rem; }
+      .nav--secondary ul li a {
+        font-size: 0.6875rem;
+        border: none; }
+      .nav--secondary ul li.nav__item--is-active a {
+        cursor: default;
+        color: #9ed0f9; }
+  .nav--secondary li:hover ul {
+    opacity: 1;
+    transform: translate(-50%, 0) rotateX(0deg);
+    transition: transform 0 0, opacity 200ms cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 200ms 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0.3125rem 0.3125rem 0 #d7d7d7; }
+    .nav--secondary li:hover ul:before {
+      transform: scaleY(1); }
+  .nav--secondary > li:after {
+    content: '';
+    left: 0;
+    right: 0;
+    height: 0.5rem;
+    position: absolute;
+    background: #ffffff;
+    transition: all 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: scaleY(0);
+    transform-origin: 0 100%;
+    top: 50%;
+    opacity: 0;
+    margin-top: 1.25rem; }
+    @media only screen and (min-width:64.063em) {
+      .nav--secondary > li:after {
+        left: 0.625rem;
+        right: 0.625rem; } }
+    @media only screen and (min-width:90.063em) {
+      .nav--secondary > li:after {
+        left: 1.25rem;
+        right: 1.25rem; } }
+  .nav--secondary > li:hover:after {
+    opacity: 1;
+    transform: scaleY(1); }
+  .nav--secondary > li > a {
+    text-transform: none;
+    cursor: default;
+    font-size: 0.75rem; }
 
-.nav--stacked li {
-  display: block; }
-
-.nav--linklist li {
+.nav--pagination, .nav--pagination li {
+  text-align: center;
+  margin: 0;
+  padding: 0; }
+.nav--pagination a, .nav--pagination span {
+  border: none;
   display: block;
-  float: left;
-  width: 25%; }
+  padding: 1.25rem;
+  margin-bottom: 0.3125rem;
+  position: relative; }
+  .nav--pagination a:before, .nav--pagination span:before {
+    content: '';
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0.3125rem;
+    position: absolute;
+    background: #000000;
+    transition: transform 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: scaleY(0);
+    transform-origin: 0 100%; }
+.nav--pagination a:hover:before, .nav--pagination span:before {
+  transform: scaleY(1); }
+
+.nav--social svg {
+  transition: fill 200ms cubic-bezier(0.165, 0.84, 0.44, 1); }
+.nav--social a:hover svg {
+  fill: #72abd6; }
+
+.nav--stacked {
+  margin-bottom: 1.25rem; }
+  .nav--stacked li {
+    display: block; }
+
+.nav--linklist {
+  margin-bottom: 1.25rem;
+  overflow: hidden; }
+  .nav--linklist li {
+    display: block;
+    float: left;
+    width: 25%; }
 
 /**
     * Import Mixins to provide modules with exports.
@@ -2233,11 +3136,17 @@ ul, ol, dl {
       */
 input, textarea {
   width: 100%;
-  border: 1px solid transparent;
+  border: 1px solid #d7d7d7;
   background: #ffffff;
   line-height: 4;
-  color: #f1f1f1;
+  color: #4d4d4d;
   padding-left: 2em; }
+  input:focus, textarea:focus {
+    outline: none; }
+  input[type=image], textarea[type=image] {
+    width: auto; }
+  input[type=text], input[type=search], textarea[type=text], textarea[type=search] {
+    -webkit-appearance: caret; }
 
 /**
       * @name Textarea
@@ -2272,7 +3181,6 @@ select {
       *   <form>Markup</form>
       */
 form {
-  margin-bottom: 1.25rem;
   /**
          *  Gravity Forms
          *  -puts fields in a UL > LI
@@ -2323,6 +3231,72 @@ form {
 /*------------------------------------*\
 
     /**
+    * @title Globals
+    */
+/**
+    *   All Logic pertaining to the top back horizontal navigation
+    *   should go in this file.
+    */
+/*------------------------------------*\
+
+    */
+.input--search {
+  background: #000000;
+  text-align: center;
+  color: #ffffff;
+  border: none;
+  font-size: 1.125rem;
+  line-height: 2.5;
+  padding: 0 1.25rem; }
+
+.search-bar__submit, .search-toggle__hide {
+  position: absolute;
+  border: none;
+  background: #000000;
+  top: 0;
+  bottom: 0;
+  left: 100%;
+  font-size: 1.125rem;
+  padding: 0 1.25rem;
+  cursor: pointer;
+  transform: translate(0%, 0%);
+  padding-top: 0;
+  padding-bottom: 0;
+  display: block;
+  width: 3.75rem; }
+  .search-bar__submit svg, .search-toggle__hide svg {
+    fill: #d7d7d7;
+    transition: fill 200ms cubic-bezier(0.165, 0.84, 0.44, 1); }
+  .search-bar__submit:hover svg, .search-toggle__hide:hover svg {
+    fill: #4d4d4d; }
+
+.search-toggle__hide {
+  transform: translate(100%, 0%);
+  padding: 0.8333333333rem 1.25rem; }
+  .search-toggle__hide svg {
+    position: relative;
+    top: 0.375rem; }
+
+/*
+    End Global
+     */
+/**
+    * Import Mixins to provide modules with exports.
+    * List other required modules here.
+    */
+/**
+ * Import Once
+ *
+ * We use this to prevent styles from being loaded multiple times for compenents that rely on other components.
+ */
+/*------------------------------------*\
+
+    /**
+    * Variables
+    */
+/*------------------------------------*\
+
+    /**
     * @title Images
     */
 /**
@@ -2348,6 +3322,151 @@ img {
 /**
      * End Images
      */
+/**
+    * Import Mixins to provide modules with exports.
+    * List other required modules here.
+    */
+/**
+ * Import Once
+ *
+ * We use this to prevent styles from being loaded multiple times for compenents that rely on other components.
+ */
+/*------------------------------------*\
+
+    /**
+    * Variables
+    */
+/*------------------------------------*\
+
+    /**
+    * @title Sections
+    */
+/**
+    *   All Logic pertaining to the top back horizontal navigation
+    *   should go in this file.
+    */
+/*------------------------------------*\
+
+    $Sections Area
+
+    */
+.svg--logo {
+  display: block;
+  max-width: 8.75rem;
+  width: 100%; }
+
+.svg--search {
+  display: block;
+  width: 1.125rem;
+  height: 1.125rem; }
+
+.svg--close {
+  display: block;
+  width: 0.9375rem;
+  height: 0.9375rem; }
+
+.svg--cart {
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem; }
+
+.svg--twitter {
+  display: block;
+  width: 1.375rem;
+  height: 1.375rem; }
+
+.svg--instagram {
+  display: block;
+  width: 1.375rem;
+  height: 1.375rem; }
+
+.svg--facebook {
+  display: block;
+  width: 1.375rem;
+  height: 1.375rem; }
+
+.svg--bike {
+  display: inline-block;
+  width: 3.125rem;
+  height: 1.875rem;
+  fill: #ffffff; }
+
+.svg--arrow {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem; }
+
+/**
+    * Import Mixins to provide modules with exports.
+    * List other required modules here.
+    */
+/**
+ * Import Once
+ *
+ * We use this to prevent styles from being loaded multiple times for compenents that rely on other components.
+ */
+/*------------------------------------*\
+
+    /**
+    * Variables
+    */
+/*------------------------------------*\
+
+    /**
+    * @title Sections
+    */
+/**
+    *   All Logic pertaining to the top back horizontal navigation
+    *   should go in this file.
+    */
+/*------------------------------------*\
+
+    $Sections Area
+
+    */
+.instagram__link {
+  background-position: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  height: 0;
+  padding-top: 100%;
+  display: block;
+  position: relative;
+  transition: background 200ms cubic-bezier(0.165, 0.84, 0.44, 1); }
+  .instagram__link:before {
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    border: 0 solid #ffffff;
+    display: block;
+    height: auto;
+    width: auto;
+    transition: border 200ms cubic-bezier(0.165, 0.84, 0.44, 1); }
+  .instagram__link:hover:before {
+    border-width: 0.3125rem; }
+  .instagram-block .instagram__link {
+    background-color: #ace66a; }
+    .instagram-block .instagram__link:before {
+      border-width: 0.3125rem; }
+    .instagram-block .instagram__link:hover {
+      background-color: #70b565;
+      color: #ffffff; }
+  .instagram__link svg {
+    margin: auto auto 0.625rem;
+    fill: #ffffff;
+    width: 1.5625rem;
+    height: 1.5625rem; }
+
+.instagram__inner {
+  top: 50%;
+  position: absolute;
+  transform: translateY(-50%);
+  width: 100%;
+  margin-top: -0.625rem; }
+
 /**
     * Import Mixins to provide modules with exports.
     * List other required modules here.
@@ -2462,17 +3581,15 @@ img {
   /* Specify Swiper's Size: */
   /*width:200px;
         height: 100px;*/
-  max-width: 75rem;
-  width: 100%;
-  margin: 0 auto 0.3125rem; }
+  max-width: 100%;
+  margin: 0 0.15625rem;
+  border: 0.3125rem solid #ffffff; }
 
 .swiper-slide {
   /* Specify Slides's Size: */ }
   .swiper-slide, .swiper-slide img {
     width: 100%;
     height: auto; }
-  .swiper-slide img {
-    padding: 0 0.15625rem; }
 
 /* ===============================================================
     Pagination Styles
@@ -2507,27 +3624,194 @@ img {
 
 */
 .collection__grid {
-  display: block;
-  padding: 0;
-  margin: 0 -0.625rem; }
-  .collection__grid:before, .collection__grid:after {
-    content: " ";
-    display: table; }
-  .collection__grid:after {
-    clear: both; }
-  .collection__grid > li {
-    display: block;
+  margin-bottom: 3.5rem !important; }
+  @media only screen and (min-width:40.063em) {
+    .collection__grid {
+      display: block;
+      padding: 0;
+      margin: 0 -0.15625rem; }
+      .collection__grid:before, .collection__grid:after {
+        content: " ";
+        display: table; }
+      .collection__grid:after {
+        clear: both; }
+      .collection__grid > li {
+        display: block;
+        height: auto;
+        float: left;
+        padding: 0 0.15625rem 0.3125rem; }
+      .collection__grid > li {
+        width: 50%;
+        padding: 0 0.15625rem 0.3125rem;
+        list-style: none; }
+        .collection__grid > li:nth-of-type(1n) {
+          clear: none; }
+        .collection__grid > li:nth-of-type(2n+1) {
+          clear: both; } }
+  @media only screen and (min-width:64.063em) {
+    .collection__grid {
+      display: block;
+      padding: 0;
+      margin: 0 -0.15625rem; }
+      .collection__grid:before, .collection__grid:after {
+        content: " ";
+        display: table; }
+      .collection__grid:after {
+        clear: both; }
+      .collection__grid > li {
+        display: block;
+        height: auto;
+        float: left;
+        padding: 0 0.15625rem 0.3125rem; }
+      .collection__grid > li {
+        width: 33.3333333333%;
+        padding: 0 0.15625rem 0.3125rem;
+        list-style: none; }
+        .collection__grid > li:nth-of-type(1n) {
+          clear: none; }
+        .collection__grid > li:nth-of-type(3n+1) {
+          clear: both; } }
+  .collection__grid li {
+    margin-bottom: 0.625rem; }
+    @media only screen and (min-width:40.063em) {
+      .collection__grid li {
+        margin-bottom: 0; } }
+
+/**
+* Import Mixins to provide modules with exports.
+* List other required modules here.
+*/
+/**
+ * Import Once
+ *
+ * We use this to prevent styles from being loaded multiple times for compenents that rely on other components.
+ */
+/*------------------------------------*\
+
+/**
+* Variables
+*/
+/*------------------------------------*\
+
+/**
+* @title Lists
+*/
+/**
+*   All Logic pertaining to the top back horizontal navigation
+*   should go in this file.
+*/
+/*------------------------------------*\
+
+*/
+.section--product-single {
+  min-height: 56.25rem; }
+
+.product__info {
+  background: #ffffff;
+  white-space: break-word; }
+  .product__info:after {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     height: auto;
-    float: left;
-    padding: 0 0.625rem 1.25rem; }
-  .collection__grid > li {
-    width: 50%;
-    padding: 0 0.625rem 1.25rem;
-    list-style: none; }
-    .collection__grid > li:nth-of-type(1n) {
-      clear: none; }
-    .collection__grid > li:nth-of-type(2n+1) {
-      clear: both; }
+    width: auto;
+    border: 0px solid transparent;
+    transition: border 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: -1; }
+  .product__info.product-description-shown:after {
+    border: 0.3125rem solid #9ed0f9;
+    z-index: 2; }
+
+.product__description {
+  position: absolute;
+  transform: scale(0);
+  opacity: 0;
+  transition: opacity 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  background: #ffffff;
+  z-index: 3;
+  top: 0.3125rem;
+  left: 0.3125rem;
+  right: 0.3125rem;
+  bottom: 0.3125rem; }
+  .product__description .product__description__inner {
+    padding: 3.75rem 2.5rem 0;
+    overflow-y: scroll;
+    height: calc(100% - 170px);
+    background: linear-gradient(white 30%, rgba(255, 255, 255, 0)), linear-gradient(rgba(255, 255, 255, 0), white 70%) bottom, radial-gradient(at top, rgba(77, 77, 77, 0.15), transparent 70%), radial-gradient(at bottom, rgba(77, 77, 77, 0.15), transparent 70%) bottom;
+    background-repeat: no-repeat;
+    background-size: 100% 40px, 100% 40px, 100% 6px, 100% 6px;
+    background-attachment: local, local, scroll, scroll; }
+  .product-description-shown .product__description {
+    transform: scale(1);
+    opacity: 1;
+    transition: all 200ms cubic-bezier(0.165, 0.84, 0.44, 1); }
+  .product__description p, .product__description li {
+    max-width: 380px; }
+
+.product__description__close {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  background: #9ed0f9;
+  transform: translate(-50%, 0%) scaleY(0);
+  transform-origin: 0 0;
+  transition: transform 200ms 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  padding: 0.3125rem 1.25rem 0.4166666667rem; }
+  .product-description-shown .product__description__close {
+    transform: translate(-50%, 0%) scaleY(1); }
+  .product__description__close svg {
+    fill: #ffffff;
+    transition: transform 200ms cubic-bezier(0.165, 0.84, 0.44, 1); }
+    .product__description__close svg:hover {
+      transform: scale(1.2); }
+
+.product__actions {
+  position: absolute;
+  bottom: 0.3125rem;
+  left: 0.3125rem;
+  right: 0.3125rem;
+  padding: 1.25rem;
+  background: #ffffff;
+  margin: 0 0.15625rem;
+  z-index: 4; }
+
+.product__images {
+  min-height: 79.6875rem; }
+
+.product__image {
+  background: #ffffff;
+  margin: 0 0 0.3125rem 0;
+  text-align: center; }
+  .product__image:last-child {
+    margin-bottom: 0; }
+  .product__image img {
+    display: block;
+    margin: auto;
+    min-height: 5rem; }
+
+@media only screen and (min-width:40.063em) {
+  .section--sidebar {
+    position: absolute;
+    left: 0;
+    right: 0; }
+    .section--sidebar.is-fixed {
+      top: 0;
+      position: fixed; }
+    .section--sidebar.at-bottom {
+      bottom: 0; } }
+
+@media only screen and (min-width:40.063em) {
+  .section--sidebar__bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 4; }
+    .section--sidebar__bottom.at-bottom {
+      position: absolute; } }
 
 /**
     * Import Mixins to provide modules with exports.
@@ -2556,28 +3840,19 @@ img {
 
     */
 .tile {
-  margin-bottom: 0.3125rem;
   text-align: center; }
-
-.block {
-  margin-bottom: 0.3125rem;
-  background: #ff9861;
-  padding: 2.5rem; }
+  .tile a {
+    color: #4d4d4d; }
 
 .tile__label {
+  color: #ffffff;
   position: absolute;
   left: 50%;
   top: 0;
   transform: translateX(-50%);
   z-index: 1;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  line-height: 2;
-  background: #f1f1f1;
-  padding: 0.25em 1.5em;
-  text-transform: uppercase;
-  transition: padding 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
-  color: #ffffff; }
+  background: #d7d7d7;
+  padding: 0.5em 1.5em 0.4em; }
   .tile__label:before {
     content: '';
     position: absolute;
@@ -2591,18 +3866,65 @@ img {
     transform: scaleY(0);
     transform-origin: 0 0;
     transition: transform 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
-    background: #b3d9f3; }
-  .tile__link:hover .tile__label {
-    padding: 0.4em 1.8em 0.25em; }
-    .tile__link:hover .tile__label:before {
-      transform: scaleY(1); }
+    background: #9ed0f9; }
+  .tile__link:hover .tile__label:before {
+    transform: scaleY(1); }
+
+.tile__price {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 6.875rem;
+  width: 6.875rem;
+  text-align: center;
+  display: block; }
+  .tile__price .tile__price__text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+
+.tile__flags {
+  position: absolute;
+  top: 3.75rem;
+  right: 3.75rem;
+  transform: translateY(-50%); }
+  .tile__flags .tile__flag {
+    display: block;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 2;
+    color: #ffffff; }
+    .tile__flags .tile__flag:after, .tile__flags .tile__flag:before {
+      content: '';
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, -0%);
+      height: 0;
+      width: 0;
+      border: 45px solid transparent;
+      border-top: 25px solid #ace66a;
+      z-index: -1; }
+    .tile__flags .tile__flag:after {
+      bottom: 50%;
+      top: auto;
+      transform: translate(-50%, 0%);
+      border: 45px solid transparent;
+      border-bottom: 25px solid #ace66a; }
+    .tile__flags .tile__flag.flag--sale:after {
+      border-bottom: 25px solid #fe934a; }
+    .tile__flags .tile__flag.flag--sale:before {
+      border-top: 25px solid #fe934a; }
 
 .tile__link {
   position: relative;
   display: block;
   border: none; }
   .tile__link:before {
-    border: 0 solid #b3d9f3;
+    border: 0 solid #9ed0f9;
     display: block;
     transition: border 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
     content: '';
@@ -2613,45 +3935,606 @@ img {
     bottom: 0;
     height: auto;
     width: auto;
-    z-index: 1; }
+    z-index: -1; }
   .tile__link:hover:before {
-    border-width: 0.3125rem; }
+    border-width: 0.3125rem;
+    z-index: 2; }
 
-.tile__figure:after {
-  height: auto;
-  width: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0);
-  content: '';
-  position: absolute;
-  transition: background 200ms cubic-bezier(0.165, 0.84, 0.44, 1); }
-.tile__link:hover .tile__figure:after {
-  background: rgba(0, 0, 0, 0.1); }
+.tile__figure {
+  background: #ffffff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top; }
+  .tile--with-height .tile__figure {
+    height: 300px; }
+    @media only screen and (min-width:40.063em) {
+      .tile--with-height .tile__figure {
+        height: 400px; } }
+    @media only screen and (min-width:64.063em) {
+      .tile--with-height .tile__figure {
+        height: 500px; } }
+    @media only screen and (min-width:90.063em) {
+      .tile--with-height .tile__figure {
+        height: 600px; } }
+  .tile--with-height--small .tile__figure {
+    height: 250px; }
+    @media only screen and (min-width:40.063em) {
+      .tile--with-height--small .tile__figure {
+        height: 350px; } }
+    @media only screen and (min-width:90.063em) {
+      .tile--with-height--small .tile__figure {
+        height: 400px; } }
+  .tile--product .tile__figure {
+    padding-bottom: 5rem; }
+  .tile__figure img {
+    display: block;
+    margin: auto;
+    min-height: 5rem; }
 
 .caption {
   background: rgba(255, 255, 255, 0.9);
+  padding: 1.25rem;
+  transition: background 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  color: #4d4d4d;
   position: absolute;
   margin: 1.25rem;
-  padding: 1.25rem;
-  bottom: 1.25rem;
-  left: 1.25rem;
-  transition: background 200ms cubic-bezier(0.165, 0.84, 0.44, 1); }
+  bottom: 0;
+  left: 0;
+  right: 0; }
+  @media only screen and (min-width:40.063em) {
+    .caption {
+      bottom: 1.25rem;
+      left: 1.25rem; }
+      .tile .caption {
+        right: 1.25rem; } }
   .tile__link:hover .caption {
     background: white; }
-  .tile .caption {
-    right: 1.25rem; }
+  .tile--product .caption {
+    margin-bottom: 0;
+    margin: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ffffff;
+    padding-bottom: 1.875rem; }
 
 .caption__anchor {
-  font-size: 0.6875rem;
-  font-weight: bold;
-  color: #b3d9f3; }
+  position: relative;
+  color: #9ed0f9; }
+  .caption__anchor:after {
+    content: '';
+    width: 100%;
+    position: absolute;
+    bottom: -1x;
+    height: 1px;
+    display: block;
+    left: 0;
+    background: #72abd6;
+    transition: transform 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: scaleX(0); }
+  .slide-link:hover .caption__anchor, .tile:hover .caption__anchor {
+    color: #72abd6; }
+    .slide-link:hover .caption__anchor:after, .tile:hover .caption__anchor:after {
+      transform: scaleX(1); }
 
-hr {
-  height: 0.3125rem;
-  background: #000000;
-  max-width: 75rem;
+/**
+* Import Mixins to provide modules with exports.
+* List other required modules here.
+*/
+/**
+ * Import Once
+ *
+ * We use this to prevent styles from being loaded multiple times for compenents that rely on other components.
+ */
+/*------------------------------------*\
+
+/**
+* Variables
+*/
+/*------------------------------------*\
+
+/**
+* @title Lists
+*/
+/**
+*   All Logic pertaining to the top back horizontal navigation
+*   should go in this file.
+*/
+/*------------------------------------*\
+
+*/
+.block-wrap {
+  position: relative;
+  overflow: hidden; }
+
+.block {
+  margin-bottom: 0.3125rem;
+  padding: 3.75rem 2.5rem 0;
+  height: 350px; }
+  @media only screen and (min-width:90.063em) {
+    .block {
+      height: 400px; } }
+  .block:before {
+    background: #fe934a;
+    content: ' ';
+    top: 0.3125rem;
+    left: 0.15625rem;
+    right: 0.15625rem;
+    position: absolute;
+    width: auto;
+    height: 300%; }
+  .block .block__content {
+    position: absolute;
+    top: 50%;
+    width: 80%;
+    transform: translateY(-50%); }
+
+/**
+    * Import Mixins to provide modules with exports.
+    * List other required modules here.
+    */
+/**
+ * Import Once
+ *
+ * We use this to prevent styles from being loaded multiple times for compenents that rely on other components.
+ */
+/*------------------------------------*\
+
+    /**
+    * Variables
+    */
+/*------------------------------------*\
+
+    /**
+    * @title Lists
+    */
+/**
+    *   All Logic pertaining to the top back horizontal navigation
+    *   should go in this file.
+    */
+/*------------------------------------*\
+
+    */
+.cart__row {
+  background: #ffffff;
+  margin-top: 0.3125rem;
+  clear: both;
+  padding-bottom: 9.0625rem; }
+  @media only screen and (min-width:40.063em) {
+    .cart__row {
+      padding: 0; } }
+
+.cart__row--total {
+  clear: both;
+  overflow: hidden;
+  height: auto;
+  line-height: 1;
+  padding: 3.75rem 0; }
+
+.cart__text {
+  display: block;
+  padding-top: 2.5rem;
+  color: #4d4d4d; }
+  @media only screen and (min-width:40.063em) {
+    .cart__text {
+      padding: 0;
+      line-height: 9.0625rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; } }
+
+.cart__quantity {
+  height: 4.53125rem;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 3px;
+  color: #ffffff; }
+  .cart__quantity span {
+    position: relative;
+    z-index: 1; }
+  .cart__quantity:before {
+    content: '';
+    position: absolute;
+    height: auto;
+    width: auto;
+    top: 0;
+    bottom: 0;
+    left: 0px;
+    right: -1px;
+    background: #70b565; }
+
+.cart__quantity__num {
+  font-size: 2rem;
+  font-family: "proxima-nova-alt", "helvetica", sans-serif;
+  font-weight: 600;
+  display: block;
+  line-height: 0.5; }
+
+.cart__line-price {
+  padding: 1.25rem 1.25rem 2.5rem;
+  display: block; }
+  @media only screen and (min-width:40.063em) {
+    .cart__line-price {
+      padding: 0;
+      position: absolute;
+      top: 4.53125rem;
+      transform: translateY(-50%);
+      right: 2.5rem; } }
+
+.cart__vendor {
+  color: #ffffff;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: 1;
+  background: #d7d7d7;
+  padding: 0.5em 1.5em 0.4em;
+  transform: translateX(-50%); }
+
+.cart__image {
+  display: inline-block;
+  text-align: center;
+  height: 9.0625rem;
+  position: relative; }
+  .cart__image img {
+    max-width: 100%;
+    margin: auto;
+    max-height: 100%; }
+
+.cart__adjust-quantity {
   width: 100%;
-  margin: 0 auto 1.25rem; }
+  text-align: center;
+  position: absolute;
+  top: 4.53125rem; }
+  .cart__adjust-quantity.cart__adjust-quantity--remove {
+    top: 0; }
+  .cart__adjust-quantity a, .cart__adjust-quantity span {
+    display: inline-block;
+    width: 50%;
+    font-size: 3.75rem;
+    text-align: center;
+    color: #9ed0f9;
+    padding: 1.25rem;
+    height: 4.53125rem;
+    line-height: 2.265625rem;
+    position: relative;
+    margin-left: -7px; }
+    .cart__adjust-quantity a:before, .cart__adjust-quantity span:before {
+      content: '';
+      position: absolute;
+      height: auto;
+      width: auto;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border: 3px solid #ace66a;
+      transition: border 200ms cubic-bezier(0.165, 0.84, 0.44, 1); }
+    .cart__adjust-quantity a:hover, .cart__adjust-quantity span:hover {
+      z-index: 1; }
+      .cart__adjust-quantity a:hover:before, .cart__adjust-quantity span:hover:before {
+        border: 6px solid #70b565; }
+      .cart__adjust-quantity a:hover .cart__icon, .cart__adjust-quantity span:hover .cart__icon {
+        fill: #70b565; }
+    .cart__adjust-quantity a:active:before, .cart__adjust-quantity span:active:before {
+      border-color: #ace66a; }
+    .cart__adjust-quantity a:active .cart__icon, .cart__adjust-quantity span:active .cart__icon {
+      fill: #ace66a; }
+    @media only screen and (min-width:40.063em) { }
+    .cart__adjust-quantity a .cart__icon, .cart__adjust-quantity span .cart__icon {
+      height: 1.25rem;
+      width: 1.25rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      transition: fill 200ms cubic-bezier(0.165, 0.84, 0.44, 1); }
+    .cart__adjust-quantity a .svg--plus, .cart__adjust-quantity a .svg--minus, .cart__adjust-quantity span .svg--plus, .cart__adjust-quantity span .svg--minus {
+      fill: #ace66a; }
+    .cart__adjust-quantity a .svg--close, .cart__adjust-quantity span .svg--close {
+      fill: #fe934a; }
+  .cart__adjust-quantity .cart__remove {
+    width: 100%;
+    width: auto;
+    height: 9.0625rem;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: -5px;
+    right: 2px; }
+    .cart__adjust-quantity .cart__remove:before {
+      border: 1px solid #eee; }
+    .cart__adjust-quantity .cart__remove .cart__icon {
+      fill: #d7d7d7; }
+    .cart__adjust-quantity .cart__remove:hover:before {
+      border: 6px solid #e68541; }
+    .cart__adjust-quantity .cart__remove:hover .cart__icon {
+      fill: #e68541; }
+
+.section--cart-items {
+  transition: opacity 200ms cubic-bezier(0.165, 0.84, 0.44, 1); }
+  .section--cart-items.is-loading {
+    opacity: 0.01; }
+
+/**
+* Import Mixins to provide modules with exports.
+* List other required modules here.
+*/
+/**
+ * Import Once
+ *
+ * We use this to prevent styles from being loaded multiple times for compenents that rely on other components.
+ */
+/*------------------------------------*\
+
+/**
+* Variables
+*/
+/*------------------------------------*\
+
+/**
+* @title Lists
+*/
+/**
+*   All Logic pertaining to the top back horizontal navigation
+*   should go in this file.
+*/
+/*------------------------------------*\
+
+*/
+.price {
+  font-family: "proxima-nova-alt", "helvetica", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.0625rem; }
+  .price:first-letter {
+    font-size: 60%;
+    vertical-align: super; }
+
+.price--delta {
+  font-size: 0.8125rem; }
+
+.price--gamma {
+  font-size: 1.125rem; }
+
+.price--beta {
+  font-size: 1.875rem; }
+  .price--beta:first-letter {
+    margin-right: 0.3125rem; }
+
+.price--alpha {
+  font-size: 2.5rem; }
+  .price--alpha:first-letter {
+    margin-right: 0.3125rem; }
+
+.price--sale {
+  display: block;
+  position: relative;
+  color: #d7d7d7;
+  max-width: 4.0625rem;
+  margin: auto; }
+  .price--sale:after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(-10deg);
+    height: 1px;
+    background: #fe934a;
+    content: '';
+    width: auto; }
+
+/**
+* Import Mixins to provide modules with exports.
+* List other required modules here.
+*/
+/**
+ * Import Once
+ *
+ * We use this to prevent styles from being loaded multiple times for compenents that rely on other components.
+ */
+/*------------------------------------*\
+
+/**
+* Variables
+*/
+/*------------------------------------*\
+
+/**
+* @title Buttons
+*/
+/**
+*   All Logic pertaining to the top back horizontal navigation
+*   should go in this file.
+*/
+/*------------------------------------*\
+
+$Forms Area
+
+*/
+.slideshow__controls {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  right: 0;
+  left: 0;
+  height: 3.75rem;
+  z-index: 1;
+  margin: 0 0.15625rem; }
+  @media only screen and (min-width:64.063em) {
+    .slideshow__controls {
+      right: 3.75rem;
+      left: 3.75rem; } }
+  @media only screen and (min-width:90.063em) {
+    .slideshow__controls {
+      right: 6.25rem;
+      left: 6.25rem; } }
+
+.slideshow__control {
+  position: absolute;
+  overflow: hidden;
+  height: 3.75rem;
+  width: 3.75rem;
+  transition: all 200ms cubic-bezier(0.165, 0.84, 0.44, 1); }
+  .slideshow__control:before {
+    content: '';
+    position: absolute;
+    height: 3.75rem;
+    width: 3.75rem;
+    border-radius: 50%;
+    border: 5px solid #ffffff;
+    transition: all 200ms cubic-bezier(0.165, 0.84, 0.44, 1); }
+  .slideshow__control svg {
+    fill: #ffffff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.3125rem;
+    transition: all 200ms cubic-bezier(0.165, 0.84, 0.44, 1); }
+  .slideshow__control:active svg {
+    opacity: 0.5;
+    transform: translateY(-50%) scale(0.8); }
+
+.slideshow__control-right {
+  right: 0;
+  transform-origin: 100% 50%;
+  transform: scale(1) translateX(0%); }
+  .slideshow__control-right:hover {
+    transform: scale(1.2) translateX(0%); }
+  .slideshow__control-right svg {
+    right: 0; }
+  .slideshow__control-right:before {
+    right: -50%; }
+  @media only screen and (min-width:64.063em) {
+    .slideshow__control-right {
+      transform: scale(1) translateX(100%); }
+      .slideshow__control-right:hover {
+        transform: scale(1.2) translateX(100%); }
+      .slideshow__control-right svg {
+        right: auto;
+        left: 0; }
+      .slideshow__control-right:before {
+        right: 50%; } }
+  .on-last .slideshow__control-right {
+    cursor: default;
+    opacity: 0.5; }
+    .on-last .slideshow__control-right:hover {
+      transform: scale(1) translateX(100%); }
+
+.slideshow__control-left {
+  left: 0;
+  transform-origin: 0% 50%;
+  transform: scale(1) translateX(0%); }
+  .slideshow__control-left:hover {
+    transform: scale(1.2) translateX(0%); }
+  .slideshow__control-left:before {
+    left: -50%; }
+  .slideshow__control-left svg {
+    left: 0; }
+  @media only screen and (min-width:64.063em) {
+    .slideshow__control-left {
+      transform: scale(1) translateX(-100%); }
+      .slideshow__control-left:hover {
+        transform: scale(1.2) translateX(-100%); }
+      .slideshow__control-left:before {
+        left: 50%; }
+      .slideshow__control-left svg {
+        right: 0;
+        left: auto; } }
+  .on-first .slideshow__control-left {
+    cursor: default;
+    opacity: 0.2;
+    pointer-events: none; }
+
+/**
+* Import Mixins to provide modules with exports.
+* List other required modules here.
+*/
+/**
+ * Import Once
+ *
+ * We use this to prevent styles from being loaded multiple times for compenents that rely on other components.
+ */
+/*------------------------------------*\
+
+/**
+* Variables
+*/
+/*------------------------------------*\
+
+/**
+* @title Buttons
+*/
+/**
+*   All Logic pertaining to the top back horizontal navigation
+*   should go in this file.
+*/
+/*------------------------------------*\
+
+$Forms Area
+
+*/
+.overlay {
+  position: relative;
+  display: block;
+  overflow: hidden; }
+  .overlay:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: ' ';
+    background: linear-gradient(60deg, rgba(0, 0, 0, 0.7), transparent 60%);
+    z-index: 1;
+    transition: transform 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
+    width: 100%;
+    height: 200%;
+    transform: translate(-0%, 0); }
+  .overlay:hover:before {
+    transform: translate(0%, -50%); }
+
+.overlay__text {
+  position: absolute;
+  right: 2.5rem;
+  width: auto;
+  color: #ffffff;
+  z-index: 1;
+  max-width: 32.8125rem;
+  left: 2.5rem;
+  bottom: 1.25rem; }
+  @media only screen and (min-width:40.063em) {
+    .slide-link .overlay__text {
+      left: 2.5rem;
+      bottom: 2.5rem;
+      right: 45%; } }
+  @media only screen and (min-width:64.063em) {
+    .slide-link .overlay__text {
+      left: 3.75rem;
+      bottom: 3.75rem; } }
+  @media only screen and (min-width:90.063em) {
+    .slide-link .overlay__text {
+      left: 5rem;
+      bottom: 5rem; } }
+  .overlay__text h2, .overlay__text .beta {
+    color: #ffffff;
+    font-family: "proxima-nova-alt", "helvetica", sans-serif;
+    line-height: 1; }
+  .overlay__text p {
+    color: #ffffff; }
+
+.svg-defs {
+  display: none; }
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important; }
+
+.filter__select-box {
+  display: none; }
+
+.filter__link {
+  width: 50%; }
+
+.section--filter {
+  max-width: 250px !important; }

@@ -37,6 +37,7 @@
         font-size: 100%;
         line-height:1.4;
         text-align:center;
+        color:$grey-dark;
     }
 
     body {
@@ -121,9 +122,7 @@
 
     // These will throw a deprecation warning if used within a media query.
     @mixin lead {
-        font-size: $p-size;
-        text-transform:uppercase;
-        letter-spacing:rem-clac(1);
+        font-size: rem-calc(20);
     }
 
         /* Default paragraph styles */
@@ -182,5 +181,72 @@
             @include element-invisible();
         }
 
+        /*
+        Text coming in from CMS
+        */
+        .formatted {
+            p{
+                break-inside: avoid-column;
+                font-size:$milli;
+                &.p1 {
+                    @extend .lead;
+                    column-span: all;
+                }
+            }
 
+            h1, h2, h3, h4 {
+                padding-bottom:$base-spacing-unit;
+            }
+
+            h4 {
+                position:relative;
+                padding-top:$base-spacing-unit;
+                &:before {
+                    content:' ';
+                    top:0;
+                    left:0;
+                    width:$base-spacing-unit;
+                    height:1px;
+                    position:absolute;
+                    display:block;
+                    background:$grey;
+                }
+            }
+            ul {
+                margin-bottom:$base-spacing-unit;
+                li {
+                    position:relative;
+                    padding:0 0 $base-spacing-unit/2 $base-spacing-unit;
+                    font-size:$milli;
+                    &:before {
+                        content:' ';
+                        left:0;
+                        top:.45rem;
+                        content:'';
+                        height:rem-calc(5);
+                        width:rem-calc(5);
+                        background:$grey;
+                        transform:rotate(-45deg);
+                        position:absolute;
+                    }
+                }
+            }
+            table {
+                margin-left:-$base-spacing-unit * 2;
+                margin-right:-$base-spacing-unit * 2;
+
+                th {
+                    @extend .epsilon;
+                }
+                td, th {
+                    padding:$site-gutter $base-spacing-unit $site-gutter;
+                    font-size:$micro;
+                    vertical-align:top;
+                    border-bottom:1px solid $grey-light;
+                }
+                td {
+                }
+
+            }
+        }
     }

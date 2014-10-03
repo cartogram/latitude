@@ -45,7 +45,6 @@
         transition:color $base-timing $base-easing;
         cursor:pointer;
         color:$black;
-        border-bottom:1px solid;
         img {
             border:none;
         }
@@ -55,5 +54,31 @@
 
     }
 
+    li a,
+    p a {
+        border-bottom:1px solid;
+        &:hover {
+            color:$blue;
+        }
+    }
 
+    .link--with-image {
+        border:none;
+    }
+
+    .link--next-prev {
+        @extend .epsilon;
+        display:block;
+        padding:$base-spacing-unit;
+        margin-bottom:rem-calc(5);
+        position:relative;
+        a {
+            border:none;
+        }
+
+    }
+
+    .link--disabled {
+        color:$grey;
+    }
     }
